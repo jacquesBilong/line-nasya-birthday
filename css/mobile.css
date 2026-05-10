@@ -1,0 +1,43 @@
+@media(max-width:900px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:78px;
+    left:0;
+    right:0;
+    background:white;
+    flex-direction:column;
+    padding:20px;
+    transform:translateY(-140%);
+    transition:.3s;
+  }
+
+  .nav-links.open{
+    transform:translateY(0);
+  }
+
+  .grid-2{
+    grid-template-columns:1fr;
+  }
+
+  .countdown{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .mobile-rsvp{
+    display:block;
+  }
+}
+
+@media(max-width:900px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+}
