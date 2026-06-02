@@ -2,82 +2,43 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  />
-
-  <title>Line Nasya Bilong • 1 an</title>
-
-  <meta
-    name="description"
-    content="Invitation premium au premier anniversaire de Line Nasya Bilong."
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Line Nasya Bilong • 1er anniversaire</title>
+  <meta name="description" content="Invitation privée au 1er anniversaire de Line Nasya Bilong : réservation, accompagnants, repas, exports et espace organisateur." />
+  <meta property="og:title" content="Line Nasya Bilong • 1er anniversaire" />
+  <meta property="og:description" content="Invitation privée et réservation pour le 1er anniversaire de Line Nasya Bilong." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og-cover.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/mobile.css">
-  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-
-  <div id="loader">
-    <div class="loader-heart"></div>
+  <div id="loader" class="loader" aria-live="polite" role="status">
+    <div class="loader-card">
+      <div class="loader-mark">🎀</div>
+      <div class="loader-title">Line Nasya</div>
+      <div class="loader-subtitle">Préparation de la fête…</div>
+    </div>
   </div>
 
-  <header class="navbar">
-    <div class="container nav-inner">
-
-      <button class="brand" id="goHome">
-        <span>🎀</span>
-        <div>
-          <strong>Line Nasya</strong>
-          <small>1 an • 2026</small>
-        </div>
+  <nav id="navbar" class="nav hidden" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <button id="brandBtn" class="brand" type="button" aria-label="Accueil">
+        <span class="brand-photo" aria-hidden="true"></span>
+        <span><strong>Line Nasya</strong><small>1er anniversaire</small></span>
       </button>
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Ouvrir le menu"
-      >
-        ☰
-      </button>
-
-      <nav class="nav-links" id="navLinks">
-        <button data-page="home">Accueil</button>
-        <button data-page="programme">Programme</button>
-        <button data-page="rsvp">RSVP</button>
-        <button data-page="gallery">Galerie</button>
-        <button data-page="guestbook">Livre d’or</button>
-      </nav>
-
+      <div id="navLinks" class="nav-links" role="menu"></div>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
     </div>
-  </header>
+  </nav>
+  <div id="navBackdrop" class="nav-backdrop hidden"></div>
 
   <main id="app"></main>
+  <div id="toastMount" class="toast-mount" aria-live="polite" aria-atomic="true"></div>
+  <div id="modalMount"></div>
 
-  <button
-    class="mobile-rsvp"
-    id="mobileRsvp"
-  >
-    🎀 RSVP
-  </button>
-
-  <script src="js/storage.js"></script>
-  <script src="js/countdown.js"></script>
-  <script src="js/rsvp.js"></script>
-  <script src="js/admin.js"></script>
-  <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
-
 </body>
 </html>
