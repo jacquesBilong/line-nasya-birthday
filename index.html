@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Line Nasya Bilong • 1er anniversaire</title>
-  <meta name="description" content="Invitation privée au 1er anniversaire de Line Nasya Bilong : réservation, accompagnants, repas, exports et espace organisateur." />
+  <title>Line Nasya Bilong • Invitation privée</title>
+  <meta name="description" content="Invitation privée au premier anniversaire de Line Nasya Bilong : confirmation de présence et espace organisateur." />
   <meta property="og:title" content="Line Nasya Bilong • 1er anniversaire" />
-  <meta property="og:description" content="Invitation privée et réservation pour le 1er anniversaire de Line Nasya Bilong." />
+  <meta property="og:description" content="Invitation privée et confirmation de présence pour le 1er anniversaire de Line Nasya Bilong." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/img/og-cover.svg" />
+  <!-- IMPORTANT : une fois le site hébergé, remplacer par l'URL complète, ex. https://monsite.com/assets/img/og-cover.jpg -->
+  <meta property="og:image" content="assets/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎀</text></svg>">
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
   <div id="loader" class="loader" aria-live="polite" role="status">
@@ -25,19 +29,27 @@
 
   <nav id="navbar" class="nav hidden" aria-label="Navigation principale">
     <div class="nav-inner">
-      <button id="brandBtn" class="brand" type="button" aria-label="Accueil">
+      <button id="brandBtn" class="brand" type="button" aria-label="Retour accueil">
         <span class="brand-photo" aria-hidden="true"></span>
-        <span><strong>Line Nasya</strong><small>1er anniversaire</small></span>
+        <span>
+          <strong>Line Nasya</strong>
+          <small>1er anniversaire</small>
+        </span>
       </button>
-      <div id="navLinks" class="nav-links" role="menu"></div>
+      <div id="navLinks" class="nav-links" role="menu">
+        <button type="button" data-nav="home">Accueil</button>
+        <button type="button" data-nav="rsvp">Confirmation</button>
+        <button type="button" data-nav="organizer" data-role="staff">Organisateur</button>
+        <button type="button" data-nav="logout">Quitter</button>
+      </div>
       <button id="menuToggle" class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
     </div>
   </nav>
   <div id="navBackdrop" class="nav-backdrop hidden"></div>
 
-  <main id="app"></main>
   <div id="toastMount" class="toast-mount" aria-live="polite" aria-atomic="true"></div>
   <div id="modalMount"></div>
+  <main id="app"></main>
 
   <script src="js/app.js"></script>
 </body>
