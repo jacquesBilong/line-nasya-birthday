@@ -282,4 +282,32 @@
   function downloadICS(){const ics=`BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nUID:line-nasya-2026@example.com\nDTSTART:20260822T130000\nDTEND:20260823T020000\nSUMMARY:${CONFIG.eventName}\nLOCATION:${CONFIG.venue}, ${CONFIG.address}\nDESCRIPTION:Anniversaire de Line Nasya Bilong\nEND:VEVENT\nEND:VCALENDAR`;const blob=new Blob([ics],{type:'text/calendar'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='anniversaire-line-nasya.ics';a.click();URL.revokeObjectURL(a.href);}
 
   render();
+
+    /* =========================
+    MUSIQUE D'AMBIANCE
+  ========================= */
+
+  const bgMusic = document.getElementById("bgMusic");
+  const musicToggle = document.getElementById("musicToggle");
+
+  if (bgMusic && musicToggle) {
+    bgMusic.volume = 0.20;
+
+    musicToggle.addEventListener("click", function () {
+      if (bgMusic.paused) {
+        bgMusic.play()
+          .then(function () {
+            musicToggle.textContent = "🔇";
+            musicToggle.classList.add("is-playing");
+          })
+          .catch(function () {
+            alert("Clique encore une fois sur le bouton musique 🎵");
+          });
+      } else {
+        bgMusic.pause();
+        musicToggle.textContent = "🎵";
+        musicToggle.classList.remove("is-playing");
+      }
+    });
+  }
 })();
