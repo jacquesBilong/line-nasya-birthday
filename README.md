@@ -1,4 +1,4 @@
-# Site anniversaire Line Nasya — V11 dynamique
+# Site anniversaire 
 
 ## Accès de test
 - Invité : `TOM`, `BILONG`, `CECILIA`, `LINE`
