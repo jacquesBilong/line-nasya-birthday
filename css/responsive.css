@@ -1,6 +1,7 @@
 /* ============================================================
-   Line Nasya — responsive.css · V15 Ultimate
-   Trois paliers : grand écran ≥1600 · tablette ≤900 · mobile ≤390
+   Line Nasya — responsive.css · V16 (corrigé)
+   Paliers : ≥1600 grand écran · ≤900 tablette · ≤640 mobile · ≤430 petit mobile
+   Ce fichier est chargé en dernier : il a priorité sur main.css et pages.css.
    ============================================================ */
 
 /* ---------- Grand écran (≥ 1600 px) : plus d'air ---------- */
@@ -20,35 +21,90 @@
   .bar-row{grid-template-columns:96px 1fr 66px}
   .guest-toolbar{align-items:stretch}
   .guest-toolbar .input{min-width:100%}
-  .program-soft{background-attachment:scroll}
-  .table-wrap{overflow-x:auto}
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .table-wrap table{min-width:640px}
 }
 
-/* ---------- Téléphone (≤ 390 px) ---------- */
-@media (max-width:390px){
+/* ---------- Carte d'accès (page code) sur mobile & tablette ---------- */
+/* Centrage fiable sans transform : left+right+margin auto.
+   (l'ancien transform:translate(50%) était écrasé par l'animation
+   et la carte sortait de l'écran à gauche) */
+@media (max-width:960px){
+  .gate{background-position:30% center}
+  .gate-float{
+    top:auto;
+    bottom:max(18px, env(safe-area-inset-bottom, 18px));
+    left:16px; right:16px;
+    width:auto; max-width:480px;
+    margin-inline:auto;
+    transform:none;
+  }
+}
+@media (max-width:640px){
+  .gate{background-position:28% center}
+  .gate-float{left:14px;right:14px;bottom:max(14px, env(safe-area-inset-bottom, 14px));padding:22px}
+}
+
+/* Écrans courts (mobile en paysage, petites fenêtres) :
+   la carte redevient un bloc normal pour rester scrollable. */
+@media (max-height:560px){
+  .gate{min-height:100dvh;height:auto;display:grid;align-content:end;justify-items:center;padding:110px 16px 20px}
+  .gate-float{position:static;inset:auto;transform:none;width:min(460px,100%);margin:0 auto}
+  .gate-caption{top:18px}
+}
+
+/* ---------- Mobile (≤ 640 px) : compact et lisible ---------- */
+@media (max-width:640px){
+  .hero-copy h1{font-size:clamp(2.7rem,10.5vw,4rem)}
+  .dress-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .compact-info{padding:20px 16px 18px}
+  .info-grid{grid-template-columns:1fr}
+  .no-end{padding:20px 16px}
+  .stepped-form{padding:16px 14px}
+  .invite-badge{width:100%;min-width:0}
+}
+
+/* ---------- Petit téléphone (≤ 430 px : iPhone/Android actuels) ---------- */
+@media (max-width:430px){
   .section{padding:44px 0}
   .hero{padding-top:28px}
-  .hero-copy h1{font-size:3rem}
-  .hero-copy .script{font-size:3.4rem}
-  .info-grid{grid-template-columns:1fr}
+  .hero-copy h1{font-size:2.7rem}
+  .hero-copy .script{font-size:3.2rem}
   .masonry{columns:1 auto}
   .count-line{font-size:1.35rem}
   .countdown{gap:8px}
+  .count-card{padding:16px 8px;border-radius:20px}
   .count-card strong{font-size:1.6rem}
   .vip-header{display:grid; gap:16px}
   .vip-ticket{max-width:100%}
-  .event-mini-grid{grid-template-columns:1fr 1fr}
   .filter-chip{padding:8px 12px; font-size:.72rem}
   .pager{flex-wrap:wrap; gap:8px}
   .chart-card{padding:16px}
   .bar-row{grid-template-columns:84px 1fr 58px; gap:8px}
-  .gate-float{width:calc(100vw - 28px); padding:20px}
   .code-help{font-size:.75rem}
   .footer .script{font-size:2.6rem}
+  .pro-section-head .title,.confirm-top .title{font-size:2.7rem}
+  .brand strong{font-size:1.25rem}
 }
 
-@media (max-width:640px){
-  .gate{background-position:28% center;}
-  .gate-float{right:50%;transform:translate(50%,-50%);top:auto;bottom:28px;width:calc(100% - 32px)}
+/* ---------- Très petit écran (≤ 340 px) ---------- */
+@media (max-width:340px){
+  .hero-copy h1{font-size:2.3rem}
+  .hero-copy .script{font-size:2.7rem}
+  .dress-list{grid-template-columns:1fr}
+  .gate-float{padding:18px 14px}
+}
+
+/* ---------- Écrans tactiles : background-attachment:fixed est
+   cassé sur iOS/Android (image zoomée/figée) → scroll partout ---------- */
+@media (hover:none){
+  .page-photo-section,.infos-section,.program-soft{background-attachment:scroll}
+}
+
+/* ---------- Sécurité anti-débordement horizontal ---------- */
+.title,h1,h2,h3,.script{overflow-wrap:break-word}
+
+/* ---------- Accessibilité : réduire les animations ---------- */
+@media (prefers-reduced-motion: reduce){
+  .gate-float{animation:none!important}
 }
