@@ -194,3 +194,48 @@
 @media(max-width:1250px){.info-grid.info-grid-5{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:900px){.info-grid.info-grid-5{grid-template-columns:repeat(2,minmax(0,1fr))}.confirm-top{display:grid}.invite-badge{min-width:0;width:100%}}
 @media(max-width:620px){.infos-section,.program-soft{background-attachment:scroll}.info-grid.info-grid-5{grid-template-columns:1fr}.pro-section-head .title,.confirm-top .title{font-size:3.1rem}.form-step{grid-template-columns:1fr}.step-number{width:40px;height:40px}.form-step:not(:last-of-type)::after{display:none}.choice{min-width:100%}.companion .grid-3{grid-template-columns:1fr}}
+
+/* === V19 : thème anniversaire fille 1 an, police Baloo 2, plan de salle, icônes contact === */
+:root{--font-fun:'Baloo 2',system-ui,sans-serif}
+.eyebrow,.btn,.badge,.chip-info,.filter-chip,.drink-chip,.small-btn,.copy-bank,.step-number,.count-card span,.nav-links button,.brand small,.gate-label,.info-label,.invite-badge strong,.choice{font-family:var(--font-fun)}
+.eyebrow{background:linear-gradient(135deg,#fff,#fff0f2);border-color:rgba(223,171,176,.6);color:#8b5955}
+.step-number{background:linear-gradient(135deg,var(--rose),#c98a90)}
+.info-label{color:#c98a90}
+.count-card{background:linear-gradient(180deg,var(--chocolate),var(--chocolate-2));border-bottom:3px solid var(--rose)}
+
+/* Bouton de confirmation clignotant (halo or + pulsation) */
+@keyframes btnFlash{
+  0%,100%{box-shadow:0 0 0 0 rgba(202,162,74,.65),0 14px 30px rgba(85,54,51,.25)}
+  50%{box-shadow:0 0 0 16px rgba(202,162,74,0),0 14px 30px rgba(85,54,51,.25)}
+}
+@keyframes btnGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}
+.btn-confirm{background:linear-gradient(135deg,#8b5955,var(--chocolate));animation:btnFlash 1.4s ease-out infinite,btnGlow 1.4s ease-in-out infinite}
+.btn-confirm:hover{animation-play-state:paused,paused}
+
+/* Icônes de contact cliquables */
+.contact-buttons a{display:flex;align-items:center;gap:10px}
+.ci{width:32px;height:32px;min-width:32px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 6px 14px rgba(64,40,36,.18)}
+.ci svg{display:block}
+.ci-phone{background:linear-gradient(135deg,#d8b45b,#b98735)}
+.ci-wa{background:#25d366}
+.ci-mail{background:linear-gradient(135deg,var(--rose),#c98a90)}
+.ci-map{background:linear-gradient(135deg,#8b5955,var(--chocolate))}
+.info-action{display:inline-flex;align-items:center;gap:8px}
+.footer-contact a{display:inline-flex;align-items:center;gap:6px}
+.footer-contact svg{opacity:.85}
+
+/* Plan de salle */
+.tables-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-top:16px}
+.table-card{display:grid;gap:12px;align-content:start;border-top:4px solid var(--rose);padding:20px}
+.table-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.table-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--chocolate)}
+.table-cap{font-family:var(--font-fun);font-weight:700;font-size:.82rem;background:var(--rose-soft);color:#8b5955;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.table-cap.over{background:#fdeaea;color:#a63d3d}
+.seats{display:flex;flex-wrap:wrap;gap:8px}
+.seat-chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:.82rem;font-weight:700;color:var(--chocolate);font-family:var(--font-fun)}
+.seat-chip.wait{background:var(--rose-soft);border-color:rgba(223,171,176,.6)}
+.seat-chip button{border:0;background:transparent;color:#a63d3d;font-size:1rem;line-height:1;padding:0 2px}
+.table-actions{display:flex;gap:8px}
+.table-badge{margin:18px auto 0;max-width:340px;background:linear-gradient(135deg,#fff7ea,#fff);border:1px dashed rgba(202,162,74,.55);border-radius:18px;padding:14px;color:var(--chocolate);font-weight:700;font-family:var(--font-fun)}
+
+@media(prefers-reduced-motion:reduce){.btn-confirm{animation:none}}
