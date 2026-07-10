@@ -1,4 +1,4 @@
-# Line Nasya — V15 Ultimate
+# Line Nasya 
 
 Site d'invitation privé niveau studio pour le 1er anniversaire de Line Nasya Bilong.
 15 août 2026 · Parochiezaal Ter Krokegem, Asse · Confirmation avant le 31 juillet 2026.
