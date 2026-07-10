@@ -239,3 +239,96 @@
 .table-badge{margin:18px auto 0;max-width:340px;background:linear-gradient(135deg,#fff7ea,#fff);border:1px dashed rgba(202,162,74,.55);border-radius:18px;padding:14px;color:var(--chocolate);font-weight:700;font-family:var(--font-fun)}
 
 @media(prefers-reduced-motion:reduce){.btn-confirm{animation:none}}
+
+/* === V20 : CTA héro, carte Google Maps, programme animé, suppléments, déco princesse === */
+.btn-cta{animation:btnFlash 1.4s ease-out infinite,btnGlow 1.4s ease-in-out infinite;padding:16px 28px;font-size:1.02rem}
+.hero-photo{position:relative}
+.hero-deco,.gate-deco{position:absolute;inset:0;pointer-events:none;z-index:2}
+.hero-deco span,.gate-deco span{position:absolute;font-size:1.6rem;filter:drop-shadow(0 4px 10px rgba(64,40,36,.25));animation:decoFloat 4.5s ease-in-out infinite}
+.hero-deco span:nth-child(1){top:16px;right:20px;font-size:2rem}
+.hero-deco span:nth-child(2){bottom:20px;left:18px;animation-delay:1.4s}
+.hero-deco span:nth-child(3){top:44%;left:14px;animation-delay:2.6s;font-size:1.2rem}
+.gate-deco span:nth-child(1){top:14px;right:16px;font-size:1.9rem}
+.gate-deco span:nth-child(2){top:62px;right:54px;font-size:1.3rem;animation-delay:1.6s}
+@keyframes decoFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+.map-embed{margin-top:18px;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);background:#fff}
+.map-embed iframe{display:block;width:100%;height:340px;border:0}
+.program-ic{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#fff7ea,#fff0f2);border:1px solid rgba(202,162,74,.35);font-size:1.3rem;margin-right:10px;vertical-align:middle;animation:icFloat 3.2s ease-in-out infinite}
+.program-row:nth-child(even) .program-ic{animation-delay:1.3s}
+.program-row:hover .program-ic{animation:icPop .5s var(--ease)}
+@keyframes icFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px) rotate(-4deg)}}
+@keyframes icPop{50%{transform:scale(1.28) rotate(8deg)}}
+.program.reveal.in .program-row{opacity:0;animation:rowIn .55s var(--ease) forwards}
+.program.reveal.in .program-row:nth-child(1){animation-delay:.05s}
+.program.reveal.in .program-row:nth-child(2){animation-delay:.15s}
+.program.reveal.in .program-row:nth-child(3){animation-delay:.25s}
+.program.reveal.in .program-row:nth-child(4){animation-delay:.35s}
+.program.reveal.in .program-row:nth-child(5){animation-delay:.45s}
+.program.reveal.in .program-row:nth-child(6){animation-delay:.55s}
+.program.reveal.in .program-row:nth-child(7){animation-delay:.65s}
+@keyframes rowIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
+.companion-extra{border-color:rgba(202,162,74,.6);background:#fff7ea}
+.extra-badge{display:inline-block;margin-left:8px;background:#fff3d6;color:#8b6300;border-radius:999px;padding:3px 9px;font-size:.68rem;font-weight:800;font-family:var(--font-fun);vertical-align:middle}
+@media(max-width:640px){.map-embed{border-radius:20px}.map-embed iframe{height:240px}.hero-deco span{font-size:1.25rem}.hero-deco span:nth-child(1){font-size:1.6rem}}
+@media(prefers-reduced-motion:reduce){.btn-cta,.program-ic,.hero-deco span,.gate-deco span{animation:none!important}.program.reveal.in .program-row{opacity:1;animation:none}}
+
+/* === V21 : les 4 couleurs officielles partout — Marron #553633 · Rose poudré #dfabb0 · Nude #f2d7c5 · Doré #caa24a === */
+.eyebrow{background:linear-gradient(135deg,#fff,var(--nude));border-color:rgba(202,162,74,.45);color:var(--chocolate)}
+.program-ic{background:linear-gradient(135deg,var(--nude),#fff0f2);border-color:rgba(202,162,74,.4)}
+.hero-welcome{background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(242,215,197,.55));border-color:rgba(202,162,74,.3)}
+.invite-badge{background:linear-gradient(135deg,#fff,var(--nude));border-color:rgba(202,162,74,.4)}
+.chip-info{background:linear-gradient(135deg,#fff,rgba(242,215,197,.45))}
+.count-card span{color:var(--nude)}
+.count-card{border-bottom-color:var(--gold)}
+.count-card:nth-child(even){border-bottom-color:var(--rose)}
+.step-body{border-color:rgba(242,215,197,.95)}
+.table-cap{background:var(--nude);color:var(--chocolate)}
+.pro-info-card:before{background:linear-gradient(90deg,var(--gold),var(--rose),var(--nude))}
+.footer .script{color:var(--gold)}
+.vip-ticket{background:linear-gradient(135deg,var(--chocolate),#7a504a);border-color:rgba(202,162,74,.4)}
+.gate-float .btn-primary{box-shadow:0 16px 35px rgba(85,54,51,.22),0 0 0 3px rgba(242,215,197,.5)}
+
+/* === V22 : design plus humain — décor CSS, pictos dessinés, timeline, infos aérées, retour haut === */
+/* Ballons et étoiles dessinés en CSS pur */
+.deco-balloon{position:absolute;width:26px;height:32px;border-radius:50% 50% 48% 52%/58% 58% 42% 42%;background:linear-gradient(145deg,var(--rose),#c98a90);opacity:.85;animation:balloonFloat 7s ease-in-out infinite}
+.deco-balloon::before{content:"";position:absolute;left:50%;top:99%;width:1px;height:26px;background:rgba(85,54,51,.35)}
+.deco-balloon::after{content:"";position:absolute;left:22%;top:14%;width:6px;height:9px;border-radius:50%;background:rgba(255,255,255,.5);transform:rotate(18deg)}
+.deco-balloon.b2{width:19px;height:24px;background:linear-gradient(145deg,#d8b45b,var(--gold));animation-delay:2.2s}
+.deco-star{position:absolute;width:10px;height:10px;background:var(--gold);clip-path:polygon(50% 0,63% 37%,100% 50%,63% 63%,50% 100%,37% 63%,0 50%,37% 37%);animation:starTwinkle 3.4s ease-in-out infinite}
+.deco-star.s2{width:7px;height:7px;background:var(--rose);animation-delay:1.4s}
+.hero-deco .b1{top:22px;right:26px}
+.hero-deco .b2{bottom:34px;left:22px}
+.hero-deco .s1{top:42%;left:18px}
+.hero-deco .s2{top:14%;left:42%}
+.gate-deco .b1{top:20px;right:24px}
+.gate-deco .s1{top:66px;right:60px}
+@keyframes balloonFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(4deg)}}
+@keyframes starTwinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:.9;transform:scale(1.15)}}
+
+/* Programme : ligne du temps fine, sans grosses cartes */
+.program-flow{position:relative;padding-left:26px;gap:0}
+.program-flow::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--gold),var(--rose),var(--nude))}
+.program-row{background:transparent;border:0;box-shadow:none;border-radius:0;padding:16px 6px;border-bottom:1px solid var(--line);position:relative}
+.program-row::before{content:"";position:absolute;left:-24px;top:24px;width:11px;height:11px;border-radius:50%;background:#fff;border:3px solid var(--gold)}
+.program-row:nth-child(even)::before{border-color:var(--rose)}
+.program-row:last-child{border-bottom:0}
+.program-row:hover{transform:none;box-shadow:none;background:rgba(255,255,255,.55)}
+.program-ic{background:transparent;border:0;width:30px;height:30px}
+.program-ic svg{width:24px;height:24px;display:block}
+
+/* Informations pratiques : fines lignes, plus de gros cadres */
+.info-grid.info-grid-5{gap:26px}
+.info-grid.info-grid-5 .compact-info{background:transparent;border:0;box-shadow:none;border-radius:0;padding:20px 2px 22px;border-top:2px solid rgba(202,162,74,.35)}
+.pro-info-card:before{display:none}
+.contact-buttons a{background:transparent;border:0;padding:6px 0}
+.contact-buttons a:hover{background:transparent;color:#8b5955}
+@media(max-width:900px){.info-grid.info-grid-5{gap:4px}.info-grid.info-grid-5 .compact-info{border-top:1px solid var(--line)}}
+
+/* Bouton remonter en haut */
+.to-top{position:fixed;right:18px;bottom:20px;z-index:500;width:48px;height:48px;border-radius:50%;border:1px solid rgba(202,162,74,.5);background:var(--chocolate);color:#fff;box-shadow:var(--shadow);display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s var(--ease)}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:#6c4742}
+.to-top svg{width:18px;height:18px;display:block}
+.toast-mount{bottom:84px}
+
+@media(prefers-reduced-motion:reduce){.deco-balloon,.deco-star{animation:none!important}}
