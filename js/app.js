@@ -107,45 +107,74 @@
 
   function renderHome(){
     const inv=invite(); const resp=inv?responseFor(inv.id):null;
-    return `${renderHero(inv,resp)}${renderInfos()}${inv?`<section id="confirmation" class="section premium-rsvp reveal"><div class="narrow"><div class="section-head"><div><span class="eyebrow">Votre réponse</span><h2 class="title" style="margin-top:12px">Confirmation</h2></div><p class="lead">Merci de faire partie de cette journée exceptionnelle.</p></div>${rsvpContent(inv)}</div></section>`:''}${renderGallery()}${renderProgram()}${renderFooter()}`;
+    const answer = inv ? `<section id="confirmation" class="section premium-rsvp answer-first reveal"><div class="narrow"><div class="section-head answer-heading"><div><span class="eyebrow">Votre réponse</span><h2 class="title" style="margin-top:12px">Confirmez votre présence</h2></div><p class="lead">Votre réponse nous aide à préparer au mieux cette belle journée.</p></div>${rsvpContent(inv)}</div></section>` : '';
+    return `${renderHero(inv,resp)}${answer}${renderInfos()}${renderGallery()}${renderProgram()}${renderFooter()}`;
   }
   function renderInfos(){
-    const items=[
-      ['📍','Adresse',`<a class="map-link" href="${mapsUrl()}" target="_blank" rel="noopener">${CONFIG.venue} — ${CONFIG.address}</a>`],
-      ['📅','Date',CONFIG.eventDate],
-      ['🕑','Heure','Accueil des invités à partir de 13h00'],
-      ['👗','Dress code','Marron, rose poudré, beige ou tons doux'],
-      ['🍽️','Repas','Standard, végétarien, halal et menu enfant'],
-      ['📞','Contact',`<a class="map-link" href="tel:${CONFIG.contactPhone}">${CONFIG.contactPhoneDisplay}</a> · <a class="map-link" href="https://wa.me/${CONFIG.contactPhone.replace('+','')}" target="_blank" rel="noopener">WhatsApp</a><br><a class="map-link" href="mailto:${CONFIG.contactEmail}">${CONFIG.contactEmail}</a>`]
-    ];
-    return `<section class="section infos-section reveal"><div class="container"><div class="section-head"><div><span class="eyebrow">Informations pratiques</span><h2 class="title" style="margin-top:12px">Tout ce qu\u2019il faut savoir</h2></div><p class="lead">Les informations essentielles pour préparer votre venue en toute sérénité.</p></div><div class="info-grid">${items.map(([ic,t,d])=>`<div class="info-card"><span class="info-ic" aria-hidden="true">${ic}</span><b>${t}</b><span>${d}</span></div>`).join('')}</div></div></section>`;
+    return `<section class="section infos-section reveal"><div class="container">
+      <div class="section-head compact-head"><div><span class="eyebrow">Informations pratiques</span><h2 class="title" style="margin-top:12px">L’essentiel pour votre venue</h2></div><p class="lead">Une vue claire de l’adresse, des horaires, de la tenue et des contacts.</p></div>
+      <div class="practical-layout">
+        <div class="practical-copy">
+          <article class="practical-block"><span class="mini-label">Quand</span><h3>Samedi 15 août 2026</h3><p>Accueil des familles dès <strong>13h00</strong>. La soirée des adultes commence à partir de <strong>17h00</strong>.</p></article>
+          <article class="practical-block"><span class="mini-label">Où</span><h3>${CONFIG.venue}</h3><p>${CONFIG.address}</p><a class="text-action" href="${mapsUrl()}" target="_blank" rel="noopener">Ouvrir l’itinéraire</a></article>
+          <article class="practical-block dress-block"><span class="mini-label">Tenue souhaitée</span><h3>Palette de la fête</h3><div class="dress-palette"><span><i style="--swatch:#6b3f35"></i>Marron</span><span><i style="--swatch:#d9a0a7"></i>Rose poudré</span><span><i style="--swatch:#e7c4b4"></i>Nude</span><span><i style="--swatch:#c9a44c"></i>Doré</span></div></article>
+          <article class="practical-block contact-block"><span class="mini-label">Un renseignement ?</span><h3>Jacques & Suzanne</h3><div class="contact-actions"><a href="tel:${CONFIG.contactPhone}">Appeler</a><a href="https://wa.me/${CONFIG.contactPhone.replace('+','')}" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:${CONFIG.contactEmail}">Email</a></div></article>
+        </div>
+        <div class="map-panel"><iframe title="Carte de Parochiezaal Ter Krokegem" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.0926390586983!2d4.185648500000001!3d50.92200330000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bfc42b1b44d3%3A0xe50af4a19f8db2df!2sParochiezaal%20Ter%20Krokegem!5e0!3m2!1sfr!2sbe!4v1783643332092!5m2!1sfr!2sbe" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      </div>
+    </div></section>`;
   }
   function renderGallery(){
-    const shots=[['g1.jpg','Line, notre petite princesse'],['g2.jpg','Ballons et lumières'],['g3.jpg','Le nœud satin'],['g4.jpg','Roses poudrées'],['g5.jpg','Petit chignon, grand jour'],['g6.jpg','Un an d\u2019amour']];
-    return `<section class="section gallery-section reveal"><div class="container"><div class="section-head"><div><span class="eyebrow">Souvenirs</span><h2 class="title" style="margin-top:12px">Galerie</h2></div><p class="lead">Quelques images douces en attendant celles du grand jour.</p></div><div class="masonry">${shots.map(([f,alt])=>`<figure class="shot"><img src="assets/img/gallery/${f}" alt="${alt}" loading="lazy"><figcaption>${alt}</figcaption></figure>`).join('')}</div></div></section>`;
+    const shots=[['g1.jpg','Line avant son grand jour'],['g2.jpg','Lumières et ballons'],['g3.jpg','Le nœud rose poudré'],['g4.jpg','La douceur des fleurs'],['g5.jpg','Un petit chignon de princesse'],['g6.jpg','Un an de bonheur']];
+    return `<section class="section gallery-section reveal"><div class="container"><div class="section-head compact-head"><div><span class="eyebrow">Quelques souvenirs</span><h2 class="title" style="margin-top:12px">Les petits instants de Line</h2></div><p class="lead">Une sélection simple et lumineuse, en attendant les photos de la fête.</p></div><div class="feature-gallery">${shots.map(([f,alt],i)=>`<figure class="shot ${i===0?'shot-main':''}"><img src="assets/img/gallery/${f}" alt="${alt}" loading="lazy"><figcaption>${alt}</figcaption></figure>`).join('')}</div></div></section>`;
   }
   function renderHero(inv,resp){
     const cd=countdown();
     return `<section class="hero"><div class="container hero-grid"><div class="hero-copy">
-      <span class="eyebrow">Célébration privée · ${CONFIG.eventDate}</span>
+      <span class="eyebrow">Le grand jour de Line · ${CONFIG.eventDate}</span>
       <div><h1 class="title">Premier anniversaire</h1><div class="script">Line Nasya</div></div>
       <p class="lead">Une journée familiale, chic et chaleureuse pour célébrer la première année de Line Nasya Bilong.</p>
-      ${inv?`<div class="card card-soft"><b style="font-size:1.12rem">Bienvenue ${esc(inv.mainName||inv.family)}</b><p class="lead" style="font-size:.96rem;margin-top:6px">Nous sommes heureux de vous compter parmi nos invités pour le premier anniversaire de notre princesse Line Nasya Bilong. Votre présence contribuera à rendre cette journée encore plus spéciale.</p><p class="lead" style="font-size:.9rem;margin-top:8px">Code ${esc(inv.code)} · ${inv.maxGuests} place(s) prévue(s) ${resp?`· <b style="color:var(--gold)">Présence confirmée ✓</b>`:''}</p></div>`:''}
-      <div class="event-chips"><span class="chip-info">${CONFIG.eventDate}</span><span class="chip-info">Asse</span><span class="chip-info">Thème marron & rose poudré</span></div>
+      <div class="hero-primary-action"><button class="btn btn-primary btn-rsvp-main" data-nav="rsvp">Confirmer ma présence</button><span>Réponse souhaitée avant le 31 juillet 2026</span></div>
+      ${inv?`<div class="welcome-note"><b>Bienvenue ${esc(inv.mainName||inv.family)}</b><span>${inv.maxGuests} place(s) prévue(s) ${resp?`· Présence enregistrée`:''}</span></div>`:''}
       <div class="countdown">${countCard(cd.d,'Jours')}${countCard(cd.h,'Heures')}${countCard(cd.m,'Minutes')}${countCard(cd.s,'Secondes')}</div>
       <p class="count-line" id="countLine">${cd.d<=0&&cd.h<=0?'C’est le grand jour !':`Plus que ${cd.d} jour${cd.d>1?'s':''} avant la fête`}</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-primary" data-nav="rsvp">Confirmer ma présence</button></div>
     </div><div class="hero-photo" aria-label="Photo de Line Nasya"></div></div></section>`;
   }
   function countCard(n,l){ return `<div class="count-card"><strong data-count="${l}">${String(n).padStart(2,'0')}</strong><span>${l}</span></div>`; }
+  function programIcon(type){
+    const icons={
+      welcome:'<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 45c8-10 32-10 40 0"/><circle cx="22" cy="23" r="7"/><circle cx="42" cy="23" r="7"/><path d="M32 12v8M28 16h8"/></svg>',
+      castle:'<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 52V25h10v8h8V25h8v8h8v-8h10v27H12Z"/><path d="M19 25V14h8v11M37 25V14h8v11M27 52V40h10v12"/></svg>',
+      clown:'<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="31" r="17"/><path d="M20 18c5-9 19-9 24 0"/><circle cx="25" cy="29" r="2"/><circle cx="39" cy="29" r="2"/><path d="M25 38c4 4 10 4 14 0"/><circle cx="32" cy="34" r="3"/></svg>',
+      magic:'<svg viewBox="0 0 64 64" aria-hidden="true"><path d="m18 46 28-28"/><path d="m40 14 10 10M14 20l4 4M12 32h6M46 46l4 4M32 10v6"/><path d="m22 14 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z"/></svg>',
+      meal:'<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 12v18M12 12v12c0 5 12 5 12 0V12M18 30v22M42 12c7 8 7 18 0 26v14M42 12v26"/></svg>',
+      cake:'<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 34h36v18H14z"/><path d="M18 34v-8h28v8M24 26v-8M32 26v-8M40 26v-8"/><path d="M22 18c2-4 4-4 6 0M30 18c2-4 4-4 6 0M38 18c2-4 4-4 6 0"/></svg>',
+      cocktail:'<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 14h24L24 34v14M16 52h16M42 18h10l-5 18v12M41 52h12"/><circle cx="47" cy="14" r="4"/></svg>',
+      music:'<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M26 18v28M26 22l22-6v24"/><circle cx="20" cy="48" r="6"/><circle cx="42" cy="42" r="6"/></svg>'
+    };
+    return `<span class="program-icon program-icon-${type}">${icons[type]||icons.welcome}</span>`;
+  }
   function renderProgram(){
-    const items=[
-      ['13h00','Accueil des invités','Installation, photos de famille, premières retrouvailles et ambiance douce.'],
-      ['14h00','Repas & partage','Moment convivial autour du buffet familial, adapté aux adultes, enfants et bébés.'],
-      ['16h00','Gâteau & bougies','Moment central pour Line Nasya : bougie, chants, photos et souvenirs de famille.'],
-      ['18h00','Animation familiale','Jeux, danse, musique et bénédiction pour clôturer la journée en beauté.']
+    const children=[
+      ['13h00','Accueil des familles','Bienvenue, installation, premières photos et découverte des espaces.','welcome'],
+      ['13h30','Jeux et animations','Château gonflable, clown, magicien et moments ludiques spécialement pensés pour les enfants.','castle'],
+      ['14h30','Repas familial','Buffet convivial avec des options adaptées aux adultes et aux enfants.','meal'],
+      ['16h00','Le grand moment de Line','Chant d’anniversaire, bougie, découpe du gâteau et photos souvenirs avec les enfants.','cake']
     ];
-    return `<section class="program section program-soft reveal"><div class="narrow"><div class="section-head"><div><span class="eyebrow">Déroulé naturel</span><h2 class="title" style="margin-top:12px">Programme de la fête</h2></div><p class="lead">Un programme souple, pensé pour les enfants et les familles, sans couper l’ambiance trop tôt.</p></div><div class="program-flow">${items.map(([t,a,d])=>`<div class="program-row"><div class="program-time">${t}</div><div><div class="program-title">${a}</div><div class="program-desc">${d}</div></div></div>`).join('')}</div><div class="no-end"><div class="script">La fête continue…</div><p>Après le dîner, l’ambiance musicale et familiale se poursuivra librement, jusqu’au départ progressif des invités.</p></div></div></section>`;
+    const adults=[
+      ['17h00','Cocktail et retrouvailles','La fête change de rythme : accueil des adultes, échanges et ambiance élégante.','cocktail'],
+      ['19h00','Repas et partage','Dîner, conversations et temps fort en famille et entre amis.','meal'],
+      ['20h30','Musique et danse','Ouverture de la piste, animation musicale et soirée festive.','music'],
+      ['Jusqu’au petit matin','La soirée continue','La musique, la danse et les souvenirs se prolongent librement.','magic']
+    ];
+    const rows=(items)=>items.map(([t,a,d,i])=>`<article class="program-row"><div class="program-visual">${programIcon(i)}<div class="program-time">${t}</div></div><div class="program-copy"><div class="program-title">${a}</div><div class="program-desc">${d}</div></div></article>`).join('');
+    return `<section class="program section program-soft reveal"><div class="narrow">
+      <div class="section-head program-heading"><div><span class="eyebrow">Le déroulement de la fête</span><h2 class="title" style="margin-top:12px">Deux moments, une même joie</h2></div><p class="lead">Un après-midi dédié aux enfants, puis une soirée festive pour les adultes.</p></div>
+      <div class="program-split">
+        <section class="program-part program-part-kids"><div class="program-part-head"><span>13h00 — 17h00</span><h3>Le temps des enfants</h3><p>Jeux, surprises, repas et gâteau autour de Line.</p></div><div class="program-flow">${rows(children)}</div></section>
+        <section class="program-part program-part-adults"><div class="program-part-head"><span>Dès 17h00</span><h3>La soirée des adultes</h3><p>Cocktail, dîner, musique et danse jusqu’au petit matin.</p></div><div class="program-flow">${rows(adults)}</div></section>
+      </div>
+    </div></section>`;
   }
 
   function renderRsvp(){
@@ -206,8 +235,8 @@
     if(!isStaff()) return needAccess();
     const stats=computeStats(); const fx=computeFull();
     const tabs = session?.role === 'admin'
-      ? [['overview','Vue générale'],['catering','Présences & prestataires'],['seating','Plan de salle'],['codes','Invités & mots de passe']]
-      : [['overview','Vue générale'],['catering','Présences & prestataires'],['seating','Plan de salle']];
+      ? [['overview','📊 Vue générale'],['catering','🍽 Présences & prestataires'],['seating','🪑 Plan de salle'],['codes','🔑 Invités & mots de passe']]
+      : [['overview','📊 Vue générale'],['catering','🍽 Présences & prestataires'],['seating','🪑 Plan de salle']];
     if(session?.role !== 'admin' && activeAdminTab === 'codes') activeAdminTab = 'overview';
     return `<section class="section"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div><div class="section-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace Admin':'Espace Organisateur'}</span><h1 class="title" style="margin-top:12px">${session?.role==='admin'?'Gestion complète':'Présences & prestataires'}</h1></div><p class="lead">${session?.role==='admin'?'Personnalisation des invités, génération des mots de passe et suivi des confirmations.':'Suivi des présences confirmées et des besoins traiteur/prestataire.'}</p></div><div class="stat-grid"><div class="stat"><strong>${state.invites.length}</strong><span>Invités</span></div><div class="stat"><strong>${fx.yes}</strong><span>Présents</span></div><div class="stat"><strong>${fx.no}</strong><span>Absents</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='seating'?adminSeating():''}</div></div></section>${renderFooter()}`;
   }
