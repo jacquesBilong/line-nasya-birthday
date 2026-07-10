@@ -41,11 +41,3 @@ Organisateur : Lineorganisation — Admin : LineAdminVIP2026
 ## Prochaine étape critique
 Centraliser les confirmations (Google Sheets / Formspree / MySQL) :
 aujourd'hui elles restent dans le navigateur de chaque invité.
-
-## V16 - Modifications importantes
-
-- Section Informations pratiques simplifiée : Adresse, Heure, Dress code, Contact, Espace cadeau.
-- Adresse, téléphone, WhatsApp, email et IBAN sont cliquables.
-- Pour mettre le vrai compte cadeau, ouvre `js/app.js` et remplace :
-  `BE00 0000 0000 0000` par ton IBAN réel.
-- Programme revu : enfants dès 13h00, animations enfants, gâteau avec Line, puis soirée adulte dès 17h00 jusqu’au petit matin.

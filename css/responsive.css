@@ -1,7 +1,6 @@
 /* ============================================================
-   Line Nasya — responsive.css · V16 (corrigé)
-   Paliers : ≥1600 grand écran · ≤900 tablette · ≤640 mobile · ≤430 petit mobile
-   Ce fichier est chargé en dernier : il a priorité sur main.css et pages.css.
+   Line Nasya — responsive.css · V15 Ultimate
+   Trois paliers : grand écran ≥1600 · tablette ≤900 · mobile ≤390
    ============================================================ */
 
 /* ---------- Grand écran (≥ 1600 px) : plus d'air ---------- */
@@ -21,90 +20,177 @@
   .bar-row{grid-template-columns:96px 1fr 66px}
   .guest-toolbar{align-items:stretch}
   .guest-toolbar .input{min-width:100%}
-  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .program-soft{background-attachment:scroll}
+  .table-wrap{overflow-x:auto}
   .table-wrap table{min-width:640px}
 }
 
-/* ---------- Carte d'accès (page code) sur mobile & tablette ---------- */
-/* Centrage fiable sans transform : left+right+margin auto.
-   (l'ancien transform:translate(50%) était écrasé par l'animation
-   et la carte sortait de l'écran à gauche) */
-@media (max-width:960px){
-  .gate{background-position:30% center}
-  .gate-float{
-    top:auto;
-    bottom:max(18px, env(safe-area-inset-bottom, 18px));
-    left:16px; right:16px;
-    width:auto; max-width:480px;
-    margin-inline:auto;
-    transform:none;
-  }
-}
-@media (max-width:640px){
-  .gate{background-position:28% center}
-  .gate-float{left:14px;right:14px;bottom:max(14px, env(safe-area-inset-bottom, 14px));padding:22px}
-}
-
-/* Écrans courts (mobile en paysage, petites fenêtres) :
-   la carte redevient un bloc normal pour rester scrollable. */
-@media (max-height:560px){
-  .gate{min-height:100dvh;height:auto;display:grid;align-content:end;justify-items:center;padding:110px 16px 20px}
-  .gate-float{position:static;inset:auto;transform:none;width:min(460px,100%);margin:0 auto}
-  .gate-caption{top:18px}
-}
-
-/* ---------- Mobile (≤ 640 px) : compact et lisible ---------- */
-@media (max-width:640px){
-  .hero-copy h1{font-size:clamp(2.7rem,10.5vw,4rem)}
-  .dress-list{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .compact-info{padding:20px 16px 18px}
-  .info-grid{grid-template-columns:1fr}
-  .no-end{padding:20px 16px}
-  .stepped-form{padding:16px 14px}
-  .invite-badge{width:100%;min-width:0}
-}
-
-/* ---------- Petit téléphone (≤ 430 px : iPhone/Android actuels) ---------- */
-@media (max-width:430px){
+/* ---------- Téléphone (≤ 390 px) ---------- */
+@media (max-width:390px){
   .section{padding:44px 0}
   .hero{padding-top:28px}
-  .hero-copy h1{font-size:2.7rem}
-  .hero-copy .script{font-size:3.2rem}
+  .hero-copy h1{font-size:3rem}
+  .hero-copy .script{font-size:3.4rem}
+  .info-grid{grid-template-columns:1fr}
   .masonry{columns:1 auto}
   .count-line{font-size:1.35rem}
   .countdown{gap:8px}
-  .count-card{padding:16px 8px;border-radius:20px}
   .count-card strong{font-size:1.6rem}
   .vip-header{display:grid; gap:16px}
   .vip-ticket{max-width:100%}
+  .event-mini-grid{grid-template-columns:1fr 1fr}
   .filter-chip{padding:8px 12px; font-size:.72rem}
   .pager{flex-wrap:wrap; gap:8px}
   .chart-card{padding:16px}
   .bar-row{grid-template-columns:84px 1fr 58px; gap:8px}
+  .gate-float{width:calc(100vw - 28px); padding:20px}
   .code-help{font-size:.75rem}
   .footer .script{font-size:2.6rem}
-  .pro-section-head .title,.confirm-top .title{font-size:2.7rem}
-  .brand strong{font-size:1.25rem}
 }
 
-/* ---------- Très petit écran (≤ 340 px) ---------- */
-@media (max-width:340px){
-  .hero-copy h1{font-size:2.3rem}
-  .hero-copy .script{font-size:2.7rem}
-  .dress-list{grid-template-columns:1fr}
-  .gate-float{padding:18px 14px}
+/* ============================================================
+   CORRECTIF MOBILE — débordements horizontaux (espace admin)
+   Bloc autonome : à coller tel quel en fin de responsive.css.
+   Ne modifie aucune règle existante, n'enlève rien.
+   ============================================================ */
+
+/* Cause racine : les enfants d'une grille ne rétrécissent pas
+   sous la largeur de leur contenu (tableau large) sans min-width:0.
+   Le tableau scrolle désormais DANS son cadre au lieu d'élargir la page. */
+.admin-shell > *{min-width:0}
+.charts-grid > *, .chart-card, .bar-track{min-width:0}
+
+@media (max-width:900px){
+  /* Boutons d'action : empilés, pleine largeur réelle, texte qui respire */
+  .admin-actions{display:grid;grid-template-columns:1fr;gap:10px}
+  .admin-actions .btn{width:100%;white-space:normal;text-align:center}
+
+  /* Graphiques : colonnes fluides, plus de chiffres coupés */
+  .bar-row{grid-template-columns:minmax(78px,auto) minmax(0,1fr) auto;gap:8px}
+  .bar-row span{overflow-wrap:break-word}
+  .chart-card{overflow:hidden}
+  .chart-card p, .lead{overflow-wrap:break-word}
+
+  /* Le tableau garde son défilement interne */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* Barre d'outils invités : tout passe à la ligne proprement */
+  .guest-toolbar{flex-wrap:wrap}
+  .filter-row{flex-wrap:wrap}
+  .sort-btn{width:auto}
 }
 
-/* ---------- Écrans tactiles : background-attachment:fixed est
-   cassé sur iOS/Android (image zoomée/figée) → scroll partout ---------- */
-@media (hover:none){
-  .page-photo-section,.infos-section,.program-soft{background-attachment:scroll}
+@media (max-width:390px){
+  .bar-row{grid-template-columns:minmax(64px,auto) minmax(0,1fr) auto}
+  .bar-row b{font-size:.8rem}
+  .bar-row b i{display:block;margin-left:0}
+  .sort-btn{width:100%}
+  .admin-side{padding:18px}
 }
 
-/* ---------- Sécurité anti-débordement horizontal ---------- */
-.title,h1,h2,h3,.script{overflow-wrap:break-word}
+/* Ceinture de sécurité globale : plus jamais de page plus large que l'écran */
+@media (max-width:900px){
+  html, body{max-width:100vw;overflow-x:hidden}
+  .container, .narrow{overflow-wrap:break-word}
+}
 
-/* ---------- Accessibilité : réduire les animations ---------- */
-@media (prefers-reduced-motion: reduce){
-  .gate-float{animation:none!important}
+/* ============================================================
+   REFONTE RESPONSIVE COMPLÈTE — 8 points de rupture
+   390 / 480 / 576 / 768 / 992 / 1200 / 1440 / 1920
+   Bloc additif : n'enlève rien, affine tout.
+   ============================================================ */
+
+/* ---------- Base (tous écrans) : marges saines ---------- */
+.container{width:min(100%,1200px);padding-inline:18px;margin-inline:auto}
+section{overflow:hidden}
+.guest-toolbar .input, .search{width:100%;max-width:100%;box-sizing:border-box}
+
+/* ---------- ≤ 992 px : menu Admin en onglets horizontaux défilants ---------- */
+@media (max-width:992px){
+  .admin-shell{grid-template-columns:1fr;gap:14px}
+  .admin-side{
+    display:flex;flex-direction:row;align-items:center;gap:8px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
+    padding:10px 12px;border-radius:999px;position:sticky;top:74px;z-index:40;
+  }
+  .admin-side::-webkit-scrollbar{display:none}
+  .admin-side h3{display:none}
+  .admin-side button{
+    flex:none;width:auto;white-space:nowrap;scroll-snap-align:start;
+    padding:10px 18px;border-radius:999px;font-size:.85rem;
+  }
+  .charts-grid{grid-template-columns:1fr}
+  .chart-card{width:100%}
+}
+
+/* ---------- ≤ 768 px : tableaux en cartes (une carte par ligne) ---------- */
+@media (max-width:768px){
+  .table-wrap{overflow:visible}
+  .table-wrap table{min-width:0;width:100%;border-collapse:separate;border-spacing:0}
+  .table-wrap thead{display:none}
+  .table-wrap tbody{display:grid;gap:12px}
+  .table-wrap tr{
+    display:block;background:white;border:1px solid var(--line);
+    border-radius:20px;padding:16px 18px;box-shadow:var(--shadow-sm);
+  }
+  .table-wrap td{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    border:0 !important;padding:7px 0;text-align:right;
+  }
+  .table-wrap td::before{
+    content:attr(data-label);font-weight:800;color:var(--muted);
+    font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;flex:none;
+  }
+  .table-wrap td[data-label=""]{justify-content:flex-start}
+  .table-wrap td[data-label=""]::before{display:none}
+  .table-wrap td.row-actions{flex-wrap:wrap;justify-content:flex-start}
+}
+
+/* ---------- ≤ 576 px : filtres défilants + recherche pleine largeur ---------- */
+@media (max-width:576px){
+  .guest-toolbar{display:grid;grid-template-columns:1fr;gap:10px}
+  .filter-row{
+    display:flex;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;padding-bottom:4px;
+  }
+  .filter-row::-webkit-scrollbar{display:none}
+  .filter-chip{flex:none;scroll-snap-align:start}
+  .sort-btn{width:100%}
+}
+
+/* ---------- ≤ 480 px : jauges compactes, libellé au-dessus ---------- */
+@media (max-width:480px){
+  .bar-row{grid-template-columns:minmax(0,1fr) auto;row-gap:4px}
+  .bar-row span{grid-column:1 / -1;font-size:.82rem;color:var(--chocolate);font-weight:600}
+  .bar-row b{font-size:.8rem}
+  .bar-row b i{margin-left:4px}
+  .stat-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .stat strong{font-size:1.7rem}
+  .seat-plan{grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}
+}
+
+/* ---------- ≤ 390 px : très petits écrans ---------- */
+@media (max-width:390px){
+  .container{padding-inline:14px}
+  .admin-side{top:66px}
+  .admin-side button{padding:9px 14px;font-size:.8rem}
+  .seat-toggle button{padding:9px 16px}
+}
+
+/* ---------- ≥ 1200 px : confort desktop ---------- */
+@media (min-width:1200px){
+  .container{width:min(100%,1200px)}
+}
+
+/* ---------- ≥ 1440 px : grands écrans ---------- */
+@media (min-width:1440px){
+  .container{width:min(100%,1320px)}
+  html{font-size:17px}
+}
+
+/* ---------- ≥ 1920 px : TV / très grands écrans ---------- */
+@media (min-width:1920px){
+  .container{width:min(100%,1520px)}
+  html{font-size:18px}
+  .section{padding:130px 0}
 }

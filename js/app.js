@@ -6,13 +6,11 @@
     eventDate:'15 août 2026',
     eventStart:'2026-08-15T13:00:00+02:00',
     venue:'Parochiezaal “Ter Krokegem”',
-    address:'Dendermondsesteenweg 44, 1730 Asse',
+    address:'Dendermondsesteenweg 44, B-1730 Asse',
     parents:'Jacques & Suzanne',
-    contactPhone:'+32 485 49 65 55',
-    contactPhoneRaw:'32485496555',
+    contactPhone:'+32485496555',
+    contactPhoneDisplay:'+32 485 49 65 55',
     contactEmail:'jacquesbilong.webdev@gmail.com',
-    mapsUrl:'https://www.google.com/maps/search/?api=1&query=Parochiezaal%20Ter%20Krokegem%20Dendermondsesteenweg%2044%201730%20Asse',
-    mapsEmbed:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.0926390586983!2d4.185648500000001!3d50.92200330000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bfc42b1b44d3%3A0xe50af4a19f8db2df!2sParochiezaal%20Ter%20Krokegem!5e0!3m2!1sfr!2sbe!4v1783643332092!5m2!1sfr!2sbe',
     organizerCode:'LINEORGANISATION',
     organizerAlias:'LINEORGANISATION',
     organizerHuman:'Lineorganisation',
@@ -26,23 +24,6 @@
     ['a_lheure','À l’heure'],['retard_15','Retard possible : 15 min'],['retard_30','Retard possible : 30 min'],['retard_60','Retard possible : 1h ou plus'],['inconnu','Je ne sais pas encore']
   ];
 
-  const ICONS = {
-    phone:'<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.1 15.1 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>',
-    wa:'<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.62 15.07L2 22l5.09-1.33A10 10 0 1 0 12 2zm5.27 14.28c-.22.62-1.28 1.18-1.79 1.23-.46.04-1.04.06-1.68-.11-.39-.12-.89-.28-1.53-.56-2.69-1.16-4.45-3.87-4.58-4.05-.13-.18-1.1-1.46-1.1-2.78 0-1.32.7-1.97.94-2.24.25-.27.54-.34.72-.34h.52c.17 0 .39-.03.61.46.22.5.76 1.73.83 1.86.07.13.11.29.02.47-.09.18-.13.29-.26.45l-.39.46c-.13.13-.27.28-.12.55.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.11 1.3.26.13.42.11.57-.07l.86-1c.2-.27.38-.2.64-.12l1.87.88c.26.13.44.2.5.31.07.11.07.63-.15 1.28z"/></svg>',
-    mail:'<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7L4 6v12h16V6l-8 5z"/></svg>',
-    pin:'<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>'
-  };
-
-  const PICTO = {
-    balloon:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#dfabb0" d="M12 3c3.3 0 6 2.7 6 6 0 3.6-2.9 6.6-6 6.6S6 12.6 6 9c0-3.3 2.7-6 6-6z"/><path fill="none" stroke="#553633" stroke-width="1.2" d="M12 16c-.6 1.2.6 1.8 0 3-.4.8-.2 1.4.2 2"/><path fill="#caa24a" d="M11 15.4h2l-.6 1.3h-.8z"/><ellipse cx="10" cy="7" rx="1.6" ry="2.2" fill="rgba(255,255,255,.45)"/></svg>',
-    castle:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f2d7c5" stroke="#553633" stroke-width="1" d="M5 20v-8l2-1V8h2v2h2V8h2v2h2V8h2v3l2 1v8z"/><path fill="#553633" d="M11 20v-4h2v4z"/><path fill="#dfabb0" d="M5 8l2-3 2 3zM15 8l2-3 2 3z"/><circle cx="12" cy="13" r="1" fill="#caa24a"/></svg>',
-    magic:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#553633" d="M4 19l9-9 1.5 1.5-9 9z"/><path fill="#caa24a" d="M15 4l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8zM19.2 10l.5 1.3 1.3.5-1.3.5-.5 1.3-.5-1.3-1.3-.5 1.3-.5z"/><path fill="#dfabb0" d="M17 15l.4 1 1 .4-1 .4-.4 1-.4-1-1-.4 1-.4z"/></svg>',
-    cake:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#dfabb0" d="M5 12h14v3.2c-1.2 1-2.3-.2-3.5-.2s-2.3 1.2-3.5 1.2-2.3-1.2-3.5-1.2-2.3 1.2-3.5.2z"/><path fill="#f2d7c5" d="M5 16c1.2 1 2.3-.2 3.5-.2s2.3 1.2 3.5 1.2 2.3-1.2 3.5-1.2 2.3 1.2 3.5.2V20H5z"/><rect x="11.2" y="7.5" width="1.6" height="4.5" rx=".8" fill="#caa24a"/><ellipse cx="12" cy="6.2" rx="1" ry="1.5" fill="#553633"/></svg>',
-    toast:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="rgba(202,162,74,.25)" d="M7.5 5h4l-1 5.5c-.2 1-1 1.6-2 1.5l-.6-.05c-1-.15-1.7-1-1.5-2z"/><path fill="none" stroke="#caa24a" stroke-width="1.3" d="M7 4l2.6 6.4c.4 1-.2 2.1-1.3 2.3l-.5.1L9 20M17 4l-2.6 6.4c-.4 1 .2 2.1 1.3 2.3l.5.1L15 20M6.5 20H11M13 20h4.5"/></svg>',
-    meal:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.6" fill="none" stroke="#553633" stroke-width="1.2"/><circle cx="12" cy="12" r="2.4" fill="#dfabb0"/><path fill="none" stroke="#caa24a" stroke-width="1.2" d="M3.5 6v5.5M5.5 6v5.5M4.5 11.5V19M20 6c-1.6 1.2-1.6 5 0 6v7"/></svg>',
-    music:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#553633" d="M9.5 17.6a2.3 2.3 0 1 1-1.5-2.2V6.8l10-2.3v10.3a2.3 2.3 0 1 1-1.5-2.2V8.1l-7 1.7z"/><path fill="#caa24a" d="M18 4.5l-10 2.3v2.4l10-2.4z" opacity=".45"/></svg>'
-  };
-
   const $ = (sel, root=document)=>root.querySelector(sel);
   const $$ = (sel, root=document)=>Array.from(root.querySelectorAll(sel));
   const app = $('#app');
@@ -52,7 +33,7 @@
   let countdownTimer = null;
   let activeAdminTab = 'overview';
   let gQuery='', gFilter='all', gSort='asc', gPage=1;
-  let requiredGuests=1;
+  let seatView='list';
   const G_PER_PAGE = 20;
 
   if(session){ page = session.role === 'guest' ? 'home' : 'organizer'; }
@@ -66,16 +47,18 @@
         {id:4,code:'LINE',family:'Invité de Line',mainName:'',email:'',phone:'',maxGuests:2,status:'pending'}
       ],
       responses:[],
-      tables:[],
-      seating:{},
+
       comments:[]
     };
   }
 
 
   function loadState(){
-    try{ return JSON.parse(localStorage.getItem(CONFIG.storageKey)) || seedState(); }
-    catch(e){ return seedState(); }
+    let s;
+    try{ s = JSON.parse(localStorage.getItem(CONFIG.storageKey)) || seedState(); }
+    catch(e){ s = seedState(); }
+    if(!Array.isArray(s.tables)) s.tables = [];
+    return s;
   }
   function saveState(){ localStorage.setItem(CONFIG.storageKey, JSON.stringify(state)); }
   function readSession(){ try{return JSON.parse(sessionStorage.getItem('line_nasya_session')||'null');}catch(e){return null;} }
@@ -84,7 +67,7 @@
   function uid(){ return Date.now()+Math.floor(Math.random()*999999); }
   function esc(v=''){ return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
   function normalize(v){ return String(v||'').trim().toUpperCase().replace(/\s+/g,''); }
-  function ageCat(v){ return String(v||'adulte')==='enfant' ? 'Enfant' : 'Adulte'; }
+  function ageCat(age){ const n=Number(age); if(age===''||Number.isNaN(n))return 'Non précisé'; if(n<2)return 'Bébé'; if(n<12)return 'Enfant'; if(n<18)return 'Ado'; return 'Adulte'; }
   function invite(){ return session?.inviteId ? state.invites.find(x=>x.id===session.inviteId) : null; }
   function responseFor(id){ return state.responses.find(r=>r.inviteId===id); }
   function isStaff(){ return session?.role === 'organizer' || session?.role === 'admin'; }
@@ -110,7 +93,6 @@
   function renderGate(){
     return `<section class="gate">
       <div class="gate-caption"><div class="script">Line Nasya Bilong</div><p>${CONFIG.eventDate}</p></div>
-      <div class="gate-deco" aria-hidden="true"><i class="deco-balloon b1"></i><i class="deco-star s1"></i></div>
       <div class="gate-float card-glass" style="text-align:center">
         <h1 class="eyebrow" style="font-size:.9rem">Invitation privée</h1>
         <p class="lead" style="font-size:.98rem;margin-top:14px">Entrez votre code personnel pour ouvrir l\u2019invitation et confirmer votre présence.</p>
@@ -125,22 +107,19 @@
 
   function renderHome(){
     const inv=invite(); const resp=inv?responseFor(inv.id):null;
-    return `${renderHero(inv,resp)}${renderInfos()}${inv?`<section id="confirmation" class="section premium-rsvp reveal"><div class="narrow">${rsvpContent(inv)}</div></section>`:''}${renderGallery()}${renderProgram()}${renderFooter()}`;
+    return `${renderHero(inv,resp)}${renderInfos()}${inv?`<section id="confirmation" class="section premium-rsvp reveal"><div class="narrow"><div class="section-head"><div><span class="eyebrow">Votre réponse</span><h2 class="title" style="margin-top:12px">Confirmation</h2></div><p class="lead">Merci de faire partie de cette journée exceptionnelle.</p></div>${rsvpContent(inv)}</div></section>`:''}${renderGallery()}${renderProgram()}${renderFooter()}`;
   }
   function renderInfos(){
-    const addressLine = `${CONFIG.venue} — ${CONFIG.address}`;
-    const giftIban = 'BE00 0000 0000 0000';
-    const giftName = 'Jacques & Suzanne Bilong';
-    const cards = [
-      `<article class="info-card pro-info-card compact-info"><span class="info-label">Lieu</span><h3>Adresse</h3><p><a class="inline-link" href="${CONFIG.mapsUrl}" target="_blank" rel="noopener">${addressLine}</a></p><a class="info-action" href="${CONFIG.mapsUrl}" target="_blank" rel="noopener"><span class="ci ci-map">${ICONS.pin}</span>Ouvrir Google Maps</a></article>`,
-      `<article class="info-card pro-info-card compact-info"><span class="info-label">Horaire</span><h3>Heure</h3><p><strong>13h00</strong> · Accueil des enfants et des familles<br><strong>17h00</strong> · Début de la soirée adulte</p><a class="info-action" href="#programme">Voir le programme</a></article>`,
-      `<article class="info-card pro-info-card compact-info"><span class="info-label">Tenue</span><h3>Dress code</h3><div class="dress-list"><span><i style="--c:#553633"></i>Marron</span><span><i style="--c:#dfabb0"></i>Rose poudré</span><span><i style="--c:#f2d7c5"></i>Nude</span><span><i style="--c:#caa24a"></i>Doré</span></div></article>`,
-      `<article class="info-card pro-info-card compact-info"><span class="info-label">Parents</span><h3>Contact</h3><div class="contact-buttons"><a href="tel:${CONFIG.contactPhone.replaceAll(' ','')}"><span class="ci ci-phone">${ICONS.phone}</span>Appeler Jacques</a><a href="https://wa.me/${CONFIG.contactPhoneRaw}" target="_blank" rel="noopener"><span class="ci ci-wa">${ICONS.wa}</span>Écrire sur WhatsApp</a><a href="mailto:${CONFIG.contactEmail}"><span class="ci ci-mail">${ICONS.mail}</span>Envoyer un email</a></div></article>`,
-      `<article class="info-card pro-info-card compact-info gift-card"><span class="info-label">Cadeau</span><h3>Espace cadeau</h3><p>Votre présence est déjà un très beau cadeau. Pour celles et ceux qui souhaitent offrir une participation, un virement bancaire est possible.</p><button class="copy-bank" type="button" data-copy="${giftIban}">Copier l’IBAN</button><span class="bank-line">${giftIban}<br>${giftName}</span></article>`
+    const items=[
+      ['📍','Adresse',`<a class="map-link" href="${mapsUrl()}" target="_blank" rel="noopener">${CONFIG.venue} — ${CONFIG.address}</a>`],
+      ['📅','Date',CONFIG.eventDate],
+      ['🕑','Heure','Accueil des invités à partir de 13h00'],
+      ['👗','Dress code','Marron, rose poudré, beige ou tons doux'],
+      ['🍽️','Repas','Standard, végétarien, halal et menu enfant'],
+      ['📞','Contact',`<a class="map-link" href="tel:${CONFIG.contactPhone}">${CONFIG.contactPhoneDisplay}</a> · <a class="map-link" href="https://wa.me/${CONFIG.contactPhone.replace('+','')}" target="_blank" rel="noopener">WhatsApp</a><br><a class="map-link" href="mailto:${CONFIG.contactEmail}">${CONFIG.contactEmail}</a>`]
     ];
-    return `<section class="section infos-section reveal" id="infos"><div class="container"><div class="section-head pro-section-head"><div><span class="eyebrow">Informations pratiques</span><h2 class="title" style="margin-top:12px">L’essentiel pour votre venue</h2><p class="lead info-intro">Lieu, horaires, tenue, contacts et cadeau : uniquement ce qui est utile pour préparer la fête sereinement.</p></div></div><div class="info-grid info-grid-5">${cards.join('')}</div><div class="map-embed"><iframe src="${CONFIG.mapsEmbed}" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title="Plan d’accès — ${CONFIG.venue}"></iframe></div></div></section>`;
+    return `<section class="section infos-section reveal"><div class="container"><div class="section-head"><div><span class="eyebrow">Informations pratiques</span><h2 class="title" style="margin-top:12px">Tout ce qu\u2019il faut savoir</h2></div><p class="lead">Les informations essentielles pour préparer votre venue en toute sérénité.</p></div><div class="info-grid">${items.map(([ic,t,d])=>`<div class="info-card"><span class="info-ic" aria-hidden="true">${ic}</span><b>${t}</b><span>${d}</span></div>`).join('')}</div></div></section>`;
   }
-
   function renderGallery(){
     const shots=[['g1.jpg','Line, notre petite princesse'],['g2.jpg','Ballons et lumières'],['g3.jpg','Le nœud satin'],['g4.jpg','Roses poudrées'],['g5.jpg','Petit chignon, grand jour'],['g6.jpg','Un an d\u2019amour']];
     return `<section class="section gallery-section reveal"><div class="container"><div class="section-head"><div><span class="eyebrow">Souvenirs</span><h2 class="title" style="margin-top:12px">Galerie</h2></div><p class="lead">Quelques images douces en attendant celles du grand jour.</p></div><div class="masonry">${shots.map(([f,alt])=>`<figure class="shot"><img src="assets/img/gallery/${f}" alt="${alt}" loading="lazy"><figcaption>${alt}</figcaption></figure>`).join('')}</div></div></section>`;
@@ -151,93 +130,75 @@
       <span class="eyebrow">Célébration privée · ${CONFIG.eventDate}</span>
       <div><h1 class="title">Premier anniversaire</h1><div class="script">Line Nasya</div></div>
       <p class="lead">Une journée familiale, chic et chaleureuse pour célébrer la première année de Line Nasya Bilong.</p>
-      ${inv?`<div class="card card-soft hero-welcome"><b style="font-size:1.12rem">Bienvenue ${esc(inv.mainName||inv.family)}</b>${resp?`<p class="lead" style="font-size:.9rem;margin-top:8px"><b style="color:var(--gold)">Présence confirmée ✓</b></p>`:''}</div>`:''}
-      <div style="display:flex;gap:12px;flex-wrap:wrap">${resp?`<button class="btn btn-soft" data-nav="rsvp">Voir ma confirmation ✓</button>`:`<button class="btn btn-primary btn-cta" data-nav="rsvp">Confirmer ma présence</button>`}</div>
+      ${inv?`<div class="card card-soft"><b style="font-size:1.12rem">Bienvenue ${esc(inv.mainName||inv.family)}</b><p class="lead" style="font-size:.96rem;margin-top:6px">Nous sommes heureux de vous compter parmi nos invités pour le premier anniversaire de notre princesse Line Nasya Bilong. Votre présence contribuera à rendre cette journée encore plus spéciale.</p><p class="lead" style="font-size:.9rem;margin-top:8px">Code ${esc(inv.code)} · ${inv.maxGuests} place(s) prévue(s) ${resp?`· <b style="color:var(--gold)">Présence confirmée ✓</b>`:''}</p></div>`:''}
+      <div class="event-chips"><span class="chip-info">${CONFIG.eventDate}</span><span class="chip-info">Asse</span><span class="chip-info">Thème marron & rose poudré</span></div>
       <div class="countdown">${countCard(cd.d,'Jours')}${countCard(cd.h,'Heures')}${countCard(cd.m,'Minutes')}${countCard(cd.s,'Secondes')}</div>
       <p class="count-line" id="countLine">${cd.d<=0&&cd.h<=0?'C’est le grand jour !':`Plus que ${cd.d} jour${cd.d>1?'s':''} avant la fête`}</p>
-    </div><div class="hero-photo" aria-label="Photo de Line Nasya"><div class="hero-deco" aria-hidden="true"><i class="deco-balloon b1"></i><i class="deco-balloon b2"></i><i class="deco-star s1"></i><i class="deco-star s2"></i></div></div></div></section>`;
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-primary" data-nav="rsvp">Confirmer ma présence</button></div>
+    </div><div class="hero-photo" aria-label="Photo de Line Nasya"></div></div></section>`;
   }
   function countCard(n,l){ return `<div class="count-card"><strong data-count="${l}">${String(n).padStart(2,'0')}</strong><span>${l}</span></div>`; }
   function renderProgram(){
     const items=[
-      ['13h00','balloon','Fête des enfants','Accueil des enfants, repas adapté, premières photos et lancement des jeux.'],
-      ['14h00','castle','Jeux & château gonflable','Temps libre pour courir, rire, jouer ensemble et profiter de l’espace enfants.'],
-      ['15h00','magic','Clown & magie','Animation douce avec le clown, petit spectacle de magie et surprises pour les enfants.'],
-      ['16h00','cake','Gâteau avec Line','Bougie, chants, photos et coupure du gâteau avec Line entourée des enfants.'],
-      ['17h00','toast','Ouverture de la soirée adulte','Accueil des adultes, apéritif, retrouvailles, ambiance familiale et musicale.'],
-      ['19h30','meal','Repas & partage','Buffet familial, discussions, bénédiction et moment convivial autour des tables.'],
-      ['22h00','music','Musique & danse','La fête continue avec danse, souvenirs, photos et ambiance jusqu’au petit matin.']
+      ['13h00','Accueil des invités','Installation, photos de famille, premières retrouvailles et ambiance douce.'],
+      ['14h00','Repas & partage','Moment convivial autour du buffet familial, adapté aux adultes, enfants et bébés.'],
+      ['16h00','Gâteau & bougies','Moment central pour Line Nasya : bougie, chants, photos et souvenirs de famille.'],
+      ['18h00','Animation familiale','Jeux, danse, musique et bénédiction pour clôturer la journée en beauté.']
     ];
-    return `<section class="program section program-soft reveal" id="programme"><div class="narrow"><div class="section-head"><div><span class="eyebrow">Déroulé naturel</span><h2 class="title" style="margin-top:12px">Programme de la fête</h2></div><p class="lead">D’abord un vrai moment pour les enfants dès 13h00, puis une soirée familiale et adulte à partir de 17h00.</p></div><div class="program-flow">${items.map(([t,ic,a,d])=>`<div class="program-row"><div class="program-time">${t}</div><div><div class="program-title"><span class="program-ic">${PICTO[ic]}</span>${a}</div><p class="program-desc">${d}</p></div></div>`).join('')}</div><div class="no-end"><div class="script">La fête continue…</div><p>Après 22h00, l’ambiance reste libre : musique, danse, partage et départ progressif selon le rythme de chacun.</p></div></div></section>`;
+    return `<section class="program section program-soft reveal"><div class="narrow"><div class="section-head"><div><span class="eyebrow">Déroulé naturel</span><h2 class="title" style="margin-top:12px">Programme de la fête</h2></div><p class="lead">Un programme souple, pensé pour les enfants et les familles, sans couper l’ambiance trop tôt.</p></div><div class="program-flow">${items.map(([t,a,d])=>`<div class="program-row"><div class="program-time">${t}</div><div><div class="program-title">${a}</div><div class="program-desc">${d}</div></div></div>`).join('')}</div><div class="no-end"><div class="script">La fête continue…</div><p>Après le dîner, l’ambiance musicale et familiale se poursuivra librement, jusqu’au départ progressif des invités.</p></div></div></section>`;
   }
 
+  function renderRsvp(){
+    const inv=invite(); if(!inv) return needAccess();
+    return `<section class="section premium-rsvp"><div class="narrow">${rsvpContent(inv)}</div></section>${renderFooter()}`;
+  }
   function rsvpContent(inv){
     const resp=responseFor(inv.id); if(resp) return doneCard(inv,resp);
     const invitationNo = `INV-2026-${String(inv.id).padStart(4,'0')}`;
     return `
-      <div class="section-head confirm-top">
+      <div class="vip-header card card-soft">
         <div>
-          <span class="eyebrow">Votre réponse</span>
-          <h2 class="title" style="margin-top:12px">Confirmez votre présence</h2>
-          <p class="lead">Merci de répondre avant le 31 juillet afin de nous aider à bien préparer l’accueil.</p>
+          <span class="eyebrow">Invitation privée</span>
+          <h1 class="title" style="margin-top:10px">Bienvenue ${esc(inv.mainName||inv.family)}</h1>
+          <p class="lead">Nous sommes heureux de vous compter parmi les invités privilégiés du premier anniversaire de notre princesse <b>Line Nasya Bilong</b>.</p>
         </div>
-        <div class="invite-badge"><strong>${invitationNo}</strong><span>Code : ${esc(inv.code)}</span><span>${inv.maxGuests} invité(s) maximum</span></div>
+        <div class="vip-ticket">
+          <span>Invitation N°</span><strong>${invitationNo}</strong>
+          <em>Statut : invitation active ✓</em>
+          <em>Catégorie : Invité VIP</em>
+        </div>
       </div>
-      <form id="rsvpForm" class="card premium-form stepped-form">
-        <div class="form-step step-presence">
-          <span class="step-number">1</span>
-          <div class="step-body">
-            <h3>Serez-vous présent ?</h3>
-            <p>Cette réponse est la plus importante pour l’organisation.</p>
-            <div class="choice-row big-choice"><button type="button" class="choice selected" data-presence="oui">Oui, avec plaisir</button><button type="button" class="choice" data-presence="non">Non, malheureusement</button></div>
-          </div>
-        </div>
-        <div class="form-step">
-          <span class="step-number">2</span>
-          <div class="step-body">
-            <h3>Vos coordonnées</h3>
-            <div class="grid-2"><div class="field"><label>Nom et prénom</label><input class="input input-locked" name="mainName" value="${esc(inv.mainName||inv.family||'')}" readonly title="Identité liée à votre invitation — gérée par l’organisation"></div><div class="field"><label>Téléphone</label><input class="input" name="contact" value="${esc(inv.phone||inv.email||'')}" placeholder="+32 ..."></div></div>
-          </div>
-        </div>
+      <div class="event-mini-grid">
+        <div><b>${CONFIG.eventDate}</b><span>Date de la fête</span></div>
+        <div><b>${CONFIG.venue}</b><span>${CONFIG.address}</span></div>
+        <div><b>Marron & rose poudré</b><span>Thème officiel</span></div>
+        <div><b>Chic & élégant</b><span>Dress code conseillé</span></div>
+      </div>
+      <div class="section-head" style="margin-top:42px"><div><span class="eyebrow">Ma réponse</span><h2 class="title" style="margin-top:12px">Confirmation de présence</h2></div><p class="lead">Merci de compléter ces informations afin de préparer votre accueil, le repas, les enfants et le placement dans les meilleures conditions.</p></div>
+      <form id="rsvpForm" class="card premium-form">
+        <div class="rsvp-status vip-status"><b>${esc(inv.family)}</b><p>Code privé : ${esc(inv.code)} · ${inv.maxGuests} place(s) prévue(s)</p></div>
+        <h3 class="form-section-title step-title"><span class="step-n">1</span>Votre présence</h3>
+        <div class="field"><label>Serez-vous présent ?</label><div class="choice-row choice-xl"><button type="button" class="choice selected" data-presence="oui">Oui, avec plaisir</button><button type="button" class="choice" data-presence="non">Non, malheureusement</button></div></div>
+        <h3 class="form-section-title step-title"><span class="step-n">2</span>Informations de l’invité principal</h3>
+        <div class="grid-2"><div class="field"><label>Nom et prénom</label><input class="input input-locked" name="mainName" value="${esc(inv.mainName||inv.family||'')}" readonly title="Identité liée à votre invitation — gérée par l’organisation"></div><div class="field"><label>Téléphone</label><input class="input" name="contact" value="${esc(inv.phone||inv.email||'')}" placeholder="+32 ..."></div></div>
         <div id="presentBlock">
-          <div class="form-step">
-            <span class="step-number">3</span>
-            <div class="step-body">
-              <h3>Votre groupe</h3>
-              <p class="mini-help">Votre invitation prévoit <b>${inv.maxGuests} personne(s)</b> : merci d’indiquer les informations de <b>chacune d’elles</b> pour valider votre présence. Toute personne ajoutée en plus sera soumise à la <b>validation des organisateurs</b> (places limitées).</p>
-              <div class="grid-2"><div class="field"><label>Nombre prévu par l’invitation</label><input class="input" value="${inv.maxGuests} personne(s) maximum" disabled></div><div class="field"><label>Arrivée prévue</label><input class="input" name="arrival" placeholder="Ex. 13h30"></div></div>
-              <div class="field" style="margin-top:16px"><label>Personnes présentes</label><div id="companions"></div><button type="button" class="btn btn-soft" id="addCompanion" style="margin-top:12px;width:auto">Ajouter une personne</button></div>
-            </div>
-          </div>
-          <div class="form-step">
-            <span class="step-number">4</span>
-            <div class="step-body">
-              <h3>Repas & organisation</h3>
-              <div class="field"><label>Repas souhaités</label><p class="mini-help">Le repas se choisit pour chaque personne ajoutée.</p></div>
-              <div class="grid-2"><div class="field"><label>Retard possible</label><select class="select" name="delay">${DELAYS.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select></div><div class="field"><label>Placement / remarque</label><input class="input" name="tableWish" placeholder="Ex. avec enfants, proche famille..."></div></div>
-              <div class="field" style="margin-top:16px"><label>Boissons souhaitées</label><div class="drink-grid">${DRINKS.map(d=>`<button type="button" class="drink-chip" data-drink="${d}">${d}</button>`).join('')}</div></div>
-              <div class="field" style="margin-top:16px"><label>Allergies / remarques particulières</label><textarea class="textarea" name="allergies" placeholder="Ex : sans porc, arachides, chaise enfant, bébé avec purée..."></textarea></div>
-            </div>
-          </div>
+          <h3 class="form-section-title step-title"><span class="step-n">3</span>Votre groupe</h3>
+          <div class="grid-2"><div class="field"><label>Nombre prévu par l’invitation</label><input class="input" value="${inv.maxGuests} personne(s) maximum" disabled></div><div class="field"><label>Arrivée prévue</label><input class="input" name="arrival" placeholder="Ex. 13h30"></div></div>
+          <div class="field" style="margin-top:16px"><label>Accompagnants et âges</label><div id="companions"></div><button type="button" class="btn btn-soft" id="addCompanion" style="margin-top:12px;width:auto">Ajouter une personne</button></div>
+          <h3 class="form-section-title step-title"><span class="step-n">4</span>Restauration</h3>
+          <div class="field"><label>Repas souhaités</label><p class="mini-help">Choisissez le repas pour chaque personne ajoutée ci-dessus : standard, halal, végétarien ou menu enfant.</p></div>
+          <h3 class="form-section-title step-title"><span class="step-n">5</span>Organisation</h3>
+          <div class="grid-2"><div class="field"><label>Retard possible</label><select class="select" name="delay">${DELAYS.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select></div><div class="field"><label>Placement / remarque</label><input class="input" name="tableWish" placeholder="Ex. avec enfants, proche famille..."></div></div>
+          <div class="field" style="margin-top:16px"><label>Boissons souhaitées</label><div class="drink-grid">${DRINKS.map(d=>`<button type="button" class="drink-chip" data-drink="${d}">${d}</button>`).join('')}</div></div>
+          <div class="field" style="margin-top:16px"><label>Allergies / remarques particulières</label><textarea class="textarea" name="allergies" placeholder="Ex : sans porc, arachides, chaise enfant, bébé avec purée..."></textarea></div>
         </div>
-        <div class="form-step">
-          <span class="step-number">5</span>
-          <div class="step-body">
-            <h3>Un petit mot pour Line</h3>
-            <div class="field"><label>Message facultatif</label><textarea class="textarea" name="message" placeholder="Un mot doux que la famille pourra garder en souvenir."></textarea></div>
-          </div>
-        </div>
+        <h3 class="form-section-title step-title"><span class="step-n">6</span>Petit message pour Line Nasya</h3>
+        <div class="field"><label class="visually-hidden">Petit message pour Line Nasya</label><textarea class="textarea" name="message" placeholder="Un mot doux que la famille pourra garder en souvenir."></textarea></div>
         <button class="btn btn-primary btn-confirm">Confirmer ma présence</button>
       </form>`;
   }
-  function doneCard(inv,resp){
-    ensurePlan();
-    const seatLines=(resp.companions||[]).map(p=>{ const t=state.tables.find(x=>String(x.id)===String(state.seating[inv.id+'::'+p.name])); return t?esc(p.name)+' → '+esc(t.name):null; }).filter(Boolean);
-    const seatHtml=seatLines.length?`<div class="table-badge"><b>Votre plan de table</b><br>${seatLines.join('<br>')}</div>`:'';
-    return `<div class="card success-card" style="text-align:center"><div class="script" style="font-size:3.8rem;color:var(--gold)">Merci ${esc(resp.mainName||inv.mainName||inv.family)}</div><h2 class="title" style="font-size:3rem">Confirmation enregistrée</h2><p class="lead">${resp.presence==='oui'?`Votre présence a bien été confirmée pour ${resp.companions.length} personne(s).`:'Votre absence est bien notée.'}</p>${(resp.companions||[]).some(c=>c.extra)?`<p class="lead" style="margin-top:10px"><b style="color:#8b6300">${(resp.companions||[]).filter(c=>c.extra).length} place(s) supplémentaire(s) en attente de validation par les organisateurs.</b></p>`:''}<p class="lead" style="margin-top:10px">Nous avons hâte de vous accueillir pour célébrer le premier anniversaire de <b>Line Nasya Bilong</b>. À très bientôt.</p><div class="vip-ticket" style="margin:22px auto 0;max-width:340px"><span>Invitation N°</span><strong>INV-2026-${String(inv.id).padStart(4,'0')}</strong><em>Statut : ${resp.presence==='oui'?'Confirmé ✓':'Absence notée'}</em><em>Catégorie : Invité</em></div>${seatHtml}<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px"><button class="btn btn-soft" id="editResponse">Modifier ma réponse</button><button class="btn btn-primary" id="downloadICS">Ajouter à mon agenda</button><a class="btn btn-soft" href="${whatsApp('',buildConfirmMessage(inv,resp))}" target="_blank">Partager WhatsApp</a></div></div>`; }
-  function companionHtml(name=''){
-    return `<div class="companion"><div class="companion-head"><b class="comp-label">Personne</b><button type="button" class="small-btn remove-companion">Retirer</button></div><div class="grid-3"><div class="field"><label>Prénom</label><input class="input comp-name" value="${esc(name)}" required></div><div class="field"><label>Catégorie</label><select class="select comp-category"><option value="adulte">Adulte</option><option value="enfant">Enfant</option></select></div><div class="field"><label>Repas</label><select class="select comp-meal">${MEALS.map(m=>`<option>${m}</option>`).join('')}</select></div></div></div>`;
-  }
+  function doneCard(inv,resp){ return `<div class="card success-card" style="text-align:center"><div class="script" style="font-size:3.8rem;color:var(--gold)">Merci ${esc(resp.mainName||inv.mainName||inv.family)}</div><h2 class="title" style="font-size:3rem">Confirmation enregistrée</h2><p class="lead">${resp.presence==='oui'?`Votre présence a bien été confirmée pour ${resp.companions.length} personne(s).`:'Votre absence est bien notée.'}</p><p class="lead" style="margin-top:10px">Nous avons hâte de vous accueillir pour célébrer le premier anniversaire de <b>Line Nasya Bilong</b>. À très bientôt ❤️</p><div class="vip-ticket" style="margin:22px auto 0;max-width:340px"><span>Invitation N°</span><strong>INV-2026-${String(inv.id).padStart(4,'0')}</strong><em>Statut : ${resp.presence==='oui'?'Confirmé ✓':'Absence notée'}</em><em>Catégorie : Invité VIP</em></div><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px"><button class="btn btn-soft" id="editResponse">Modifier ma réponse</button><button class="btn btn-primary" id="downloadICS">Ajouter à mon agenda</button><a class="btn btn-soft" href="${whatsApp('',buildConfirmMessage(inv,resp))}" target="_blank">Partager WhatsApp</a></div></div>`; }
+  function companionHtml(name=''){return `<div class="companion"><div class="companion-head"><b>Personne</b><button type="button" class="small-btn remove-companion">Retirer</button></div><div class="grid-3"><div class="field"><label>Prénom</label><input class="input comp-name" value="${esc(name)}" required></div><div class="field"><label>Âge</label><input class="input comp-age" type="number" min="0" max="120" placeholder="Ex : 4"></div><div class="field"><label>Repas</label><select class="select comp-meal">${MEALS.map(m=>`<option>${m}</option>`).join('')}</select></div></div><p class="small-cat" style="margin-top:10px;color:var(--muted);font-weight:800">Catégorie : Non précisé</p></div>`;}
 
 
 
@@ -245,10 +206,10 @@
     if(!isStaff()) return needAccess();
     const stats=computeStats(); const fx=computeFull();
     const tabs = session?.role === 'admin'
-      ? [['overview','Vue générale'],['catering','Présences & prestataires'],['tables','Plan de salle'],['codes','Invités & mots de passe']]
-      : [['overview','Vue générale'],['catering','Présences & prestataires'],['tables','Plan de salle']];
+      ? [['overview','📊 Vue générale'],['catering','🍽 Présences & prestataires'],['seating','🪑 Plan de salle'],['codes','🔑 Invités & mots de passe']]
+      : [['overview','📊 Vue générale'],['catering','🍽 Présences & prestataires'],['seating','🪑 Plan de salle']];
     if(session?.role !== 'admin' && activeAdminTab === 'codes') activeAdminTab = 'overview';
-    return `<section class="section"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div><div class="section-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace Admin':'Espace Organisateur'}</span><h1 class="title" style="margin-top:12px">${session?.role==='admin'?'Gestion complète':'Présences & prestataires'}</h1></div><p class="lead">${session?.role==='admin'?'Personnalisation des invités, génération des mots de passe et suivi des confirmations.':'Suivi des présences confirmées et des besoins traiteur/prestataire.'}</p></div><div class="stat-grid"><div class="stat"><strong>${state.invites.length}</strong><span>Invités</span></div><div class="stat"><strong>${fx.yes}</strong><span>Présents</span></div><div class="stat"><strong>${fx.no}</strong><span>Absents</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='tables'?adminTables():''}</div></div></section>${renderFooter()}`;
+    return `<section class="section"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div><div class="section-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace Admin':'Espace Organisateur'}</span><h1 class="title" style="margin-top:12px">${session?.role==='admin'?'Gestion complète':'Présences & prestataires'}</h1></div><p class="lead">${session?.role==='admin'?'Personnalisation des invités, génération des mots de passe et suivi des confirmations.':'Suivi des présences confirmées et des besoins traiteur/prestataire.'}</p></div><div class="stat-grid"><div class="stat"><strong>${state.invites.length}</strong><span>Invités</span></div><div class="stat"><strong>${fx.yes}</strong><span>Présents</span></div><div class="stat"><strong>${fx.no}</strong><span>Absents</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='seating'?adminSeating():''}</div></div></section>${renderFooter()}`;
   }
   function adminOverview(){
     const f=computeFull();
@@ -256,10 +217,11 @@
     const {rows,pager}=guestRowsHtml();
     const mealsHtml=Object.keys(f.meals).length?Object.entries(f.meals).map(([m,v])=>barRow(m,v,f.people)).join(''):'<p class="lead" style="font-size:.9rem">Les repas apparaîtront avec les premières confirmations.</p>';
     return `<div class="admin-actions"><button class="btn btn-primary" id="exportAll">Exporter confirmations CSV</button>${session?.role==='admin'?'<button class="btn btn-soft" id="copyAllCodes">Copier tous les codes</button><button class="btn btn-soft" id="printCodes">Imprimer les codes</button><button class="btn btn-soft" id="copyWhatsapp">Texte WhatsApp</button><button class="btn btn-danger" id="clearData">Réinitialiser les données</button>':''}</div>
-    <div class="charts-grid charts-grid-clean">
-      <div class="chart-card"><h3>Personnes attendues</h3>${barRow('Adultes',f.adults,f.people)}${barRow('Enfants',f.children,f.people)}</div>
+    <div class="charts-grid">
+      <div class="chart-card"><h3>Réponses</h3>${barRow('Confirmés',f.yes,totalInv)}${barRow('Refusés',f.no,totalInv)}${barRow('En attente',f.wait,totalInv)}</div>
+      <div class="chart-card"><h3>Personnes attendues</h3>${barRow('Adultes',f.adults,f.people)}${barRow('Enfants',f.children,f.people)}${barRow('Bébés',f.babies,f.people)}</div>
       <div class="chart-card"><h3>Repas</h3>${mealsHtml}</div>
-      <div class="chart-card"><h3>Points de vigilance</h3>${barRow('Allergies signalées',f.allergies,f.yes||1)}${barRow('Taux de réponse',f.yes+f.no,totalInv)}</div>
+      <div class="chart-card"><h3>À surveiller</h3>${barRow('Allergies signalées',f.allergies,f.yes||1)}${barRow('Taux de réponse',f.yes+f.no,totalInv)}</div>
     </div>
     ${guestToolbar(true)}
     <div class="table-wrap"><table><thead><tr><th>Invité</th><th>Présence</th><th>Personnes</th><th>Arrivée</th><th>Repas</th></tr></thead><tbody id="guestTbody">${rows}</tbody></table></div><div id="guestPager">${pager}</div>`;
@@ -267,56 +229,43 @@
   function adminCodes(){ if(session?.role!=='admin') return `<div class="card"><h2 class="serif">Accès réservé à l\u2019Admin</h2><p class="lead">Seul l\u2019administrateur peut créer les invités et générer les mots de passe.</p></div>`;
     const {rows,pager}=guestRowsHtml();
     return `<div class="admin-actions"><button class="btn btn-primary" id="addInvite">Ajouter / personnaliser un invité</button><button class="btn btn-soft" id="generateCodes">Générer 50 codes</button><button class="btn btn-soft" id="copyAllCodes">Copier tous les codes</button><button class="btn btn-soft" id="printCodes">Imprimer les codes</button></div>${guestToolbar(true)}<div class="table-wrap"><table><thead><tr><th>Famille</th><th>Mot de passe</th><th>Contact</th><th>Places</th><th>Présence</th><th>Actions</th></tr></thead><tbody id="guestTbody">${rows}</tbody></table></div><div id="guestPager">${pager}</div>`;}
-  function adminCatering(){ const rows=[]; state.responses.forEach(r=>{ const i=state.invites.find(x=>x.id===r.inviteId); if(r.presence==='oui') r.companions.forEach(p=>rows.push({family:i?.family||'',...p,delay:r.delay,arrival:r.arrival,allergies:r.allergies,contact:r.contact,drinks:(r.drinks||[]).join(', ')})); }); return `<div class="admin-actions"><button class="btn btn-primary" id="exportCatering">Exporter traiteur CSV</button></div><div class="table-wrap"><table><thead><tr><th>Famille</th><th>Personne</th><th>Catégorie</th><th>Repas</th><th>Arrivée</th><th>Boissons</th><th>Allergies</th></tr></thead><tbody>${rows.length?rows.map(r=>`<tr><td>${esc(r.family)}</td><td>${esc(r.name)}</td><td>${esc(r.category)}${r.extra?' <span class="badge badge-wait">Suppl.</span>':''}</td><td>${esc(r.meal)}</td><td>${esc(r.arrival||'—')}</td><td>${esc(r.drinks||'—')}</td><td>${esc(r.allergies||'—')}</td></tr>`).join(''):'<tr><td colspan="8">Aucune présence confirmée pour le moment.</td></tr>'}</tbody></table></div>`; }
-  /* ---------- Plan de salle ---------- */
-  function ensurePlan(){ if(!Array.isArray(state.tables)) state.tables=[]; if(!state.seating||typeof state.seating!=='object') state.seating={}; }
-  function confirmedPersons(){
-    const out=[];
-    state.responses.forEach(r=>{
-      if(r.presence!=='oui') return;
-      const i=state.invites.find(x=>x.id===r.inviteId);
-      (r.companions||[]).forEach(p=>out.push({key:r.inviteId+'::'+p.name, name:p.name, family:i?.family||'', category:p.category||''}));
-    });
-    return out;
-  }
-  function cleanSeating(){
-    ensurePlan();
-    const valid=new Set(confirmedPersons().map(p=>p.key));
-    const tset=new Set(state.tables.map(t=>String(t.id)));
-    Object.keys(state.seating).forEach(k=>{ if(!valid.has(k)||!tset.has(String(state.seating[k]))) delete state.seating[k]; });
-  }
-  function adminTables(){
-    ensurePlan(); cleanSeating();
-    const persons=confirmedPersons();
-    const unassigned=persons.filter(p=>!state.seating[p.key]);
-    const totalCap=state.tables.reduce((a,t)=>a+(t.capacity||0),0);
-    const cards=state.tables.map(t=>{
-      const seated=persons.filter(p=>String(state.seating[p.key])===String(t.id));
-      const pct=t.capacity?Math.min(100,Math.round(seated.length/t.capacity*100)):0;
-      const opts=unassigned.map(p=>`<option value="${esc(p.key)}">${esc(p.name)} · ${esc(p.family)}</option>`).join('');
-      return `<div class="card table-card"><div class="table-head"><b class="table-name">${esc(t.name)}</b><span class="table-cap ${seated.length>t.capacity?'over':''}">${seated.length}/${t.capacity} place(s)</span></div><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><div class="seats">${seated.map(p=>`<span class="seat-chip">${esc(p.name)}<button type="button" data-unseat="${esc(p.key)}" aria-label="Retirer ${esc(p.name)}">×</button></span>`).join('')||'<span class="mini-help">Aucune personne placée.</span>'}</div>${unassigned.length?`<select class="select seat-select" data-table="${t.id}"><option value="">Placer une personne…</option>${opts}</select>`:''}<div class="table-actions"><button class="small-btn" data-edit-table="${t.id}">Modifier</button><button class="small-btn" data-del-table="${t.id}">Supprimer</button></div></div>`;
-    }).join('');
-    return `<div class="admin-actions"><button class="btn btn-primary" id="addTable">Ajouter une table</button><button class="btn btn-soft" id="exportTables">Exporter le plan CSV</button></div>
-    <div class="card card-soft" style="margin-bottom:16px"><b>À placer : ${unassigned.length} personne(s) · Capacité totale : ${totalCap} place(s)</b><div class="seats" style="margin-top:10px">${unassigned.map(p=>`<span class="seat-chip wait">${esc(p.name)} · ${esc(p.family)}</span>`).join('')||'<span class="mini-help">Toutes les personnes confirmées sont placées.</span>'}</div></div>
-    ${state.tables.length?`<div class="tables-grid">${cards}</div>`:`<div class="card" style="text-align:center"><p class="lead">Créez votre première table pour commencer le plan de salle.</p></div>`}`;
-  }
-  function editTable(id){
-    ensurePlan();
-    const t=id?state.tables.find(x=>x.id===id):{id:uid(),name:'Table '+(state.tables.length+1),capacity:8};
-    if(!t) return;
-    modal(`<h2 class="serif" style="font-size:2.5rem;color:var(--chocolate)">${id?'Modifier':'Ajouter'} une table</h2><div class="grid-2" style="margin-top:14px"><div class="field"><label>Nom de la table</label><input class="input" id="tName" placeholder="Ex. Famille, Rose, Enfants…" value="${esc(t.name)}"></div><div class="field"><label>Capacité</label><input class="input" id="tCap" type="number" min="1" value="${t.capacity}"></div></div><div style="display:flex;gap:10px;justify-content:flex-end;margin-top:18px"><button class="btn btn-soft" id="cancelModal">Annuler</button><button class="btn btn-primary" id="saveTable">Enregistrer</button></div>`);
-    $('#cancelModal').onclick=closeModal;
-    $('#saveTable').onclick=()=>{
-      const name=$('#tName').value.trim(), cap=Math.max(1,Number($('#tCap').value||1));
-      if(!name){toast('Le nom de la table est obligatoire.','error');return;}
-      Object.assign(t,{name,capacity:cap});
-      if(!id) state.tables.push(t);
-      saveState(); closeModal(); toast('Table enregistrée.'); render();
-    };
-  }
 
+  function confirmedFamilies(){ return state.responses.filter(r=>r.presence==='oui').map(r=>({inviteId:r.inviteId, family:(state.invites.find(i=>i.id===r.inviteId)||{}).family||'?', people:r.companions.length})); }
+  function assignedIds(){ const s=new Set(); state.tables.forEach(t=>t.assigned.forEach(id=>s.add(id))); return s; }
+  function adminSeating(){
+    const isA = session?.role==='admin';
+    const fams = confirmedFamilies();
+    const taken = assignedIds();
+    const unassigned = fams.filter(f=>!taken.has(f.inviteId));
+    const toggle = `<div class="seat-toggle" role="tablist"><button class="${seatView==='list'?'active':''}" data-seat-view="list">\u25c9 Liste</button><button class="${seatView==='plan'?'active':''}" data-seat-view="plan">\u25cb Plan</button></div>`;
+    const actions = isA?`<div class="admin-actions"><button class="btn btn-primary" id="addTable">Ajouter une table</button></div>`:'';
+    if(!state.tables.length) return `${toggle}${actions}<div class="card"><p class="lead">Aucune table pour le moment.${isA?' Créez la première table pour organiser le placement des familles confirmées.':''}</p></div>`;
+    const famChip = (id)=>{ const f=fams.find(x=>x.inviteId===id); if(!f) return ''; return `<span class="seat-chip">${esc(f.family)} (${f.people})${isA?` <button class="seat-x" data-unassign="${id}" aria-label="Retirer">\u00d7</button>`:''}</span>`; };
+    const occupancy = t => t.assigned.reduce((n,id)=>{const f=fams.find(x=>x.inviteId===id);return n+(f?f.people:0);},0);
+    if(seatView==='plan'){
+      return `${toggle}${actions}<div class="seat-plan">${state.tables.map(t=>{const occ=occupancy(t);const full=occ>=t.seats;return `<div class="seat-table ${full?'full':''}"><b>${esc(t.name)}</b><span>${occ}/${t.seats}</span></div>`;}).join('')}</div><p class="mini-help">Vue d\u2019ensemble \u2014 utilisez la vue Liste pour placer les familles.</p>`;
+    }
+    return `${toggle}${actions}${unassigned.length?`<div class="card card-soft seat-unassigned"><b>Familles confirmées à placer (${unassigned.length})</b><p class="lead" style="font-size:.9rem">${unassigned.map(f=>esc(f.family)+' ('+f.people+')').join(' \u00b7 ')}</p></div>`:''}
+    <div class="seat-list">${state.tables.map(t=>{
+      const occ=occupancy(t);
+      const options=unassigned.map(f=>`<option value="${f.inviteId}">${esc(f.family)} (${f.people} pers.)</option>`).join('');
+      return `<div class="card seat-card"><div class="seat-head"><b>${esc(t.name)}</b><span class="badge ${occ>t.seats?'badge-no':occ===t.seats?'badge-ok':'badge-wait'}">${occ}/${t.seats} places</span>${isA?`<button class="small-btn" data-del-table="${t.id}">Supprimer</button>`:''}</div><div class="seat-chips">${t.assigned.map(famChip).join('')||'<span class="mini-help">Table vide</span>'}</div>${isA&&options?`<div class="seat-assign"><select class="select" data-assign-select="${t.id}"><option value="">Placer une famille\u2026</option>${options}</select></div>`:''}</div>`;
+    }).join('')}</div>`;
+  }
+  function bindSeating(){
+    $$('[data-seat-view]').forEach(b=>b.onclick=()=>{seatView=b.dataset.seatView;render();});
+    $('#addTable')?.addEventListener('click',()=>{
+      modal(`<h2 class="serif" style="font-size:2.2rem;color:var(--chocolate)">Nouvelle table</h2><div class="grid-2" style="margin-top:14px"><input class="input" id="tName" placeholder="Nom (ex. Table Famille)"><input class="input" id="tSeats" type="number" min="1" value="8" placeholder="Places"></div><div style="display:flex;gap:10px;justify-content:flex-end;margin-top:18px"><button class="btn btn-soft" id="cancelModal">Annuler</button><button class="btn btn-primary" id="saveTable">Créer</button></div>`);
+      $('#cancelModal').onclick=closeModal;
+      $('#saveTable').onclick=()=>{const name=$('#tName').value.trim();const seats=Number($('#tSeats').value||8);if(!name){toast('Donne un nom à la table.','error');return;}state.tables.push({id:uid(),name,seats,assigned:[]});saveState();closeModal();toast('Table créée.');render();};
+    });
+    $$('[data-del-table]').forEach(b=>b.onclick=()=>{if(confirm('Supprimer cette table ? Les familles redeviendront à placer.')){state.tables=state.tables.filter(t=>String(t.id)!==String(b.dataset.delTable));saveState();toast('Table supprimée.');render();}});
+    $$('[data-assign-select]').forEach(s=>s.addEventListener('change',()=>{const id=Number(s.value);if(!id)return;const t=state.tables.find(t=>String(t.id)===String(s.dataset.assignSelect));if(t&&!t.assigned.includes(id)){t.assigned.push(id);saveState();toast('Famille placée.');render();}}));
+    $$('[data-unassign]').forEach(b=>b.onclick=()=>{const id=Number(b.dataset.unassign);state.tables.forEach(t=>t.assigned=t.assigned.filter(x=>x!==id));saveState();render();});
+  }
+  function adminCatering(){ const rows=[]; state.responses.forEach(r=>{ const i=state.invites.find(x=>x.id===r.inviteId); if(r.presence==='oui') r.companions.forEach(p=>rows.push({family:i?.family||'',...p,delay:r.delay,arrival:r.arrival,allergies:r.allergies,contact:r.contact,drinks:(r.drinks||[]).join(', ')})); }); return `<div class="admin-actions"><button class="btn btn-primary" id="exportCatering">Exporter traiteur CSV</button></div><div class="table-wrap"><table><thead><tr><th>Famille</th><th>Personne</th><th>Âge</th><th>Catégorie</th><th>Repas</th><th>Arrivée</th><th>Boissons</th><th>Allergies</th></tr></thead><tbody>${rows.length?rows.map(r=>`<tr><td data-label="Famille">${esc(r.family)}</td><td data-label="Personne">${esc(r.name)}</td><td data-label="Âge">${esc(r.age||'—')}</td><td data-label="Catégorie">${esc(r.category)}</td><td data-label="Repas">${esc(r.meal)}</td><td data-label="Arrivée">${esc(r.arrival||'—')}</td><td data-label="Boissons">${esc(r.drinks||'—')}</td><td data-label="Allergies">${esc(r.allergies||'—')}</td></tr>`).join(''):'<tr><td colspan="8">Aucune présence confirmée pour le moment.</td></tr>'}</tbody></table></div>`; }
   function needAccess(){ return `<section class="section"><div class="narrow"><div class="card" style="text-align:center"><h1 class="title">Accès privé</h1><p class="lead">Veuillez entrer votre code personnel depuis la page d’entrée.</p><button class="btn btn-primary" data-nav="logout" style="margin-top:18px">Retour à l’entrée</button></div></div></section>`; }
-  function renderFooter(){ return `<footer class="footer"><div class="container"><div class="script">Line Nasya Bilong</div><p>${CONFIG.eventDate} · <a class="footer-link" href="${CONFIG.mapsUrl}" target="_blank" rel="noopener">${CONFIG.venue}</a></p><p>Merci du fond du cœur à toutes celles et ceux qui rendront cette journée inoubliable.</p><p>Organisation : famille Bilong — ${CONFIG.parents}</p><p class="footer-contact"><a href="tel:+${CONFIG.contactPhoneRaw}">${ICONS.phone} ${CONFIG.contactPhone}</a> · <a href="https://wa.me/${CONFIG.contactPhoneRaw}" target="_blank" rel="noopener">${ICONS.wa} WhatsApp</a> · <a href="mailto:${CONFIG.contactEmail}">${ICONS.mail} ${CONFIG.contactEmail}</a></p><p style="margin-top:10px;font-size:.8rem;opacity:.6">© 2026 Line Nasya Bilong · 1er anniversaire</p></div></footer>`; }
+  function renderFooter(){ return `<footer class="footer"><div class="container"><div class="script">Line Nasya Bilong</div><p>${CONFIG.eventDate} · <a class="map-link map-link-light" href="${mapsUrl()}" target="_blank" rel="noopener">${CONFIG.venue}</a></p><p>Merci du fond du cœur à toutes celles et ceux qui rendront cette journée inoubliable.</p><p>Organisation : famille Bilong — ${CONFIG.parents}</p><p><a class="map-link map-link-light" href="tel:${CONFIG.contactPhone}">${CONFIG.contactPhoneDisplay}</a> · <a class="map-link map-link-light" href="mailto:${CONFIG.contactEmail}">${CONFIG.contactEmail}</a></p><p style="margin-top:10px;font-size:.8rem;opacity:.6">© 2026 Line Nasya Bilong · 1er anniversaire</p></div></footer>`; }
 
   function bind(){
     $('#enterBtn')?.addEventListener('click',login);
@@ -328,9 +277,8 @@
     $('#navBackdrop')?.addEventListener('click',closeMenu);
     if($('#rsvpForm')) bindRsvp();
     if(page==='organizer') bindOrganizer();
-    $('#editResponse')?.addEventListener('click',()=>{ state.responses=state.responses.filter(r=>r.inviteId!==session.inviteId); cleanSeating(); saveState(); toast('Vous pouvez modifier votre réponse.'); render(); });
+    $('#editResponse')?.addEventListener('click',()=>{ state.responses=state.responses.filter(r=>r.inviteId!==session.inviteId); saveState(); toast('Vous pouvez modifier votre réponse.'); render(); });
     $('#downloadICS')?.addEventListener('click',downloadICS);
-    $$('.copy-bank').forEach(b=>b.addEventListener('click', async ()=>{ try{ await navigator.clipboard.writeText(b.dataset.copy||''); toast('IBAN copié.'); }catch(e){ toast('IBAN : '+(b.dataset.copy||'')); } }));
   }
   function navigate(to){ closeMenu(); if(to==='logout'){clearSession(); page='gate'; render(); return;} if(to==='organizer'&&!isStaff()){toast('Accès réservé à l’organisation.','error');return;} if(to==='rsvp'&&session?.role==='guest'){ page='home'; render(); setTimeout(()=>{document.querySelector('#confirmation')?.scrollIntoView({behavior:'smooth'});},80); return; } page=to; render(); window.scrollTo({top:0,behavior:'smooth'}); }
   function updateNav(){ $$('#navLinks button').forEach(b=>b.classList.toggle('active',b.dataset.nav===page)); $$('[data-role="staff"]').forEach(b=>b.style.display=isStaff()?'inline-flex':'none'); }
@@ -338,58 +286,8 @@
   function closeMenu(){ $('#navLinks')?.classList.remove('open'); $('#navBackdrop')?.classList.add('hidden'); $('#menuToggle')?.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
   function login(){ const code=normalize($('#codeInput').value); if(!code){toast('Entre ton code personnel.','error');return;} if(code===normalize(CONFIG.organizerCode)||code===normalize(CONFIG.organizerHuman)){writeSession({role:'organizer',code}); page='organizer'; render(); toast('Bienvenue dans l’espace organisateur.');return;} if(code===normalize(CONFIG.adminCode)){writeSession({role:'admin',code}); page='organizer'; render(); toast('Bienvenue admin.');return;} const inv=state.invites.find(i=>normalize(i.code)===code); if(inv){writeSession({role:'guest',inviteId:inv.id,code:inv.code}); page='home'; render(); toast('Bienvenue '+inv.family);return;} $('#codeInput').classList.add('shake'); setTimeout(()=>$('#codeInput')?.classList.remove('shake'),420); toast('Code incorrect.','error'); }
 
-  function bindRsvp(){
-    let presence='oui', drinks=[];
-    const inv=invite();
-    const comps=$('#companions');
-    requiredGuests=inv.maxGuests||1;
-    const add=(name='',silent=false)=>{
-      comps.insertAdjacentHTML('beforeend',companionHtml(name));
-      refreshCompanionEvents(); renumberCompanions();
-      if(!silent&&$$('.companion').length>requiredGuests) toast('Place supplémentaire : la confirmation finale sera donnée par les organisateurs (places limitées).');
-    };
-    add(inv.mainName||'',true);
-    for(let k=1;k<requiredGuests;k++) add('',true);
-    $('#addCompanion')?.addEventListener('click',()=>add());
-    $$('[data-presence]').forEach(b=>b.addEventListener('click',()=>{
-      presence=b.dataset.presence;
-      $$('[data-presence]').forEach(x=>x.classList.remove('selected'));
-      b.classList.add('selected');
-      $('#presentBlock')?.classList.toggle('hidden',presence!=='oui');
-      $('.btn-confirm').textContent = presence==='oui' ? 'Confirmer ma présence' : 'Confirmer mon absence';
-    }));
-    $$('[data-drink]').forEach(b=>b.addEventListener('click',()=>{const d=b.dataset.drink; drinks=drinks.includes(d)?drinks.filter(x=>x!==d):[...drinks,d]; b.classList.toggle('selected');}));
-    $('#rsvpForm').addEventListener('submit',e=>{
-      e.preventDefault();
-      const f=e.target;
-      const companions=$$('.companion').map(c=>({
-        name:$('.comp-name',c).value.trim(),
-        category:ageCat($('.comp-category',c).value),
-        meal:$('.comp-meal',c).value
-      })).filter(c=>c.name);
-      if(presence==='oui'&&companions.length<inv.maxGuests){toast(`Merci de renseigner les ${inv.maxGuests} personnes de votre invitation (${companions.length}/${inv.maxGuests} pour l’instant).`,'error');return;}
-      if(presence==='oui'&&companions.length>inv.maxGuests&&!confirm(`Vous avez ajouté ${companions.length-inv.maxGuests} personne(s) supplémentaire(s). Leur confirmation finale sera donnée par les organisateurs (places limitées). Continuer ?`))return;
-      companions.forEach((c,i)=>c.extra=i>=inv.maxGuests);
-      state.responses=state.responses.filter(r=>r.inviteId!==inv.id);
-      state.responses.push({id:uid(),inviteId:inv.id,presence,mainName:f.elements.mainName.value.trim(),contact:f.elements.contact.value.trim(),delay:f.elements.delay?.value||'',arrival:f.elements.arrival?.value||'',tableWish:f.elements.tableWish?.value.trim()||'',drinks,companions:presence==='oui'?companions:[],allergies:f.elements.allergies?.value.trim()||'',message:f.elements.message.value.trim(),createdAt:new Date().toISOString()});
-      inv.status='responded';
-      saveState();
-      toast('Confirmation enregistrée.');
-      render();
-    });
-  }
-  function refreshCompanionEvents(){
-    $$('.remove-companion').forEach(b=>b.onclick=()=>{ if($$('.companion').length<=requiredGuests){toast(`Votre invitation prévoit ${requiredGuests} personne(s) : merci de renseigner chacune d’elles.`,'error');return;} b.closest('.companion').remove(); renumberCompanions();});
-  }
-  function renumberCompanions(){
-    $$('.companion').forEach((c,i)=>{
-      const extra=i>=requiredGuests;
-      c.classList.toggle('companion-extra',extra);
-      const lb=c.querySelector('.comp-label');
-      if(lb) lb.innerHTML='Personne '+(i+1)+(extra?' <span class="extra-badge">Supplément — validation organisateur</span>':'');
-    });
-  }
-
+  function bindRsvp(){ let presence='oui', drinks=[]; const inv=invite(); const comps=$('#companions'); const add=(name='')=>{ comps.insertAdjacentHTML('beforeend',companionHtml(name)); refreshCompanionEvents(); }; add(inv.mainName||''); $('#addCompanion').addEventListener('click',()=>add()); $$('[data-presence]').forEach(b=>b.addEventListener('click',()=>{presence=b.dataset.presence; $$('[data-presence]').forEach(x=>x.classList.remove('selected')); b.classList.add('selected'); $('#presentBlock').classList.toggle('hidden',presence!=='oui'); const cb=$('.btn-confirm'); if(cb)cb.textContent=presence==='oui'?'Confirmer ma présence':'Confirmer mon absence';})); $$('[data-drink]').forEach(b=>b.addEventListener('click',()=>{const d=b.dataset.drink; drinks=drinks.includes(d)?drinks.filter(x=>x!==d):[...drinks,d]; b.classList.toggle('selected');})); $('#rsvpForm').addEventListener('submit',e=>{e.preventDefault(); const f=e.target; const companions=$$('.companion').map(c=>({name:$('.comp-name',c).value.trim(),age:$('.comp-age',c).value.trim(),category:ageCat($('.comp-age',c).value.trim()),meal:$('.comp-meal',c).value})).filter(c=>c.name); if(presence==='oui'&&companions.length===0){toast('Ajoute au moins une personne présente.','error');return;} if(presence==='oui'&&companions.length>inv.maxGuests&&!confirm(`Vous avez indiqué ${companions.length} personnes pour ${inv.maxGuests} places prévues. Continuer ?`))return; state.responses=state.responses.filter(r=>r.inviteId!==inv.id); state.responses.push({id:uid(),inviteId:inv.id,presence,mainName:f.elements.mainName.value.trim(),contact:f.elements.contact.value.trim(),delay:f.elements.delay?.value||'',arrival:f.elements.arrival?.value||'',tableWish:f.elements.tableWish?.value.trim()||'',drinks,companions:presence==='oui'?companions:[],allergies:f.elements.allergies?.value.trim()||'',message:f.elements.message.value.trim(),createdAt:new Date().toISOString()}); inv.status='responded'; saveState(); toast('Confirmation enregistrée.'); render();}); }
+  function refreshCompanionEvents(){ $$('.remove-companion').forEach(b=>b.onclick=()=>{ if($$('.companion').length<=1){toast('Garde au moins une personne.','error');return;} b.closest('.companion').remove();}); $$('.comp-age').forEach(inp=>inp.oninput=()=>{$('.small-cat',inp.closest('.companion')).textContent='Catégorie : '+ageCat(inp.value);}); }
   function bindOrganizer(){
     $$('[data-admin-tab]').forEach(b=>b.onclick=()=>{
       activeAdminTab=b.dataset.adminTab;
@@ -409,10 +307,10 @@
       state.responses.forEach(r=>{
         const i=state.invites.find(x=>x.id===r.inviteId);
         if(r.presence==='oui'){
-          r.companions.forEach(p=>rows.push([i?.family,i?.code,p.name,p.category,p.meal,labelDelay(r.delay),r.arrival,r.allergies]));
+          r.companions.forEach(p=>rows.push([i?.family,i?.code,p.name,p.age,p.category,p.meal,labelDelay(r.delay),r.arrival,r.allergies]));
         }
       });
-      exportCSV('traiteur_line_nasya.csv',['Famille','Code','Prenom','Categorie','Repas','Retard','Arrivee','Allergies'],rows);
+      exportCSV('traiteur_line_nasya.csv',['Famille','Code','Prenom','Age','Categorie','Repas','Retard','Arrivee','Allergies'],rows);
     });
 
     $('#copyAllCodes')?.addEventListener('click',()=>{
@@ -448,21 +346,8 @@
     });
 
     if(session?.role==='admin') $('#addInvite')?.addEventListener('click',()=>editInvite());
-
-    /* Plan de salle */
-    $('#addTable')?.addEventListener('click',()=>editTable());
-    $$('[data-edit-table]').forEach(b=>b.onclick=()=>editTable(Number(b.dataset.editTable)));
-    $$('[data-del-table]').forEach(b=>b.onclick=()=>{ if(confirm('Supprimer cette table ? Les personnes placées redeviendront « à placer ».')){ state.tables=state.tables.filter(t=>t.id!==Number(b.dataset.delTable)); cleanSeating(); saveState(); toast('Table supprimée.'); render(); }});
-    $$('.seat-select').forEach(s=>s.addEventListener('change',()=>{ if(!s.value)return; ensurePlan(); state.seating[s.value]=Number(s.dataset.table); saveState(); toast('Personne placée.'); render(); }));
-    $$('[data-unseat]').forEach(b=>b.onclick=()=>{ ensurePlan(); delete state.seating[b.dataset.unseat]; saveState(); render(); });
-    $('#exportTables')?.addEventListener('click',()=>{
-      ensurePlan();
-      const persons=confirmedPersons(); const rows=[];
-      state.tables.forEach(t=>persons.filter(p=>String(state.seating[p.key])===String(t.id)).forEach(p=>rows.push([t.name,p.name,p.family,p.category])));
-      exportCSV('plan_de_salle_line_nasya.csv',['Table','Personne','Famille','Categorie'],rows);
-    });
-
     bindGuestControls(true);
+    if(activeAdminTab==='seating') bindSeating();
   }
   function editInvite(id){ const i=id?state.invites.find(x=>x.id===id):{id:uid(),code:'LINE'+String(state.invites.length+1).padStart(3,'0'),family:'',mainName:'',email:'',phone:'',maxGuests:2,status:'pending'}; modal(`<h2 class="serif" style="font-size:2.5rem;color:var(--chocolate)">${id?'Modifier':'Ajouter'} un invité</h2><div class="grid-2" style="margin-top:14px"><input class="input" id="mFamily" placeholder="Famille" value="${esc(i.family)}"><input class="input" id="mCode" placeholder="Code" value="${esc(i.code)}"><input class="input" id="mMain" placeholder="Nom principal" value="${esc(i.mainName||'')}"><input class="input" id="mMax" type="number" min="1" placeholder="Places" value="${i.maxGuests}"><input class="input" id="mEmail" placeholder="Email" value="${esc(i.email||'')}"><input class="input" id="mPhone" placeholder="Téléphone" value="${esc(i.phone||'')}"></div><div style="display:flex;gap:10px;justify-content:flex-end;margin-top:18px"><button class="btn btn-soft" id="cancelModal">Annuler</button><button class="btn btn-primary" id="saveInvite">Enregistrer</button></div>`); $('#cancelModal').onclick=closeModal; $('#saveInvite').onclick=()=>{Object.assign(i,{family:$('#mFamily').value.trim(),code:normalize($('#mCode').value),mainName:$('#mMain').value.trim(),maxGuests:Number($('#mMax').value||1),email:$('#mEmail').value.trim(),phone:$('#mPhone').value.trim()}); if(!i.family||!i.code){toast('Famille et code obligatoires.','error');return;} if(!id)state.invites.push(i); saveState(); closeModal(); toast('Invité enregistré.'); render();}; }
 
@@ -477,7 +362,7 @@
       if(r.presence==='oui'){s.yes++;s.people+=r.companions.length;
         if((r.allergies||'').trim())s.allergies++;
         r.companions.forEach(p=>{
-          if(p.category==='Enfant')s.children++;else s.adults++;
+          if(p.category==='Bébé')s.babies++;else if(p.category==='Enfant')s.children++;else s.adults++;
           if(p.meal)s.meals[p.meal]=(s.meals[p.meal]||0)+1;
         });
       } else s.no++;
@@ -506,8 +391,8 @@
     const rows = slice.map(i=>{
       const r=responseFor(i.id);
       const st=r?(r.presence==='oui'?'<span class="badge badge-ok">Présent</span>':'<span class="badge badge-no">Absent</span>'):'<span class="badge badge-wait">En attente</span>';
-      if(isCodes)return `<tr><td><b>${esc(i.family)}</b><br><span style="color:var(--muted)">${esc(i.mainName||'')}</span></td><td><b>${esc(i.code)}</b></td><td>${esc(i.phone||i.email||'—')}</td><td>${i.maxGuests}</td><td>${st}</td><td class="row-actions"><button class="small-btn" data-edit-invite="${i.id}">Modifier</button> <button class="small-btn" data-copy-invite="${i.id}">Message</button> <button class="small-btn" data-del-invite="${i.id}">Suppr.</button></td></tr>`;
-      return `<tr><td><b>${esc(i.family)}</b><br><span style="color:var(--muted)">${session?.role==='admin'?`Code : ${esc(i.code)}`:esc(i.mainName||'')}</span></td><td>${st}</td><td>${r?.companions?.length||0}/${i.maxGuests}</td><td>${r?.arrival||'—'}</td><td>${r&&r.presence==='oui'?(r.companions.map(c=>c.meal).filter(Boolean).join(', ')||'—'):'—'}</td></tr>`;
+      if(isCodes)return `<tr><td data-label="Famille"><b>${esc(i.family)}</b><br><span style="color:var(--muted)">${esc(i.mainName||'')}</span></td><td data-label="Mot de passe"><b>${esc(i.code)}</b></td><td data-label="Contact">${esc(i.phone||i.email||'—')}</td><td data-label="Places">${i.maxGuests}</td><td data-label="Présence">${st}</td><td data-label="" class="row-actions"><button class="small-btn" data-edit-invite="${i.id}">Modifier</button> <button class="small-btn" data-copy-invite="${i.id}">Message</button> <button class="small-btn" data-del-invite="${i.id}">Suppr.</button></td></tr>`;
+      return `<tr><td data-label="Invité"><b>${esc(i.family)}</b><br><span style="color:var(--muted)">${session?.role==='admin'?`Code : ${esc(i.code)}`:esc(i.mainName||'')}</span></td><td data-label="Présence">${st}</td><td data-label="Personnes">${r?.companions?.length||0}/${i.maxGuests}</td><td data-label="Arrivée">${r?.arrival||'—'}</td><td data-label="Repas">${r&&r.presence==='oui'?(r.companions.map(c=>c.meal).filter(Boolean).join(', ')||'—'):'—'}</td></tr>`;
     }).join('') || `<tr><td colspan="6" style="color:var(--muted)">Aucun invité ne correspond à la recherche.</td></tr>`;
     const pager = pages>1?`<div class="pager"><button class="small-btn" data-gpage="${gPage-1}" ${gPage<=1?'disabled':''}>Précédent</button><span>Page ${gPage} / ${pages} · ${list.length} invité(s)</span><button class="small-btn" data-gpage="${gPage+1}" ${gPage>=pages?'disabled':''}>Suivant</button></div>`:`<div class="pager"><span>${list.length} invité(s)</span></div>`;
     return {rows,pager};
@@ -531,6 +416,7 @@
     $$('[data-del-invite]').forEach(b=>b.onclick=()=>{const id=Number(b.dataset.delInvite);if(confirm('Supprimer cet invité et son code ?')){state.invites=state.invites.filter(x=>x.id!==id);state.responses=state.responses.filter(r=>r.inviteId!==id);saveState();toast('Invité supprimé.');render();}});
   }
   function labelDelay(v){return DELAYS.find(x=>x[0]===v)?.[1]||'—';}
+  function mapsUrl(){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Parochiezaal Ter Krokegem Dendermondsesteenweg 44 B-1730 Asse');}
   function whatsApp(phone,msg){const p=String(phone||'').replace(/[^0-9]/g,'');return p?`https://wa.me/${p}?text=${encodeURIComponent(msg)}`:`https://wa.me/?text=${encodeURIComponent(msg)}`;}
   function inviteMessage(i){return `Bonjour ${i.mainName||i.family},\n\nVous êtes cordialement invité au premier anniversaire de Line Nasya Bilong.\n\nDate : ${CONFIG.eventDate}\nLieu : ${CONFIG.venue}\nAdresse : ${CONFIG.address}\n\nVotre code d’accès personnel : *${i.code}*\n\nMerci de confirmer votre présence via le site.\n\nLa famille Bilong 🎀`;}
   function buildConfirmMessage(inv,r){return `Bonjour ${inv.mainName||inv.family},\n\nMerci pour votre réponse au 1er anniversaire de Line Nasya Bilong.\nPrésence : ${r.presence==='oui'?'confirmée':'absence notée'}\nPersonnes : ${r.companions.length}\nDate : ${CONFIG.eventDate}\nLieu : ${CONFIG.venue}\n\n${CONFIG.parents}`;}

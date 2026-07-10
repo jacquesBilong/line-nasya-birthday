@@ -18,14 +18,4 @@
     }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
     els.forEach(el=>io.observe(el));
   };
-
-  /* Bouton « remonter en haut » */
-  document.addEventListener('DOMContentLoaded', function(){
-    const btn = document.getElementById('toTop');
-    if(!btn) return;
-    const onScroll = ()=>btn.classList.toggle('show', window.scrollY > 500);
-    window.addEventListener('scroll', onScroll, {passive:true});
-    onScroll();
-    btn.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
-  });
 })();
