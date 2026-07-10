@@ -206,8 +206,8 @@
     if(!isStaff()) return needAccess();
     const stats=computeStats(); const fx=computeFull();
     const tabs = session?.role === 'admin'
-      ? [['overview','📊 Vue générale'],['catering','🍽 Présences & prestataires'],['seating','🪑 Plan de salle'],['codes','🔑 Invités & mots de passe']]
-      : [['overview','📊 Vue générale'],['catering','🍽 Présences & prestataires'],['seating','🪑 Plan de salle']];
+      ? [['overview','Vue générale'],['catering','Présences & prestataires'],['seating','Plan de salle'],['codes','Invités & mots de passe']]
+      : [['overview','Vue générale'],['catering','Présences & prestataires'],['seating','Plan de salle']];
     if(session?.role !== 'admin' && activeAdminTab === 'codes') activeAdminTab = 'overview';
     return `<section class="section"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div><div class="section-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace Admin':'Espace Organisateur'}</span><h1 class="title" style="margin-top:12px">${session?.role==='admin'?'Gestion complète':'Présences & prestataires'}</h1></div><p class="lead">${session?.role==='admin'?'Personnalisation des invités, génération des mots de passe et suivi des confirmations.':'Suivi des présences confirmées et des besoins traiteur/prestataire.'}</p></div><div class="stat-grid"><div class="stat"><strong>${state.invites.length}</strong><span>Invités</span></div><div class="stat"><strong>${fx.yes}</strong><span>Présents</span></div><div class="stat"><strong>${fx.no}</strong><span>Absents</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='seating'?adminSeating():''}</div></div></section>${renderFooter()}`;
   }
