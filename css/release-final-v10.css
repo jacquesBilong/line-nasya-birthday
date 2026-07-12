@@ -1,0 +1,84 @@
+/* V10 — coordonnées cadeaux + navigation admin/organisation fixe pendant le défilement */
+
+/* Bloc cadeaux */
+.gift-block{
+  grid-column:1 / -1;
+  text-align:center;
+  background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(248,231,225,.9));
+  border:1px solid rgba(111,63,52,.14);
+  border-radius:28px;
+  padding:clamp(24px,4vw,42px)!important;
+  box-shadow:0 18px 48px rgba(73,39,32,.09);
+}
+.gift-block>p{max-width:760px;margin:10px auto 22px;}
+.gift-bank-card{
+  width:min(100%,760px);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  align-items:stretch;
+}
+.gift-bank-card>div{
+  min-width:0;
+  background:#fff;
+  border:1px solid rgba(111,63,52,.14);
+  border-radius:18px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+}
+.gift-bank-card span{
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:800;
+  color:var(--muted);
+}
+.gift-bank-card strong{overflow-wrap:anywhere;color:var(--brown);}
+.gift-iban{font-size:clamp(1rem,2vw,1.18rem);letter-spacing:.04em;}
+.gift-copy-btn{grid-column:1 / -1;justify-self:center;margin-top:4px;}
+
+/* Les conteneurs ne doivent jamais annuler position:sticky */
+.admin-page,
+.admin-page>.container.admin-shell,
+.admin-main{
+  overflow:visible!important;
+}
+
+/* PC : le panneau Administration / Organisation reste visible pendant le scroll */
+@media (min-width:961px){
+  .admin-page>.container.admin-shell{align-items:start!important;}
+  .admin-side{
+    position:sticky!important;
+    top:calc(var(--app-nav-h) + 18px)!important;
+    z-index:80!important;
+    max-height:calc(100svh - var(--app-nav-h) - 36px)!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+  }
+}
+
+/* Mobile/tablette : barre interne toujours accessible et entièrement défilable */
+@media (max-width:960px){
+  .admin-side{
+    position:sticky!important;
+    top:calc(var(--app-nav-mobile-h) + 6px)!important;
+    z-index:90!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  .admin-side h3,
+  .admin-side button{scroll-snap-align:start;}
+}
+
+@media (max-width:700px){
+  .gift-bank-card{grid-template-columns:1fr;}
+  .gift-copy-btn{grid-column:auto;width:100%;}
+}

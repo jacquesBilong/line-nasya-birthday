@@ -1,0 +1,147 @@
+/* VERSION FINALE V9 — priorité absolue : photo de Line + navigation active visible */
+
+/* Page de connexion : vraie image visible, jamais remplacée par un fond uni */
+.gate-redesign{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.65fr) minmax(420px,.85fr)!important;
+  min-height:100svh!important;
+  background:#f8ece7!important;
+  overflow:hidden!important;
+  position:relative!important;
+}
+.gate-redesign::before,
+.gate-redesign::after{content:none!important;display:none!important;}
+.gate-redesign .gate-visual{
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  width:auto!important;
+  height:auto!important;
+  min-height:100svh!important;
+  max-height:none!important;
+  background-image:linear-gradient(0deg,rgba(50,24,20,.34) 0%,rgba(50,24,20,.05) 42%,rgba(50,24,20,0) 70%),url('../assets/img/gate-cover.jpg')!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+}
+.gate-redesign .gate-mobile-title{
+  display:flex!important;
+  position:absolute!important;
+  left:clamp(28px,5vw,80px)!important;
+  bottom:clamp(34px,6vh,76px)!important;
+  z-index:2!important;
+  flex-direction:column!important;
+  gap:8px!important;
+  color:#fff!important;
+  text-shadow:0 4px 20px rgba(40,17,13,.7)!important;
+}
+.gate-redesign .gate-mobile-title strong{
+  font-size:clamp(2.8rem,5vw,5.2rem)!important;
+  line-height:.95!important;
+}
+.gate-redesign .gate-mobile-title span{
+  font-size:clamp(.82rem,1.2vw,1.05rem)!important;
+  font-weight:900!important;
+  letter-spacing:.16em!important;
+}
+.gate-redesign .gate-panel{
+  display:grid!important;
+  place-items:center!important;
+  min-height:100svh!important;
+  padding:clamp(26px,4vw,72px)!important;
+  background:radial-gradient(circle at 18% 12%,rgba(220,167,176,.26),transparent 36%),linear-gradient(145deg,#fffaf7,#f4e3dc)!important;
+}
+.gate-redesign .gate-float{
+  width:min(100%,540px)!important;
+  margin:0 auto!important;
+  padding:clamp(30px,4vw,54px)!important;
+  border-radius:32px!important;
+  background:rgba(255,255,255,.94)!important;
+  border:1px solid rgba(118,68,57,.14)!important;
+  box-shadow:0 30px 90px rgba(83,45,37,.18)!important;
+  color:#60372f!important;
+  backdrop-filter:blur(12px)!important;
+}
+.gate-redesign .gate-kicker,
+.gate-redesign .gate-title{color:#60372f!important;text-shadow:none!important;}
+.gate-redesign .gate-copy{color:#7a6964!important;text-shadow:none!important;font-weight:500!important;}
+.gate-redesign .code-help{color:#806d67!important;}
+.gate-redesign .input{background:#fff!important;color:#4a2c27!important;border-color:rgba(96,55,47,.22)!important;}
+.gate-redesign .btn-primary{background:linear-gradient(135deg,#6c3d33,#9a6256)!important;color:#fff!important;}
+
+/* Navigation : onglet choisi plus grand, plus gras et très visible */
+.nav-links button.active,
+.nav-links button[aria-current="page"]{
+  font-weight:950!important;
+  font-size:1.03em!important;
+  letter-spacing:.045em!important;
+  transform:scale(1.06)!important;
+  box-shadow:0 12px 28px rgba(92,48,40,.22)!important;
+}
+.nav-links button{transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease!important;}
+
+/* Onglets internes admin / organisateur : actif nettement renforcé */
+.admin-tabs button.active,
+.organizer-tabs button.active,
+.sidebar-nav button.active,
+.tab-list button.active,
+[role="tab"].active,
+[aria-selected="true"]{
+  font-weight:950!important;
+  transform:scale(1.035)!important;
+}
+
+@media (max-width:900px){
+  .gate-redesign{
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:100svh!important;
+    overflow:visible!important;
+  }
+  .gate-redesign .gate-visual{
+    flex:none!important;
+    width:100%!important;
+    height:52svh!important;
+    min-height:330px!important;
+    max-height:560px!important;
+    background-position:27% center!important;
+  }
+  .gate-redesign .gate-mobile-title{
+    display:flex!important;
+    left:22px!important;
+    bottom:56px!important;
+  }
+  .gate-redesign .gate-mobile-title strong{font-size:clamp(2.35rem,10vw,3.5rem)!important;}
+  .gate-redesign .gate-panel{
+    min-height:auto!important;
+    width:100%!important;
+    padding:0 14px max(28px,env(safe-area-inset-bottom))!important;
+    margin:0!important;
+    background:linear-gradient(180deg,#f5e5df,#fffaf7)!important;
+  }
+  .gate-redesign .gate-float{
+    width:min(100%,620px)!important;
+    margin:-42px auto 0!important;
+    padding:28px 20px!important;
+    border-radius:28px!important;
+    position:relative!important;
+    z-index:5!important;
+  }
+  .nav-links button.active,
+  .nav-links button[aria-current="page"]{
+    transform:none!important;
+    font-size:1.08rem!important;
+    font-weight:950!important;
+  }
+}
+
+@media (max-width:430px){
+  .gate-redesign .gate-visual{
+    height:48svh!important;
+    min-height:300px!important;
+    background-position:24% center!important;
+  }
+  .gate-redesign .gate-mobile-title{left:18px!important;bottom:48px!important;}
+  .gate-redesign .gate-float{margin-top:-34px!important;padding:24px 16px!important;border-radius:24px!important;}
+  .gate-redesign .gate-title{font-size:clamp(2.05rem,10.5vw,2.75rem)!important;}
+}

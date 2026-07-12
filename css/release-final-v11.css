@@ -1,0 +1,121 @@
+/* V11 — alignement final des pages/onglets et hero remonté */
+
+/* Chaque destination s'ouvre sous la navigation, sans décalage latéral */
+#app > section,
+#infos,
+#gallery,
+#programme,
+#confirmation,
+.premium-rsvp,
+.admin-page{
+  scroll-margin-top:calc(var(--app-nav-h,74px) + 18px);
+}
+
+#app > section > .container,
+#app > section > .narrow,
+.admin-page > .container.admin-shell{
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Accueil : bloc principal et décompte plus haut, visible dans le premier écran */
+@media (min-width:721px){
+  .hero{
+    min-height:calc(100svh - var(--app-nav-h,74px))!important;
+    align-items:flex-start!important;
+  }
+  .hero-grid{
+    padding-top:clamp(18px,3vh,34px)!important;
+    padding-bottom:clamp(24px,4vh,48px)!important;
+  }
+  .hero-copy{
+    padding:clamp(20px,2.5vw,34px)!important;
+  }
+  .hero .title{
+    margin:8px 0 20px!important;
+    font-size:clamp(3rem,5.4vw,5.25rem)!important;
+  }
+  .countdown-priority{margin-bottom:8px!important;}
+  .count-line{margin-bottom:16px!important;}
+  .hero-primary-action{margin-top:20px!important;}
+}
+
+/* Pages Administration / Organisation parfaitement centrées */
+.admin-page{
+  padding-top:clamp(34px,5vw,64px)!important;
+}
+.admin-page > .container.admin-shell{
+  justify-content:center!important;
+}
+.admin-main{
+  justify-self:center!important;
+}
+.admin-page-head{
+  width:100%!important;
+  text-align:center!important;
+  justify-items:center!important;
+}
+.admin-page-head > div,
+.admin-page-head > p{
+  margin-inline:auto!important;
+}
+.admin-page-head h1{
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.admin-page-head p{
+  max-width:720px!important;
+  text-align:center!important;
+}
+
+/* Onglets internes : premier et dernier entièrement visibles */
+.admin-side{
+  scroll-padding-inline:14px!important;
+}
+.admin-side button{
+  scroll-margin-inline:10px!important;
+}
+
+@media (max-width:960px){
+  :root{--admin-tabs-h:84px;}
+  #app > section,
+  #infos,
+  #gallery,
+  #programme,
+  #confirmation,
+  .premium-rsvp,
+  .admin-page{
+    scroll-margin-top:calc(var(--app-nav-mobile-h,82px) + 16px);
+  }
+  .admin-page{
+    padding-top:18px!important;
+  }
+  .admin-page > .container.admin-shell{
+    width:min(100%,860px)!important;
+  }
+  .admin-side{
+    padding:10px 12px!important;
+    scroll-padding-left:12px!important;
+    scroll-padding-right:12px!important;
+  }
+  .admin-side button:first-of-type{margin-left:0!important;}
+  .admin-side button:last-of-type{margin-right:2px!important;}
+  .admin-main{width:100%!important;}
+  .admin-page-head{padding-top:4px!important;}
+}
+
+@media (max-width:720px){
+  .hero{
+    padding-top:34svh!important;
+    background-position:60% center!important;
+  }
+  .hero-grid{padding-bottom:18px!important;}
+  .hero-copy{padding:18px 14px!important;}
+  .hero .title{
+    font-size:clamp(2.45rem,11.5vw,3.65rem)!important;
+    margin:6px 0 16px!important;
+  }
+  .count-line{margin-bottom:14px!important;}
+  .hero-primary-action{margin-top:16px!important;}
+  .admin-page-head h1{font-size:clamp(2.7rem,12vw,4.1rem)!important;}
+}

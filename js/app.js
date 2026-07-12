@@ -13,6 +13,9 @@
     contactEmail:'jacques@bilongdigital.com',
     creatorName:'Bilong Digital',
     creatorUrl:'https://bilongdigital.com',
+    giftAccountName:'BILONG',
+    giftIban:'BE21 3632 5213 8103',
+    giftCommunication:'Anniversaire Line – Nom et prénom',
     formSubmitEndpoint:'https://formsubmit.co/ajax/jacques@bilongdigital.com',
     galleryPhotos:[
       ['g1.jpg','Line avant son grand jour'],
@@ -145,6 +148,7 @@
           <article class="practical-block"><span class="mini-label">Où</span><h3>${CONFIG.venue}</h3><p>${CONFIG.address}</p><a class="text-action" href="${mapsUrl()}" target="_blank" rel="noopener">Ouvrir l’itinéraire</a></article>
           <article class="practical-block dress-block"><span class="mini-label">Tenue souhaitée</span><h3>Couleurs de la fête</h3><div class="dress-palette"><span class="dress-item"><i style="--swatch:#6b3f35"></i><b>Marron</b></span><span class="dress-item"><i style="--swatch:#d9a0a7"></i><b>Rose poudré</b></span><span class="dress-item"><i style="--swatch:#e7c4b4"></i><b>Nude</b></span><span class="dress-item"><i style="--swatch:#c9a44c"></i><b>Doré</b></span></div></article>
           <article class="practical-block contact-block"><span class="mini-label">Un renseignement ?</span><h3>Jacques & Suzanne</h3><div class="contact-actions"><a href="tel:${CONFIG.contactPhone}" aria-label="Appeler Jacques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg><span>Appeler</span></a><a href="https://wa.me/${CONFIG.contactPhone.replace('+','')}" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9 8.38 8.38 0 0 1 12.5 3H13a8.48 8.48 0 0 1 8 8z"/></svg><span>WhatsApp</span></a><a href="mailto:${CONFIG.contactEmail}" aria-label="Envoyer un email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><span>Email</span></a></div></article>
+          <article class="practical-block gift-block"><span class="mini-label">Une attention pour Line ?</span><h3>Cadeaux & participation</h3><p>Votre présence est déjà un beau cadeau. Pour celles et ceux qui souhaitent offrir une participation, voici les coordonnées prévues à cet effet.</p><div class="gift-bank-card"><div><span>Titulaire</span><strong>${CONFIG.giftAccountName}</strong></div><div><span>IBAN</span><strong class="gift-iban">${CONFIG.giftIban}</strong></div><div><span>Communication</span><strong>${CONFIG.giftCommunication}</strong></div><button type="button" class="btn btn-soft gift-copy-btn" data-copy-gift>Copier les coordonnées</button></div></article>
         </div>
         <div class="map-panel"><iframe title="Carte de Parochiezaal Ter Krokegem" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.0926390586983!2d4.185648500000001!3d50.92200330000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bfc42b1b44d3%3A0xe50af4a19f8db2df!2sParochiezaal%20Ter%20Krokegem!5e0!3m2!1sfr!2sbe!4v1783643332092!5m2!1sfr!2sbe" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       </div>
@@ -399,6 +403,11 @@
     if(page==='organizer') bindOrganizer();
     $('#editResponse')?.addEventListener('click',()=>{ state.responses=state.responses.filter(r=>r.inviteId!==session.inviteId); saveState(); toast('Vous pouvez modifier votre réponse.'); render(); });
     $('#downloadICS')?.addEventListener('click',downloadICS);
+    $('[data-copy-gift]')?.addEventListener('click',()=>{
+      const text=`Titulaire : ${CONFIG.giftAccountName}\nIBAN : ${CONFIG.giftIban}\nCommunication : ${CONFIG.giftCommunication}`;
+      navigator.clipboard?.writeText(text);
+      toast('Coordonnées bancaires copiées.');
+    });
   }
   function scrollToSection(id, smooth=true){
     const el=document.getElementById(id);
@@ -419,7 +428,7 @@
       return;
     }
     if(to==='rsvp'&&session?.role==='guest'){ page='rsvp'; render(); window.scrollTo({top:0,behavior:'smooth'}); return; }
-    page=to; render(); window.scrollTo({top:0,behavior:'smooth'});
+    page=to; render(); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'}));
   }
   function updateNav(){
     $$('#navLinks button').forEach(b=>{ const active=b.dataset.nav===page; b.classList.toggle('active',active); if(active) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
@@ -481,7 +490,7 @@
     if(adminTabsBar){
       requestAnimationFrame(()=>{
         const activeTab=$('.admin-side [data-admin-tab].active');
-        if(activeTab) activeTab.scrollIntoView({behavior:'auto',block:'nearest',inline:'start'});
+        if(activeTab){ if(activeTab.dataset.adminTab==='overview') adminTabsBar.scrollLeft=0; else activeTab.scrollIntoView({behavior:'auto',block:'nearest',inline:'center'}); }
         else adminTabsBar.scrollLeft=0;
       });
     }
@@ -491,7 +500,7 @@
       requestAnimationFrame(()=>{
         const bar=$('.admin-side');
         const active=$('.admin-side [data-admin-tab].active');
-        if(bar && active) active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+        if(bar && active){ if(active.dataset.adminTab==='overview') bar.scrollTo({left:0,behavior:'smooth'}); else active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}); }
         const target=$('.admin-page-head')||$('.admin-main');
         if(target){
           const nav=$('#navbar');
