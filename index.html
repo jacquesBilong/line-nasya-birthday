@@ -14,11 +14,20 @@
   <meta property="og:image:height" content="630" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎀</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/og-cover.jpg">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/pages.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/responsive.css?v=20260710" />
+  <link rel="stylesheet" href="css/audit-final.css?v=20260712" />
+  <link rel="stylesheet" href="css/final-login-responsive.css?v=20260712" />
+  <link rel="stylesheet" href="css/premium-line.css?v=20260712b" />
+  <link rel="stylesheet" href="css/final-ui-fixes.css?v=20260712c" />
+  <link rel="stylesheet" href="css/studio-v3.css?v=20260712" />
+  <link rel="stylesheet" href="css/responsive-tv-final.css?v=20260712-final" />
+  <link rel="stylesheet" href="css/master-final.css?v=20260712-final2" />
+  <link rel="stylesheet" href="css/final-polish.css?v=20260712-final3" />
+  <link rel="stylesheet" href="css/ultra-professional-fix.css?v=20260712-ultra" />
 </head>
 <body>
   <div id="loader" class="loader" aria-live="polite" role="status">
@@ -40,11 +49,11 @@
       </button>
       <div id="navLinks" class="nav-links" role="menu">
         <button type="button" data-nav="home">Accueil</button>
-        <button type="button" data-nav="rsvp">Ma Confirmation</button>
+        <button type="button" data-nav="rsvp">Présence</button>
         <button type="button" data-nav="organizer" data-role="staff">Organisateur</button>
         <button type="button" data-nav="logout">Déconnexion</button>
       </div>
-      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
     </div>
   </nav>
   <div id="navBackdrop" class="nav-backdrop hidden"></div>
@@ -52,8 +61,9 @@
   <div id="toastMount" class="toast-mount" aria-live="polite" aria-atomic="true"></div>
   <div id="modalMount"></div>
   <main id="app"></main>
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Remonter en haut">↑</button>
 
-  <script src="js/animations.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/animations.js?v=20260712"></script>
+  <script src="js/app.js?v=20260712-final3"></script>
 </body>
 </html>

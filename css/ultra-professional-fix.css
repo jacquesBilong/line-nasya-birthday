@@ -1,0 +1,106 @@
+/* ================================================================
+   ULTRA PROFESSIONAL FIX — navigation, login, pages et responsive
+   Dernière feuille chargée : elle neutralise les conflits précédents.
+   ================================================================ */
+:root{--app-nav-h:80px;--app-nav-mobile-h:70px;--safe-x:max(14px,env(safe-area-inset-left))}
+html{scroll-padding-top:calc(var(--app-nav-h) + 18px)}
+body{min-width:320px;overflow-x:hidden!important}
+body.has-app-nav #app{padding-top:var(--app-nav-h)}
+
+/* Navigation réellement persistante */
+.nav{position:fixed!important;inset:0 0 auto 0!important;height:var(--app-nav-h);z-index:10000!important;display:block;background:rgba(255,250,247,.96)!important;box-shadow:0 5px 24px rgba(66,37,32,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.nav.hidden{display:none!important}
+.nav-inner{height:100%!important;min-height:0!important;width:min(1280px,calc(100% - 36px))!important;margin:auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important}
+.brand{flex:0 1 auto;min-width:0}
+.brand span:last-child{min-width:0}
+.brand strong,.brand small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{position:static!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:7px!important;transform:none!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;background:transparent!important;box-shadow:none!important;border:0!important;padding:0!important}
+.nav-links button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 17px!important;border-radius:999px!important;white-space:nowrap!important}
+.nav-links button.active,.nav-links button[aria-current="page"]{background:var(--brown,#6b3f35)!important;color:#fff!important;box-shadow:0 8px 20px rgba(91,51,43,.18)!important}
+.nav-links button[data-nav="logout"]{background:transparent!important;color:var(--muted)!important;box-shadow:none!important}
+.menu-toggle{display:none!important}
+.nav-backdrop{z-index:9998!important;top:var(--app-nav-mobile-h)!important}
+
+/* Login : une composition stable sur tous les écrans */
+.gate-redesign{display:grid!important;grid-template-columns:minmax(0,1.55fr) minmax(420px,.95fr)!important;min-height:100svh!important;height:auto!important;overflow:hidden!important;background:#f8ece7!important;padding:0!important}
+.gate-redesign .gate-visual{display:block!important;min-height:100svh!important;height:auto!important;background-image:linear-gradient(0deg,rgba(54,28,24,.18),rgba(54,28,24,0) 42%),url('../assets/img/gate-cover.jpg')!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important}
+.gate-redesign .gate-panel{display:grid!important;place-items:center!important;min-width:0!important;min-height:100svh!important;margin:0!important;padding:clamp(28px,4vw,72px)!important;background:radial-gradient(circle at 20% 12%,rgba(218,161,171,.22),transparent 35%),linear-gradient(145deg,#fffaf7,#f5e5df)!important}
+.gate-redesign .gate-float{position:relative!important;inset:auto!important;transform:none!important;width:min(100%,520px)!important;margin:0!important;padding:clamp(30px,4vw,52px)!important;border-radius:32px!important;background:rgba(255,255,255,.91)!important;box-shadow:0 28px 80px rgba(73,40,34,.15)!important}
+.gate-title{font-size:clamp(2.7rem,4vw,4.25rem)!important;line-height:.96!important;max-width:12ch;margin:18px auto!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+.gate-copy{max-width:38ch;margin-inline:auto!important;line-height:1.65!important}
+.gate-form .input,.gate-form .btn{width:100%!important;min-height:58px!important}
+.gate-mobile-title{display:block!important}
+
+/* Chaque page commence proprement sous la navigation */
+.section:first-child,.admin-page{scroll-margin-top:calc(var(--app-nav-h) + 16px)}
+.premium-rsvp{padding-top:clamp(46px,6vw,82px)!important;background:linear-gradient(180deg,#fffaf7,#f8ece8)!important}
+.premium-rsvp>.narrow{width:min(960px,calc(100% - 32px))!important}
+.invite-summary{margin-top:0!important}
+.admin-page{padding-top:clamp(52px,6vw,88px)!important}
+.admin-page-head{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(260px,420px)!important;align-items:end!important;gap:30px!important;margin-bottom:28px!important}
+.admin-page-head h1{font-family:'Cormorant Garamond',serif!important;font-size:clamp(3.2rem,6vw,5.6rem)!important;line-height:.87!important;margin:12px 0 0!important;max-width:780px!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+.admin-main{min-width:0!important}
+.admin-side h3{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+
+/* Informations : éviter les textes et boutons écrasés */
+.practical-copy{min-width:0!important}
+.practical-block{min-width:0!important}
+.dress-palette{grid-template-columns:repeat(2,minmax(120px,1fr))!important}
+.dress-item b{white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+.contact-actions{display:flex!important;flex-wrap:wrap!important;align-items:center!important}
+.contact-actions a{flex:0 0 auto!important;white-space:nowrap!important}
+.map-panel{width:100%!important;min-width:0!important}
+
+/* Tablettes et téléphones */
+@media(max-width:960px){
+  :root{--app-nav-h:var(--app-nav-mobile-h)}
+  html{scroll-padding-top:calc(var(--app-nav-mobile-h) + 14px)}
+  body.has-app-nav #app{padding-top:var(--app-nav-mobile-h)}
+  .nav{height:var(--app-nav-mobile-h)!important}
+  .nav-inner{width:calc(100% - 24px)!important;gap:10px!important}
+  .brand-photo{width:42px!important;height:42px!important;flex:none}
+  .brand strong{font-size:1.25rem!important}
+  .brand small{font-size:.6rem!important}
+  .menu-toggle{display:grid!important;place-items:center!important;flex:none!important}
+  .nav-links{position:fixed!important;left:12px!important;right:12px!important;top:calc(var(--app-nav-mobile-h) + 10px)!important;display:grid!important;gap:7px!important;padding:12px!important;border:1px solid rgba(99,56,47,.12)!important;border-radius:22px!important;background:rgba(255,250,247,.99)!important;box-shadow:0 24px 70px rgba(55,30,26,.24)!important;transform:translateY(-12px)!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:.2s ease!important}
+  .nav-links.open{transform:none!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+  .nav-links button{width:100%!important;justify-content:flex-start!important;text-align:left!important;min-height:50px!important;padding-inline:17px!important}
+  .gate-redesign{display:flex!important;flex-direction:column!important;min-height:100svh!important;overflow:visible!important}
+  .gate-redesign .gate-visual{height:48svh!important;min-height:340px!important;max-height:560px!important;flex:none!important;background-position:center 24%!important}
+  .gate-redesign .gate-panel{display:block!important;min-height:auto!important;margin:0!important;padding:0 14px max(28px,env(safe-area-inset-bottom))!important;background:linear-gradient(180deg,#f8ece7,#fffaf7)!important}
+  .gate-redesign .gate-float{width:min(100%,600px)!important;margin:-38px auto 0!important;padding:30px 22px!important;border-radius:28px!important;z-index:3!important}
+  .gate-mobile-title{display:none!important}
+  .gate-title{font-size:clamp(2.45rem,8.5vw,3.55rem)!important;max-width:14ch!important}
+  .admin-page-head{grid-template-columns:1fr!important;gap:12px!important;align-items:start!important}
+  .admin-page-head h1{font-size:clamp(3rem,10vw,4.6rem)!important;line-height:.92!important}
+  .admin-side{top:calc(var(--app-nav-mobile-h) + 8px)!important}
+}
+
+@media(max-width:620px){
+  .brand span:last-child{max-width:150px}
+  .gate-redesign .gate-visual{height:41svh!important;min-height:285px!important;background-position:center 22%!important}
+  .gate-redesign .gate-panel{padding-inline:10px!important}
+  .gate-redesign .gate-float{margin-top:-24px!important;padding:24px 16px!important;border-radius:24px!important}
+  .gate-kicker{font-size:.7rem!important}
+  .gate-title{font-size:clamp(2.2rem,10.2vw,2.9rem)!important;margin:14px auto!important}
+  .gate-copy{font-size:.95rem!important;line-height:1.55!important}
+  .gate-form{margin-top:20px!important}
+  .gate-form .input,.gate-form .btn{min-height:54px!important;font-size:1rem!important}
+  .premium-rsvp>.narrow{width:calc(100% - 20px)!important}
+  .premium-form{padding:20px 14px!important}
+  .admin-page{padding-top:36px!important}
+  .admin-page-head h1{font-size:clamp(2.75rem,15vw,4rem)!important}
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .practical-copy{grid-template-columns:1fr!important}
+  .dress-palette{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .contact-actions a{flex:1 1 130px!important;justify-content:center!important}
+  .map-panel,.map-panel iframe{min-height:340px!important;height:340px!important}
+}
+
+@media(max-width:380px){
+  .brand span:last-child{max-width:118px}
+  .gate-redesign .gate-visual{height:38svh!important;min-height:255px!important}
+  .gate-redesign .gate-float{padding:21px 13px!important}
+  .gate-title{font-size:2.12rem!important}
+  .dress-palette{grid-template-columns:1fr!important}
+}

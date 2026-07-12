@@ -1,0 +1,34 @@
+LE PETIT MONDE DE LINE — VERDICT PROFESSIONNEL FINAL
+=====================================================
+
+VERSION OFFICIELLE
+Le site est préparé pour un affichage allant des petits GSM (320 px) aux écrans TV 4K/8K.
+Des points de rupture dédiés sont inclus pour : 320–520 px, tablette, ordinateur Full HD,
+écrans 2K/4K et très grands écrans 8K.
+
+CONTRÔLES EFFECTUÉS
+- Aucun débordement horizontal détecté par les règles de mise en page.
+- Les blocs utilisent des largeurs fluides et des limites maximales adaptées.
+- La page de connexion passe en une colonne sur GSM et reste en deux colonnes sur ordinateur.
+- Les pages Invité, Organisateur et Administration utilisent des grilles adaptatives.
+- Les tableaux et filtres sont défilables ou transformés pour les petits écrans.
+- Le plan de salle reste contenu dans son espace et les tables sont déplaçables au doigt/souris.
+- Le JavaScript passe le contrôle de syntaxe Node.js.
+- Le fichier .nojekyll est présent pour GitHub Pages.
+
+RÉCEPTION DES CONFIRMATIONS
+Chaque confirmation est enregistrée localement dans le navigateur ET envoyée de manière
+non bloquante à jacques@bilongdigital.com via FormSubmit.
+Lors de la première confirmation en ligne, FormSubmit enverra un email d’activation :
+il faut cliquer une seule fois sur ce lien pour autoriser les messages suivants.
+Si le réseau est indisponible, la confirmation locale continue de fonctionner.
+
+PHOTOS
+La galerie affiche g1.jpg à g6.jpg.
+Elle détecte également automatiquement photo1.jpg à photo24.jpg présents dans
+assets/img/gallery/. Aucun code n’est nécessaire pour ces 24 photos supplémentaires.
+
+LIMITES À CONNAÎTRE
+GitHub Pages est un hébergement statique. Les données Admin/plan de salle restent dans
+le navigateur utilisé. Pour synchroniser en temps réel plusieurs appareils, une base de
+données (Firebase, Supabase ou PHP/MySQL) sera nécessaire.

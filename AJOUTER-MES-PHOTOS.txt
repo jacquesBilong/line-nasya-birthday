@@ -1,0 +1,11 @@
+AJOUTER DES PHOTOS SANS MODIFIER LE CODE
+========================================
+
+1. Ouvre le dossier : assets/img/gallery/
+2. Ajoute tes photos avec les noms :
+   photo1.jpg, photo2.jpg, photo3.jpg ... jusqu’à photo24.jpg
+3. Recharge le site.
+
+Les photos existantes g1.jpg à g6.jpg restent affichées.
+Conseils : format JPG/WebP, moins de 500 Ko par image, largeur 1600 à 2200 px.
+Pour remplacer une photo existante sans toucher au code, remplace g1.jpg, g2.jpg, etc.

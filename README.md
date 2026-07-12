@@ -41,3 +41,20 @@ Organisateur : Lineorganisation — Admin : LineAdminVIP2026
 ## Prochaine étape critique
 Centraliser les confirmations (Google Sheets / Formspree / MySQL) :
 aujourd'hui elles restent dans le navigateur de chaque invité.
+
+## Contact professionnel et crédit
+
+Le contact officiel du créateur du site est : **jacques@bilongdigital.com**  
+Conception et développement : **Bilong Digital** — https://bilongdigital.com
+
+## Ajouter ou remplacer des photos
+
+Le guide détaillé se trouve dans `AJOUTER-MES-PHOTOS.txt`.
+
+La méthode la plus simple consiste à remplacer les fichiers `g1.jpg` à `g6.jpg` dans `assets/img/gallery/` en conservant exactement leurs noms. Pour ajouter davantage de photos, ajoute le fichier dans ce dossier puis complète la liste `galleryPhotos` au début de `js/app.js`.
+
+## Version officielle — Le Petit Monde de Line
+- Responsive de 320 px aux écrans TV 4K/8K.
+- Confirmations envoyées à jacques@bilongdigital.com via FormSubmit (activation unique requise).
+- Galerie extensible automatiquement avec photo1.jpg à photo24.jpg.
+- CSS final : `css/responsive-tv-final.css`.

@@ -1,0 +1,13 @@
+VERSION FINALE — 12 juillet 2026
+
+1. Supprimez les anciens fichiers du dépôt GitHub Pages.
+2. Envoyez tout le contenu de ce dossier à la racine du dépôt.
+3. Vérifiez que index.html et .nojekyll sont à la racine.
+4. Attendez le déploiement GitHub Pages.
+5. Sur téléphone, fermez l'ancien onglet puis rouvrez le site. Si nécessaire, videz le cache.
+
+La page de connexion a désormais une vraie mise en page mobile :
+- photo en haut ;
+- formulaire entièrement visible dessous ;
+- aucune carte positionnée hors écran ;
+- adaptation aux écrans courts et étroits.

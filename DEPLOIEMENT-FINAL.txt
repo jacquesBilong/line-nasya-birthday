@@ -1,0 +1,15 @@
+MISE EN LIGNE GITHUB PAGES
+
+1. Extraire le ZIP.
+2. Remplacer tous les anciens fichiers du dépôt par le contenu extrait.
+3. Vérifier que index.html et .nojekyll sont à la racine.
+4. Settings > Pages > Deploy from a branch > main > /root.
+5. Après publication, vider le cache du navigateur ou ouvrir en navigation privée.
+
+FORMULAIRE EMAIL
+À la première confirmation, FormSubmit enverra un email d'activation à jacques@bilongdigital.com. Cliquer une fois sur le lien d'activation.
+
+SAUVEGARDE ADMIN
+Dans Administration > Vue générale :
+- Sauvegarder toutes les données
+- Restaurer une sauvegarde

@@ -1,0 +1,138 @@
+/* Responsive final : 320px -> écrans TV 4K/8K */
+html{overflow-x:hidden;text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden;min-width:0}
+img,svg,video,canvas,iframe{max-width:100%}
+*{min-width:0}
+.container,.narrow{width:min(100% - 32px,1280px);margin-inline:auto}
+.narrow{max-width:1120px}
+.title,h1,h2,h3,p,a,button,label,span,td,th{overflow-wrap:anywhere}
+
+/* Connexion : aucune superposition ni largeur fixe */
+.gate-redesign{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(420px,.75fr);background:#f7ebe5;overflow:hidden}
+.gate-visual{min-height:100svh;background-size:cover;background-position:center center}
+.gate-panel{min-width:0;display:grid;place-items:center;padding:clamp(28px,4vw,76px)}
+.gate-redesign .gate-float{position:relative!important;inset:auto!important;transform:none!important;width:min(100%,540px)!important;margin:0 auto!important}
+.gate-title{font-size:clamp(2.55rem,3.8vw,4.6rem);line-height:.95}
+.gate-copy{font-size:clamp(1rem,1.1vw,1.22rem);line-height:1.65}
+.gate-form{display:grid;gap:12px}
+.gate-form .input,.gate-form .btn{width:100%;min-height:56px}
+
+/* Contenu général et hero */
+.hero-grid{width:100%;align-items:center}
+.hero-copy,.hero-photo{min-width:0}
+.hero-photo{background-position:center center}
+.hero-primary-action{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.countdown{width:100%}
+.count-card{min-width:0}
+
+/* Admin / organisation */
+.admin-shell,.organizer-shell,.practical-layout,.program-split{min-width:0}
+.admin-main,.admin-content,.organizer-main,.organizer-content{min-width:0;max-width:100%}
+.table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.guest-toolbar{max-width:100%}
+.filter-row{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.room-plan{max-width:100%;touch-action:none}
+
+@media (max-width: 899px){
+  .container,.narrow{width:min(100% - 24px,760px)}
+  .gate-redesign{display:flex;flex-direction:column;min-height:100svh}
+  .gate-visual{height:46svh;min-height:300px;max-height:520px;flex:none;background-position:center 25%}
+  .gate-panel{display:block;padding:0 12px 28px;margin-top:-28px;position:relative;z-index:3}
+  .gate-redesign .gate-float{width:min(100%,520px)!important;padding:clamp(22px,5vw,34px)!important;border-radius:26px!important}
+  .gate-mobile-title{display:none!important}
+  .gate-title{font-size:clamp(2.15rem,9vw,3.5rem)}
+  .hero-grid{grid-template-columns:1fr!important}
+  .hero-photo{order:-1;min-height:clamp(330px,68vw,560px)!important;border-radius:26px!important}
+  .hero-copy{min-height:auto!important;padding-top:16px}
+  .hero .title{font-size:clamp(2.65rem,11vw,4.6rem)!important;line-height:.94!important}
+  .hero-primary-action{display:grid;gap:10px}
+  .hero-primary-action .btn{width:100%}
+  .hero-primary-action span{text-align:center}
+  .section-head,.compact-head,.program-heading,.answer-heading{display:block!important}
+  .section-head .lead,.compact-head .lead,.program-heading .lead,.answer-heading .lead{margin-top:12px;max-width:100%!important}
+  .practical-layout,.program-split{grid-template-columns:1fr!important}
+  .map-panel iframe{min-height:360px}
+  .admin-shell{grid-template-columns:1fr!important}
+  .admin-side{position:static!important;max-width:100%}
+  .admin-tabs,.admin-side nav{display:flex!important;overflow-x:auto;gap:8px;padding-bottom:8px;scroll-snap-type:x proximity}
+  .admin-tabs button,.admin-side nav button{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start}
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .guest-toolbar{display:grid!important;grid-template-columns:1fr!important}
+  .guest-toolbar .sort-btn{width:100%}
+  .room-plan{min-height:560px!important}
+}
+
+@media (max-width: 520px){
+  .container,.narrow{width:min(100% - 18px,480px)}
+  .gate-visual{height:42svh;min-height:270px;background-position:center 22%}
+  .gate-panel{margin-top:-20px;padding-inline:8px}
+  .gate-redesign .gate-float{padding:20px 14px!important;border-radius:22px!important}
+  .gate-title{font-size:clamp(2rem,10.5vw,2.8rem)}
+  .gate-copy{font-size:.98rem;line-height:1.55}
+  .gate-form .input,.gate-form .btn{min-height:52px;font-size:1rem}
+  .hero{padding-top:18px!important}
+  .hero-photo{min-height:54svh!important;background-position:center center!important}
+  .countdown-priority{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .count-card{padding:12px 6px!important}
+  .count-card strong{font-size:1.7rem!important}
+  .count-card span{font-size:.62rem!important}
+  .title{font-size:clamp(2.25rem,11vw,3.3rem)!important;line-height:1!important}
+  .lead{font-size:1rem!important;line-height:1.6}
+  .btn,.input,.small-btn{min-height:48px}
+  .contact-actions{display:grid!important;grid-template-columns:1fr!important}
+  .contact-actions a{width:100%;text-align:center}
+  .dress-palette{grid-template-columns:1fr 1fr!important}
+  .memory-carousel{padding-inline:0!important}
+  .carousel-track{aspect-ratio:4/5!important}
+  .program-row{grid-template-columns:78px minmax(0,1fr)!important;gap:12px!important}
+  .program-time{font-size:.72rem!important}
+  .stat-grid{grid-template-columns:1fr!important}
+  .room-plan{min-height:500px!important}
+  .room-table{width:88px!important}
+}
+
+/* Full HD grands écrans */
+@media (min-width: 1600px){
+  .container{width:min(88vw,1540px)}
+  .narrow{width:min(82vw,1320px);max-width:none}
+  .hero-grid{gap:clamp(50px,5vw,100px)}
+  .hero-copy,.hero-photo{min-height:clamp(640px,48vw,820px)}
+  .hero .title{font-size:clamp(5rem,5.6vw,7rem)}
+}
+
+/* TV 4K / très grands écrans */
+@media (min-width: 2400px){
+  html{font-size:19px}
+  .container{width:min(84vw,2050px)}
+  .narrow{width:min(78vw,1760px);max-width:none}
+  .navbar-inner{width:min(84vw,2050px);margin-inline:auto}
+  .gate-redesign{grid-template-columns:minmax(0,1.35fr) minmax(620px,.65fr)}
+  .gate-panel{padding:clamp(70px,5vw,140px)}
+  .gate-redesign .gate-float{width:min(100%,720px)!important;padding:64px!important;border-radius:42px!important}
+  .gate-title{font-size:5.4rem}
+  .gate-copy{font-size:1.35rem}
+  .gate-form .input,.gate-form .btn{min-height:72px;font-size:1.2rem}
+  .hero-copy,.hero-photo{min-height:900px}
+  .hero .title{font-size:8rem}
+  .section{padding-block:110px}
+  .title{font-size:clamp(4.4rem,4.5vw,7rem)}
+  .lead{font-size:1.35rem}
+  .room-plan{min-height:900px}
+  .room-table{width:160px}
+}
+
+/* TV 8K / affichage salon géant */
+@media (min-width: 3800px){
+  html{font-size:23px}
+  .container{width:min(82vw,2920px)}
+  .narrow{width:min(76vw,2500px)}
+  .navbar-inner{width:min(82vw,2920px)}
+  .gate-redesign{grid-template-columns:minmax(0,1.4fr) minmax(900px,.6fr)}
+  .gate-redesign .gate-float{width:min(100%,940px)!important;padding:86px!important}
+  .gate-title{font-size:6.8rem}
+  .gate-copy{font-size:1.55rem}
+  .hero-copy,.hero-photo{min-height:1250px}
+  .hero .title{font-size:10rem}
+  .room-plan{min-height:1200px}
+  .room-table{width:210px}
+}
