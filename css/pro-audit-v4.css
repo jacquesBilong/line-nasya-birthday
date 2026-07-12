@@ -1,0 +1,277 @@
+/* ==================================================================
+   AUDIT PRO V4 — correctifs définitifs mobile, navigation et back-office
+   Chargé en dernier afin d'annuler les anciennes règles conflictuelles.
+   ================================================================== */
+
+/* Cohérence générale */
+html { scroll-behavior: smooth; }
+body { text-rendering: optimizeLegibility; }
+.section-head,
+.compact-head,
+.response-page-head,
+.admin-page-head { text-align: center !important; }
+.section-head > *,
+.compact-head > *,
+.response-page-head > *,
+.admin-page-head > * { margin-inline: auto !important; }
+.section-head .lead,
+.compact-head .lead,
+.response-page-head .lead,
+.admin-page-head p { max-width: 52ch !important; }
+.stat { text-align: center !important; }
+
+/* Navigation principale : aucun chevauchement, un seul état actif */
+.nav-links button.active,
+.nav-links button[aria-current="page"] {
+  background: var(--brown, #6b3f35) !important;
+  color: #fff !important;
+}
+.nav-links button:not(.active):not([aria-current="page"]):not([data-nav="logout"]) {
+  background: transparent !important;
+  color: var(--chocolate, #56332c) !important;
+  box-shadow: none !important;
+}
+
+/* LOGIN MOBILE : photo réellement en fond, visible dès l'ouverture */
+@media (max-width: 960px) {
+  .gate-redesign {
+    position: relative !important;
+    display: block !important;
+    min-height: 100svh !important;
+    background:
+      linear-gradient(180deg, rgba(45,25,22,.02) 0%, rgba(45,25,22,.08) 38%, rgba(45,25,22,.42) 63%, rgba(248,236,231,.96) 82%),
+      url('../assets/img/gate-cover.jpg') 21% top / auto 62svh no-repeat,
+      #f8ece7 !important;
+    overflow: hidden !important;
+  }
+
+  .gate-redesign .gate-visual {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 57svh !important;
+    min-height: 390px !important;
+    max-height: 620px !important;
+    background:
+      linear-gradient(180deg, rgba(45,25,22,0) 45%, rgba(45,25,22,.40) 100%),
+      url('../assets/img/gate-cover.jpg') 21% center / cover no-repeat !important;
+  }
+
+  .gate-redesign .gate-mobile-title {
+    display: block !important;
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 74px !important;
+    text-align: left !important;
+    color: #fff !important;
+    text-shadow: 0 4px 22px rgba(31,16,14,.72) !important;
+  }
+
+  .gate-redesign .gate-panel {
+    position: relative !important;
+    z-index: 4 !important;
+    display: block !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 12px max(28px, env(safe-area-inset-bottom)) !important;
+    background: transparent !important;
+  }
+
+  .gate-redesign .gate-float {
+    width: min(100%, 610px) !important;
+    margin: -64px auto 0 !important;
+    padding: clamp(25px, 6vw, 38px) clamp(17px, 5vw, 30px) !important;
+    border-radius: 30px !important;
+    background: rgba(255,255,255,.94) !important;
+    border: 1px solid rgba(255,255,255,.82) !important;
+    box-shadow: 0 28px 70px rgba(60,31,27,.25) !important;
+    backdrop-filter: blur(16px) saturate(1.08) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(1.08) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .gate-redesign {
+    background-position: 18% top !important;
+    background-size: auto 58svh !important;
+  }
+  .gate-redesign .gate-visual {
+    height: 52svh !important;
+    min-height: 350px !important;
+    background-position: 18% center !important;
+  }
+  .gate-redesign .gate-mobile-title { bottom: 62px !important; }
+  .gate-redesign .gate-float { margin-top: -52px !important; }
+  .gate-title {
+    font-size: clamp(2.25rem, 10vw, 3rem) !important;
+    line-height: .97 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .gate-redesign .gate-visual {
+    height: 49svh !important;
+    min-height: 320px !important;
+    background-position: 16% center !important;
+  }
+  .gate-redesign .gate-float { margin-top: -42px !important; }
+}
+
+/* BACK-OFFICE : sidebar/onglets toujours visibles et lisibles */
+.admin-side {
+  background: linear-gradient(155deg, #3d2723, #2d1d1a) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+}
+.admin-side h3 {
+  color: #fff !important;
+  text-align: center !important;
+}
+.admin-side button {
+  color: rgba(255,255,255,.88) !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+.admin-side button:hover,
+.admin-side button:focus-visible {
+  color: #fff !important;
+  background: rgba(255,255,255,.10) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+.admin-side button.active {
+  color: #40261f !important;
+  background: linear-gradient(135deg, #fffaf6, #f2dcd3) !important;
+  border-color: rgba(255,255,255,.75) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18) !important;
+}
+.admin-page-head {
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  align-items: center !important;
+}
+.admin-page-head h1 {
+  text-align: center !important;
+  max-width: 12ch !important;
+  margin-inline: auto !important;
+}
+.admin-page-head p { text-align: center !important; }
+.admin-actions { justify-content: center !important; }
+
+@media (min-width: 961px) {
+  .admin-side {
+    position: sticky !important;
+    top: calc(var(--app-nav-h) + 20px) !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .admin-page {
+    padding-top: 22px !important;
+  }
+  .admin-page > .container.admin-shell {
+    width: min(100%, 860px) !important;
+    gap: 20px !important;
+  }
+  .admin-side {
+    position: sticky !important;
+    top: calc(var(--app-nav-mobile-h) + 8px) !important;
+    z-index: 220 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 64px !important;
+    padding: 9px !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 38px rgba(50,28,24,.24) !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .admin-side::-webkit-scrollbar { display: none !important; }
+  .admin-side h3 {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    margin: 0 4px 0 2px !important;
+    padding: 0 10px !important;
+    font-family: 'Nunito', sans-serif !important;
+    font-size: .72rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: .10em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+  }
+  .admin-side button {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
+    min-height: 46px !important;
+    margin: 0 !important;
+    padding: 10px 16px !important;
+    border-radius: 14px !important;
+    white-space: nowrap !important;
+    font-size: .86rem !important;
+  }
+  .admin-main { width: 100% !important; }
+  .admin-page-head { margin-top: 6px !important; }
+  .admin-page-head .eyebrow { margin-inline: auto !important; }
+  .admin-page-head h1 {
+    font-size: clamp(3rem, 12vw, 4.5rem) !important;
+    line-height: .93 !important;
+    max-width: 10ch !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .admin-page { padding-inline: 10px !important; }
+  .admin-side {
+    top: calc(var(--app-nav-mobile-h) + 6px) !important;
+    border-radius: 17px !important;
+  }
+  .admin-side h3 { display: none !important; }
+  .admin-side button {
+    min-height: 44px !important;
+    padding-inline: 14px !important;
+    font-size: .82rem !important;
+  }
+  .admin-page-head h1 {
+    font-size: clamp(2.8rem, 14vw, 3.9rem) !important;
+  }
+  .admin-page-head p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+  .stat-grid { gap: 10px !important; }
+  .stat { padding: 18px 10px !important; }
+  .stat strong { font-size: 2.25rem !important; }
+  .stat span { display: block !important; margin-top: 8px !important; }
+}
+
+/* Menu mobile principal : compact, lisible et sans boutons géants */
+@media (max-width: 960px) {
+  .nav-links {
+    max-height: calc(100svh - var(--app-nav-mobile-h) - 28px) !important;
+    overflow-y: auto !important;
+    grid-template-columns: 1fr 1fr !important;
+    align-content: start !important;
+  }
+  .nav-links button {
+    justify-content: center !important;
+    text-align: center !important;
+    min-height: 48px !important;
+    font-size: .82rem !important;
+  }
+  .nav-links button[data-nav="logout"] {
+    grid-column: 1 / -1 !important;
+  }
+}
+@media (max-width: 430px) {
+  .nav-links { grid-template-columns: 1fr !important; }
+  .nav-links button[data-nav="logout"] { grid-column: auto !important; }
+}

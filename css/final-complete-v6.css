@@ -1,0 +1,48 @@
+/* Final complete audit v6 */
+:root{--final-nav-gap:18px}
+html{scroll-behavior:smooth;scroll-padding-top:calc(88px + env(safe-area-inset-top))}
+.section[id]{scroll-margin-top:calc(88px + env(safe-area-inset-top))}
+
+/* Center every page entry point consistently */
+.section>.container,.section>.narrow,.admin-shell{margin-inline:auto}
+.section-head,.admin-page-head{align-items:center}
+.section-head>div,.section-head>.lead,.admin-page-head>div,.admin-page-head>p{text-align:center}
+.section-head>div,.admin-page-head>div{margin-inline:auto}
+.section-head>.lead,.admin-page-head>p{margin-inline:auto;max-width:720px}
+
+/* Program now reads as one continuous family event */
+.program-unified{align-items:stretch}
+.program-unified .program-part{height:100%}
+.program-unified .program-part-head{text-align:left}
+.program-unified .program-row{align-items:flex-start}
+
+/* Five useful statistics, without imposing any venue quota */
+.stat-grid-with-places{grid-template-columns:repeat(5,minmax(0,1fr))}
+.stat-grid-with-places .stat-places{background:linear-gradient(145deg,#fffaf7,#f8e9e4);border-color:rgba(111,67,58,.2)}
+.stat-grid-with-places .stat-places strong{color:var(--gold-dark,#a87c28)}
+
+/* Admin / organizer tabs stay centered and land at the right offset */
+.admin-side{top:calc(var(--nav-h,78px) + 20px)}
+.admin-page-head{scroll-margin-top:calc(92px + env(safe-area-inset-top))}
+.admin-side button{text-align:center}
+
+@media (max-width:1100px){
+  .stat-grid-with-places{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat-grid-with-places .stat-places{grid-column:span 1}
+}
+@media (max-width:760px){
+  html{scroll-padding-top:calc(82px + env(safe-area-inset-top))}
+  .section[id],.admin-page-head{scroll-margin-top:calc(82px + env(safe-area-inset-top))}
+  .section-head,.admin-page-head{display:flex!important;flex-direction:column!important;justify-content:center!important;text-align:center!important;gap:12px!important}
+  .section-head .title,.section-head .lead,.admin-page-head h1,.admin-page-head p{text-align:center!important;margin-inline:auto!important}
+  .program-unified{grid-template-columns:1fr!important}
+  .program-unified .program-part-head{text-align:center}
+  .program-unified .program-row{grid-template-columns:78px minmax(0,1fr)}
+  .stat-grid-with-places{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat-grid-with-places .stat-places{grid-column:1/-1}
+  .admin-side{top:calc(80px + env(safe-area-inset-top));justify-content:center}
+}
+@media (max-width:430px){
+  .program-unified .program-row{grid-template-columns:68px minmax(0,1fr)}
+  .stat-grid-with-places{gap:10px}
+}

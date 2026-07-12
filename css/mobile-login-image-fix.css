@@ -1,0 +1,74 @@
+/* Correctif final : rendre l'image de Line réellement visible sur GSM */
+@media (max-width: 960px) {
+  .gate-redesign .gate-visual {
+    display: block !important;
+    width: 100% !important;
+    height: 52svh !important;
+    min-height: 360px !important;
+    max-height: 590px !important;
+    flex: 0 0 auto !important;
+    background-image:
+      linear-gradient(180deg, rgba(55,31,27,.02) 0%, rgba(55,31,27,.04) 58%, rgba(55,31,27,.28) 100%),
+      url('../assets/img/gate-cover.jpg') !important;
+    background-size: cover !important;
+    /* Sur l'image source, Line se trouve à gauche : on cadre donc l'axe horizontal à 23 %. */
+    background-position: 23% center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .gate-redesign .gate-mobile-title {
+    display: block !important;
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 54px !important;
+    color: #fff !important;
+    text-align: left !important;
+    text-shadow: 0 3px 22px rgba(45,31,29,.72) !important;
+    z-index: 2 !important;
+  }
+
+  .gate-redesign .gate-mobile-title strong {
+    display: block !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.3rem, 11vw, 3.7rem) !important;
+    line-height: .92 !important;
+  }
+
+  .gate-redesign .gate-mobile-title span {
+    display: block !important;
+    margin-top: 8px !important;
+    font-size: .78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase !important;
+  }
+
+  .gate-redesign .gate-panel {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .gate-redesign .gate-float {
+    margin-top: -44px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .gate-redesign .gate-visual {
+    height: 50svh !important;
+    min-height: 330px !important;
+    background-position: 21% center !important;
+  }
+
+  .gate-redesign .gate-float {
+    margin-top: -34px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .gate-redesign .gate-visual {
+    height: 48svh !important;
+    min-height: 300px !important;
+    background-position: 19% center !important;
+  }
+}

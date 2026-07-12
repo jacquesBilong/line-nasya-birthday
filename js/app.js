@@ -141,7 +141,7 @@
       <div class="section-head compact-head"><div><span class="eyebrow">Informations pratiques</span><h2 class="title" style="margin-top:12px">L’essentiel pour votre venue</h2></div><p class="lead">Une vue claire de l’adresse, des horaires, de la tenue et des contacts.</p></div>
       <div class="practical-layout">
         <div class="practical-copy">
-          <article class="practical-block"><span class="mini-label">Quand</span><h3>Samedi 15 août 2026</h3><p>Accueil des familles dès <strong>15h00</strong>. Le repas principal est prévu à <strong>19h00</strong>, puis la fête se poursuit en musique jusque tard dans la nuit.</p></article>
+          <article class="practical-block"><span class="mini-label">Quand</span><h3>Samedi 15 août 2026</h3><p>Accueil des familles dès <strong>15h00</strong>. Le grand dîner est prévu à <strong>17h30</strong>, puis la fête se poursuit en musique jusque tard dans la nuit.</p></article>
           <article class="practical-block"><span class="mini-label">Où</span><h3>${CONFIG.venue}</h3><p>${CONFIG.address}</p><a class="text-action" href="${mapsUrl()}" target="_blank" rel="noopener">Ouvrir l’itinéraire</a></article>
           <article class="practical-block dress-block"><span class="mini-label">Tenue souhaitée</span><h3>Couleurs de la fête</h3><div class="dress-palette"><span class="dress-item"><i style="--swatch:#6b3f35"></i><b>Marron</b></span><span class="dress-item"><i style="--swatch:#d9a0a7"></i><b>Rose poudré</b></span><span class="dress-item"><i style="--swatch:#e7c4b4"></i><b>Nude</b></span><span class="dress-item"><i style="--swatch:#c9a44c"></i><b>Doré</b></span></div></article>
           <article class="practical-block contact-block"><span class="mini-label">Un renseignement ?</span><h3>Jacques & Suzanne</h3><div class="contact-actions"><a href="tel:${CONFIG.contactPhone}" aria-label="Appeler Jacques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg><span>Appeler</span></a><a href="https://wa.me/${CONFIG.contactPhone.replace('+','')}" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9 8.38 8.38 0 0 1 12.5 3H13a8.48 8.48 0 0 1 8 8z"/></svg><span>WhatsApp</span></a><a href="mailto:${CONFIG.contactEmail}" aria-label="Envoyer un email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><span>Email</span></a></div></article>
@@ -181,23 +181,24 @@
     return `<span class="program-icon program-icon-${type}">${icons[type]||icons.welcome}</span>`;
   }
   function renderProgram(){
-    const children=[
-      ['15h00','Accueil des familles','Bienvenue, installation, premières photos et découverte des espaces.','welcome'],
-      ['15h30','Jeux et animations','Château gonflable, clown, magicien et moments ludiques spécialement pensés pour les enfants.','castle'],
-      ['17h00','Le grand moment de Line','Chant d’anniversaire, bougie, découpe du gâteau et photos souvenirs avec les enfants.','cake']
+    const welcome=[
+      ['15h00','Accueil & cocktail de bienvenue','Cocktails, boissons, jus et petites gourmandises pour les enfants et les parents, installation et premières photos.','cocktail'],
+      ['15h30','Activités & convivialité','Jeux et animations pour les enfants pendant que les parents profitent des échanges, de la musique d’ambiance et de l’espace photo.','castle'],
+      ['16h45','Rassemblement & photos','Photos de famille, photos avec Line et transition douce vers le grand dîner.','welcome']
     ];
-    const adults=[
-      ['18h00','Cocktail et retrouvailles','Accueil, échanges, boissons et ambiance élégante avant le repas.','cocktail'],
-      ['19h00','Repas et partage','Le repas principal de la fête, dans une ambiance familiale et conviviale.','meal'],
-      ['21h00','Musique et danse','Ouverture de la piste, animation musicale et soirée festive.','music'],
-      ['Jusqu’au petit matin','La soirée continue','La musique, la danse et les souvenirs se prolongent librement, sans précipitation.','magic']
+    const celebration=[
+      ['17h30','Grand dîner','Buffet principal servi à tous les invités dans une ambiance familiale, chaleureuse et conviviale.','meal'],
+      ['19h30','Animations & remerciements','Jeux en famille, petites surprises, prises de parole et photos souvenirs.','magic'],
+      ['20h00','Bougie & coupure du gâteau','Chant d’anniversaire, bougie, coupure du gâteau, dessert et photos officielles autour de Line.','cake'],
+      ['21h00','Musique & danse','Ouverture de la piste et soirée festive pour toutes les générations.','music'],
+      ['Jusqu’au petit matin','La fête continue','Musique, danse, échanges et départ progressif des invités, sans précipitation.','cocktail']
     ];
     const rows=(items)=>items.map(([t,a,d,i])=>`<article class="program-row"><div class="program-visual">${programIcon(i)}<div class="program-time">${t}</div></div><div class="program-copy"><div class="program-title">${a}</div><div class="program-desc">${d}</div></div></article>`).join('');
     return `<section id="programme" class="program section program-soft reveal"><div class="narrow">
-      <div class="section-head program-heading"><div><span class="eyebrow">Le déroulement de la fête</span><h2 class="title" style="margin-top:12px">Deux moments, une même joie</h2></div><p class="lead">Un après-midi dédié aux enfants, puis une soirée festive pour les adultes.</p></div>
-      <div class="program-split">
-        <section class="program-part program-part-kids"><div class="program-part-head"><span>15h00 — 18h00</span><h3>Le temps des enfants</h3><p>Accueil, jeux, surprises et gâteau autour de Line.</p></div><div class="program-flow">${rows(children)}</div></section>
-        <section class="program-part program-part-adults"><div class="program-part-head"><span>Dès 18h00</span><h3>La soirée des adultes</h3><p>Cocktail, dîner, musique et danse jusqu’au petit matin.</p></div><div class="program-flow">${rows(adults)}</div></section>
+      <div class="section-head program-heading"><div><span class="eyebrow">Le déroulement de la fête</span><h2 class="title" style="margin-top:12px">Une fête, un parcours partagé</h2></div><p class="lead">Enfants, parents et proches vivent la journée ensemble, avec des temps adaptés à chacun.</p></div>
+      <div class="program-split program-unified">
+        <section class="program-part program-part-kids"><div class="program-part-head"><span>15h00 — 17h30</span><h3>Accueil & activités</h3><p>Cocktails, boissons, animations et retrouvailles pour toute la famille.</p></div><div class="program-flow">${rows(welcome)}</div></section>
+        <section class="program-part program-part-adults"><div class="program-part-head"><span>Dès 17h30</span><h3>Dîner & célébration</h3><p>Grand dîner, gâteau, animations, musique et danse dans une même ambiance.</p></div><div class="program-flow">${rows(celebration)}</div></section>
       </div>
     </div></section>`;
   }
@@ -262,7 +263,7 @@
       ? [['overview','Vue générale'],['catering','Présences & repas'],['seating','Plan de salle'],['codes','Invités & accès']]
       : [['overview','Vue générale'],['catering','Présences & repas'],['seating','Plan de salle']];
     if(session?.role !== 'admin' && activeAdminTab === 'codes') activeAdminTab = 'overview';
-    return `<section class="section admin-page"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div class="admin-main"><div class="admin-page-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace admin':'Espace organisateur'}</span><h1>${session?.role==='admin'?'Gestion de l’événement':'Suivi de l’événement'}</h1></div><p>${session?.role==='admin'?'Invités, réponses, repas et plan de salle au même endroit.':'Réponses, repas et placement des invités.'}</p></div><div class="stat-grid"><div class="stat"><strong>${state.invites.length}</strong><span>Invités</span></div><div class="stat"><strong>${fx.yes}</strong><span>Présents</span></div><div class="stat"><strong>${fx.no}</strong><span>Absents</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='seating'?adminSeating():''}</div></div></section>${renderFooter()}`;
+    return `<section class="section admin-page"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div class="admin-main"><div class="admin-page-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace admin':'Espace organisateur'}</span><h1>${session?.role==='admin'?'Gestion de l’événement':'Suivi de l’événement'}</h1></div><p>${session?.role==='admin'?'Invités, réponses, repas et plan de salle au même endroit.':'Réponses, repas et placement des invités.'}</p></div><div class="stat-grid stat-grid-with-places"><div class="stat"><strong>${state.invites.length}</strong><span>Invitations</span></div><div class="stat"><strong>${fx.yes}</strong><span>Confirmées</span></div><div class="stat"><strong>${fx.no}</strong><span>Absentes</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div><div class="stat stat-places"><strong>${fx.people}</strong><span>Places confirmées</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='seating'?adminSeating():''}</div></div></section>${renderFooter()}`;
   }
   function adminOverview(){
     const f=computeFull();
@@ -399,13 +400,22 @@
     $('#editResponse')?.addEventListener('click',()=>{ state.responses=state.responses.filter(r=>r.inviteId!==session.inviteId); saveState(); toast('Vous pouvez modifier votre réponse.'); render(); });
     $('#downloadICS')?.addEventListener('click',downloadICS);
   }
+  function scrollToSection(id, smooth=true){
+    const el=document.getElementById(id);
+    if(!el)return;
+    const nav=$('#navbar');
+    const offset=(nav && !nav.classList.contains('hidden') ? nav.getBoundingClientRect().height : 0)+18;
+    const top=Math.max(0, window.scrollY+el.getBoundingClientRect().top-offset);
+    window.scrollTo({top,behavior:smooth?'smooth':'auto'});
+  }
+
   function navigate(to){
     closeMenu();
     if(to==='logout'){clearSession(); page='gate'; render(); return;}
     if(to==='organizer'&&!isStaff()){toast('Accès réservé à l’organisation.','error');return;}
     if(['infos','gallery','programme'].includes(to) && session?.role==='guest'){
       if(page!=='home'){ page='home'; render(); }
-      requestAnimationFrame(()=>document.getElementById(to)?.scrollIntoView({behavior:'smooth',block:'start'}));
+      requestAnimationFrame(()=>scrollToSection(to,true));
       return;
     }
     if(to==='rsvp'&&session?.role==='guest'){ page='rsvp'; render(); window.scrollTo({top:0,behavior:'smooth'}); return; }
@@ -470,7 +480,7 @@
     $$('[data-admin-tab]').forEach(b=>b.onclick=()=>{
       activeAdminTab=b.dataset.adminTab;
       render();
-      requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'smooth'}));
+      requestAnimationFrame(()=>{ const target=$('.admin-page-head')||$('.admin-main'); if(target){ const nav=$('#navbar'); const offset=(nav?.getBoundingClientRect().height||0)+18; window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:'smooth'}); } });
     });
 
     $('#exportBackup')?.addEventListener('click',exportBackup);
@@ -641,7 +651,7 @@
   function buildConfirmMessage(inv,r){return `Bonjour ${inv.mainName||inv.family},\n\nMerci pour votre réponse au 1er anniversaire de Line Nasya Bilong.\nPrésence : ${r.presence==='oui'?'confirmée':'absence notée'}\nPersonnes : ${r.companions.length}\nDate : ${CONFIG.eventDate}\nLieu : ${CONFIG.venue}\n\n${CONFIG.parents}`;}
   function exportCSV(name,heads,rows){const csv=[heads,...rows].map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(';')).join('\n');const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href);toast('Export téléchargé.');}
   function printCodes(){const w=window.open('','_blank');w.document.write(`<html><head><title>Codes Line Nasya</title><style>body{font-family:Arial;padding:30px}h1{color:#553633}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{border:1px solid #ddd;border-radius:14px;padding:14px}.code{font-size:24px;font-weight:bold;color:#553633}</style></head><body><h1>Codes invités · Line Nasya</h1><div class="grid">${state.invites.map(i=>`<div class="card"><b>${esc(i.family)}</b><div class="code">${esc(i.code)}</div><p>${i.maxGuests} place(s)</p></div>`).join('')}</div></body></html>`);w.document.close();w.print();}
-  function downloadICS(){const ics=`BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nUID:line-nasya-2026@example.com\nDTSTART:20260815T130000\nDTEND:20260816T020000\nSUMMARY:${CONFIG.eventName}\nLOCATION:${CONFIG.venue}, ${CONFIG.address}\nDESCRIPTION:Anniversaire de Line Nasya Bilong\nEND:VEVENT\nEND:VCALENDAR`;const blob=new Blob([ics],{type:'text/calendar'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='anniversaire-line-nasya.ics';a.click();URL.revokeObjectURL(a.href);}
+  function downloadICS(){const ics=`BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nUID:line-nasya-2026@example.com\nDTSTART:20260815T150000\nDTEND:20260816T030000\nSUMMARY:${CONFIG.eventName}\nLOCATION:${CONFIG.venue}, ${CONFIG.address}\nDESCRIPTION:Anniversaire de Line Nasya Bilong\nEND:VEVENT\nEND:VCALENDAR`;const blob=new Blob([ics],{type:'text/calendar'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='anniversaire-line-nasya.ics';a.click();URL.revokeObjectURL(a.href);}
 
   init();
 })();

@@ -1,0 +1,56 @@
+/* ================================================================
+   CONFIRMATION — centrage final
+   ================================================================ */
+.premium-rsvp .success-card{
+  text-align:center!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  max-width:1120px!important;
+  margin-inline:auto!important;
+  padding-inline:clamp(22px,5vw,72px)!important;
+}
+.premium-rsvp .success-card .script,
+.premium-rsvp .success-card .title,
+.premium-rsvp .success-card .lead{
+  width:100%!important;
+  max-width:820px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+.premium-rsvp .success-card .title{
+  display:block!important;
+  max-width:12ch!important;
+  margin-top:12px!important;
+  margin-bottom:10px!important;
+  line-height:.98!important;
+  text-wrap:balance!important;
+}
+.premium-rsvp .success-card .lead{
+  line-height:1.6!important;
+  text-wrap:pretty!important;
+}
+.premium-rsvp .success-card .vip-ticket{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+.premium-rsvp .success-card > div:last-child{
+  width:100%!important;
+  justify-content:center!important;
+}
+@media (max-width:620px){
+  .premium-rsvp .success-card{
+    padding:28px 18px!important;
+  }
+  .premium-rsvp .success-card .script{
+    font-size:clamp(2.5rem,13vw,3.5rem)!important;
+  }
+  .premium-rsvp .success-card .title{
+    font-size:clamp(2.35rem,12vw,3.2rem)!important;
+    max-width:10ch!important;
+  }
+}
