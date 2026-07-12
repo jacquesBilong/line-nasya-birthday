@@ -263,7 +263,7 @@
       ? [['overview','Vue générale'],['catering','Présences & repas'],['seating','Plan de salle'],['codes','Invités & accès']]
       : [['overview','Vue générale'],['catering','Présences & repas'],['seating','Plan de salle']];
     if(session?.role !== 'admin' && activeAdminTab === 'codes') activeAdminTab = 'overview';
-    return `<section class="section admin-page"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div class="admin-main"><div class="admin-page-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace admin':'Espace organisateur'}</span><h1>${session?.role==='admin'?'Gestion de l’événement':'Suivi de l’événement'}</h1></div><p>${session?.role==='admin'?'Invités, réponses, repas et plan de salle au même endroit.':'Réponses, repas et placement des invités.'}</p></div><div class="stat-grid stat-grid-with-places"><div class="stat"><strong>${state.invites.length}</strong><span>Invitations</span></div><div class="stat"><strong>${fx.yes}</strong><span>Confirmées</span></div><div class="stat"><strong>${fx.no}</strong><span>Absentes</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div><div class="stat stat-places"><strong>${fx.people}</strong><span>Places confirmées</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='seating'?adminSeating():''}</div></div></section>${renderFooter()}`;
+    return `<section class="section admin-page"><div class="container admin-shell"><aside class="admin-side"><h3>${session?.role==='admin'?'Administration':'Organisation'}</h3>${tabs.map(([k,l])=>`<button class="${activeAdminTab===k?'active':''}" data-admin-tab="${k}">${l}</button>`).join('')}</aside><div class="admin-main"><div class="admin-page-head"><div><span class="eyebrow">${session?.role==='admin'?'Espace admin':'Espace organisateur'}</span><h1>${session?.role==='admin'?'Gestion de l’événement':'Suivi de l’événement'}</h1></div><p>${session?.role==='admin'?'Invités, réponses, repas et plan de salle au même endroit.':'Réponses, repas et placement des invités.'}</p></div><div class="stat-grid stat-grid-with-places"><div class="stat"><strong>${state.invites.length}</strong><span>Invitations</span></div><div class="stat"><strong>${fx.yes}</strong><span>Confirmées</span></div><div class="stat"><strong>${fx.no}</strong><span>Absentes</span></div><div class="stat"><strong>${fx.wait}</strong><span>En attente</span></div><div class="stat stat-places"><strong>${fx.people}</strong><span>Total des places prises</span></div></div>${activeAdminTab==='overview'?adminOverview():''}${activeAdminTab==='codes'?adminCodes():''}${activeAdminTab==='catering'?adminCatering():''}${activeAdminTab==='seating'?adminSeating():''}</div></div></section>${renderFooter()}`;
   }
   function adminOverview(){
     const f=computeFull();
@@ -477,10 +477,28 @@
     });
   }
   function bindOrganizer(){
+    const adminTabsBar=$('.admin-side');
+    if(adminTabsBar){
+      requestAnimationFrame(()=>{
+        const activeTab=$('.admin-side [data-admin-tab].active');
+        if(activeTab) activeTab.scrollIntoView({behavior:'auto',block:'nearest',inline:'start'});
+        else adminTabsBar.scrollLeft=0;
+      });
+    }
     $$('[data-admin-tab]').forEach(b=>b.onclick=()=>{
       activeAdminTab=b.dataset.adminTab;
       render();
-      requestAnimationFrame(()=>{ const target=$('.admin-page-head')||$('.admin-main'); if(target){ const nav=$('#navbar'); const offset=(nav?.getBoundingClientRect().height||0)+18; window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:'smooth'}); } });
+      requestAnimationFrame(()=>{
+        const bar=$('.admin-side');
+        const active=$('.admin-side [data-admin-tab].active');
+        if(bar && active) active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+        const target=$('.admin-page-head')||$('.admin-main');
+        if(target){
+          const nav=$('#navbar');
+          const offset=(nav?.getBoundingClientRect().height||0)+18;
+          window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:'smooth'});
+        }
+      });
     });
 
     $('#exportBackup')?.addEventListener('click',exportBackup);

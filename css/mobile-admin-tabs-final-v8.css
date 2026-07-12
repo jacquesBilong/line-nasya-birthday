@@ -1,0 +1,92 @@
+/* V8 — correction finale des onglets Administration / Organisation sur mobile */
+@media (max-width: 960px) {
+  .admin-page > .container.admin-shell {
+    width: min(100%, 920px) !important;
+    padding-inline: 10px !important;
+    margin-inline: auto !important;
+  }
+
+  .admin-side {
+    justify-content: flex-start !important;
+    scroll-padding-inline: 10px !important;
+    padding: 9px 10px !important;
+    overscroll-behavior-inline: contain !important;
+    touch-action: pan-x !important;
+  }
+
+  .admin-side button:first-of-type {
+    margin-left: 0 !important;
+  }
+
+  .admin-side button:last-of-type {
+    margin-right: 4px !important;
+  }
+
+  .admin-side button {
+    scroll-snap-align: start !important;
+  }
+
+  .admin-page-head,
+  .admin-page-head > div,
+  .admin-page-head p,
+  .admin-page-head h1,
+  .admin-page-head .eyebrow {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+
+  .admin-page-head h1 {
+    max-width: 11ch !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .admin-page {
+    padding-inline: 0 !important;
+  }
+
+  .admin-side {
+    width: calc(100% - 20px) !important;
+    margin-inline: auto !important;
+    border-radius: 18px !important;
+  }
+
+  .admin-side button {
+    min-height: 46px !important;
+    padding: 10px 15px !important;
+    font-size: .86rem !important;
+  }
+
+  .admin-main {
+    width: min(100%, 760px) !important;
+    margin-inline: auto !important;
+  }
+
+  .admin-page-head {
+    padding-inline: 12px !important;
+  }
+
+  .admin-page-head h1 {
+    font-size: clamp(2.8rem, 13vw, 4.25rem) !important;
+    line-height: .94 !important;
+  }
+
+  .stat-grid-with-places,
+  .charts-grid,
+  .admin-actions,
+  .table-wrap,
+  #guestPager,
+  .seating-toolbar,
+  .seating-grid {
+    margin-inline: 10px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .admin-side button {
+    padding-inline: 13px !important;
+    font-size: .82rem !important;
+  }
+}
