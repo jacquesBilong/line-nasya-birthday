@@ -1,0 +1,164 @@
+/* ================================================================
+   FINAL ADMIN + ORGANISATEUR + CENTRAGE
+   Chargé en dernier pour garantir une mise en page stable.
+   ================================================================ */
+
+/* Pages publiques : contenu recentré et largeur confortable */
+.premium-rsvp{
+  display:block!important;
+  padding-inline:clamp(16px,3vw,42px)!important;
+}
+.premium-rsvp>.narrow{
+  width:min(100%,1120px)!important;
+  max-width:1120px!important;
+  margin-inline:auto!important;
+}
+.premium-rsvp .invite-summary,
+.premium-rsvp .premium-form,
+.premium-rsvp .success-card{
+  width:100%!important;
+  margin-inline:auto!important;
+}
+.premium-rsvp .premium-form{max-width:980px!important}
+.premium-rsvp .invite-summary{max-width:980px!important}
+
+/* Administration et organisation : ensemble centré */
+.admin-page{
+  min-height:calc(100svh - var(--app-nav-h));
+  padding-inline:clamp(16px,3vw,42px)!important;
+}
+.admin-page>.container.admin-shell{
+  width:min(100%,1480px)!important;
+  max-width:1480px!important;
+  margin-inline:auto!important;
+  padding-inline:0!important;
+  display:grid!important;
+  grid-template-columns:280px minmax(0,1fr)!important;
+  gap:clamp(24px,3vw,46px)!important;
+  align-items:start!important;
+}
+.admin-main{
+  width:100%!important;
+  max-width:1180px!important;
+  min-width:0!important;
+  margin-inline:auto!important;
+}
+
+/* Sidebar fixe visuellement pendant le défilement, admin ET organisateur */
+.admin-side{
+  position:sticky!important;
+  top:calc(var(--app-nav-h) + 22px)!important;
+  align-self:start!important;
+  max-height:calc(100svh - var(--app-nav-h) - 44px)!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  z-index:20!important;
+  border-radius:28px!important;
+  box-shadow:0 20px 50px rgba(50,29,25,.16)!important;
+}
+.admin-side h3{
+  font-size:clamp(2rem,2.4vw,2.65rem)!important;
+  line-height:1!important;
+  margin:0 0 14px!important;
+  white-space:normal!important;
+}
+.admin-side button{
+  min-height:48px!important;
+  display:flex!important;
+  align-items:center!important;
+  width:100%!important;
+}
+
+/* En-tête et statistiques cohérents */
+.admin-page-head{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+.admin-page-head h1{
+  max-width:100%!important;
+  line-height:.94!important;
+}
+.stat-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+.admin-actions{
+  align-items:center!important;
+}
+.admin-actions .btn,
+.admin-actions .import-label{
+  min-height:46px!important;
+}
+
+/* Ancres et changement d'onglet : aucun contenu masqué sous la nav */
+.admin-main>[id],
+.admin-main .card,
+.admin-main .table-wrap{
+  scroll-margin-top:calc(var(--app-nav-h) + 28px);
+}
+
+@media (max-width:1080px){
+  .admin-page>.container.admin-shell{
+    grid-template-columns:240px minmax(0,1fr)!important;
+    gap:24px!important;
+  }
+  .admin-side{padding:18px!important}
+  .admin-side h3{font-size:2rem!important}
+}
+
+/* Tablette/mobile : la navigation admin devient une barre sticky horizontale */
+@media (max-width:960px){
+  .premium-rsvp{padding-inline:12px!important}
+  .premium-rsvp>.narrow{width:100%!important}
+  .premium-rsvp .premium-form,
+  .premium-rsvp .invite-summary{max-width:760px!important}
+
+  .admin-page{padding-inline:12px!important}
+  .admin-page>.container.admin-shell{
+    width:min(100%,820px)!important;
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+  }
+  .admin-side{
+    position:sticky!important;
+    top:calc(var(--app-nav-mobile-h) + 8px)!important;
+    max-height:none!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:8px!important;
+    padding:10px!important;
+    border-radius:20px!important;
+    white-space:nowrap!important;
+    z-index:50!important;
+  }
+  .admin-side h3{
+    font-family:'Nunito',sans-serif!important;
+    font-size:.78rem!important;
+    letter-spacing:.1em!important;
+    text-transform:uppercase!important;
+    flex:0 0 auto!important;
+    margin:0 6px 0 4px!important;
+  }
+  .admin-side button{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-height:42px!important;
+    margin:0!important;
+    padding:10px 14px!important;
+  }
+  .admin-main{max-width:820px!important}
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+@media (max-width:620px){
+  .premium-rsvp{padding-inline:8px!important}
+  .premium-rsvp .premium-form{padding:18px 12px!important}
+  .admin-page{padding-inline:8px!important}
+  .admin-page>.container.admin-shell{gap:14px!important}
+  .admin-side{margin-inline:0!important;border-radius:16px!important}
+  .admin-page-head h1{font-size:clamp(2.55rem,13vw,3.8rem)!important}
+  .stat{padding:16px!important}
+  .stat strong{font-size:2rem!important}
+}

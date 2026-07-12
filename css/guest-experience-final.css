@@ -1,0 +1,47 @@
+/* Expérience invité finale : navigation, accueil personnalisé et ancres */
+#infos, #programme, #gallery, #confirmation { scroll-margin-top: 92px; }
+
+.star-welcome {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: clamp(28px, 5vw, 58px);
+  max-width: 680px;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(201,164,76,.20), transparent 24%),
+    radial-gradient(circle at 88% 16%, rgba(217,160,167,.22), transparent 28%),
+    linear-gradient(145deg, #fffdfb, #fff7f3);
+  border: 1px solid rgba(107,63,53,.12);
+  box-shadow: 0 28px 80px rgba(80,47,42,.22);
+}
+.star-welcome::before,
+.star-welcome::after {
+  content: "✦";
+  position: absolute;
+  font-size: 5rem;
+  color: rgba(201,164,76,.14);
+  transform: rotate(18deg);
+}
+.star-welcome::before { left: 22px; bottom: 15px; }
+.star-welcome::after { right: 24px; top: 18px; }
+.star-sparkles { color: var(--gold); letter-spacing: .45em; font-size: clamp(1rem, 3vw, 1.45rem); margin-bottom: 18px; }
+.star-kicker { display:block; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; font-size: .78rem; color: var(--chocolate); }
+.star-welcome h2 { margin: 18px 0 12px; color: var(--chocolate); font-family: "Cormorant Garamond", serif; font-size: clamp(2.7rem, 7vw, 5.5rem); line-height: .9; font-weight: 600; }
+.star-welcome h2 strong { display:block; margin-top: 12px; color: #8c594d; font-style: italic; text-shadow: 0 8px 28px rgba(140,89,77,.18); overflow-wrap: anywhere; }
+.star-welcome p { max-width: 500px; margin: 0 auto; font-size: clamp(1rem, 2vw, 1.16rem); line-height: 1.7; color: var(--muted); }
+.star-symbol { width: 58px; height: 58px; display:grid; place-items:center; margin: 20px auto; border-radius: 50%; color:#fff; background:linear-gradient(145deg,#c9a44c,#a87931); box-shadow:0 12px 30px rgba(169,121,49,.28); font-size:1.5rem; }
+.star-welcome .btn { min-width: min(100%, 280px); }
+
+@media (min-width: 961px) {
+  #navLinks { gap: 4px; }
+  #navLinks button { padding-inline: 13px; }
+}
+@media (max-width: 1180px) and (min-width: 961px) {
+  #navLinks button { padding-inline: 9px; font-size: .78rem; }
+  .brand strong { font-size: 1.15rem; }
+}
+@media (max-width: 600px) {
+  .star-welcome { border-radius: 24px; padding: 30px 20px; }
+  .star-sparkles { letter-spacing: .25em; }
+}

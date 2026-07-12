@@ -4,7 +4,7 @@
   const CONFIG = {
     eventName:'1er anniversaire de Line Nasya Bilong',
     eventDate:'15 août 2026',
-    eventStart:'2026-08-15T13:00:00+02:00',
+    eventStart:'2026-08-15T15:00:00+02:00',
     venue:'Parochiezaal “Ter Krokegem”',
     address:'Dendermondsesteenweg 44, B-1730 Asse',
     parents:'Jacques & Suzanne',
@@ -137,11 +137,11 @@
     return `${renderHero(inv,resp)}${answer}${renderInfos()}${renderGallery()}${renderProgram()}${renderFooter()}`;
   }
   function renderInfos(){
-    return `<section class="section infos-section reveal"><div class="container">
+    return `<section id="infos" class="section infos-section reveal"><div class="container">
       <div class="section-head compact-head"><div><span class="eyebrow">Informations pratiques</span><h2 class="title" style="margin-top:12px">L’essentiel pour votre venue</h2></div><p class="lead">Une vue claire de l’adresse, des horaires, de la tenue et des contacts.</p></div>
       <div class="practical-layout">
         <div class="practical-copy">
-          <article class="practical-block"><span class="mini-label">Quand</span><h3>Samedi 15 août 2026</h3><p>Accueil des familles dès <strong>13h00</strong>. La soirée des adultes commence à partir de <strong>17h00</strong>.</p></article>
+          <article class="practical-block"><span class="mini-label">Quand</span><h3>Samedi 15 août 2026</h3><p>Accueil des familles dès <strong>15h00</strong>. Le repas principal est prévu à <strong>19h00</strong>, puis la fête se poursuit en musique jusque tard dans la nuit.</p></article>
           <article class="practical-block"><span class="mini-label">Où</span><h3>${CONFIG.venue}</h3><p>${CONFIG.address}</p><a class="text-action" href="${mapsUrl()}" target="_blank" rel="noopener">Ouvrir l’itinéraire</a></article>
           <article class="practical-block dress-block"><span class="mini-label">Tenue souhaitée</span><h3>Couleurs de la fête</h3><div class="dress-palette"><span class="dress-item"><i style="--swatch:#6b3f35"></i><b>Marron</b></span><span class="dress-item"><i style="--swatch:#d9a0a7"></i><b>Rose poudré</b></span><span class="dress-item"><i style="--swatch:#e7c4b4"></i><b>Nude</b></span><span class="dress-item"><i style="--swatch:#c9a44c"></i><b>Doré</b></span></div></article>
           <article class="practical-block contact-block"><span class="mini-label">Un renseignement ?</span><h3>Jacques & Suzanne</h3><div class="contact-actions"><a href="tel:${CONFIG.contactPhone}" aria-label="Appeler Jacques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg><span>Appeler</span></a><a href="https://wa.me/${CONFIG.contactPhone.replace('+','')}" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9 8.38 8.38 0 0 1 12.5 3H13a8.48 8.48 0 0 1 8 8z"/></svg><span>WhatsApp</span></a><a href="mailto:${CONFIG.contactEmail}" aria-label="Envoyer un email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><span>Email</span></a></div></article>
@@ -152,7 +152,7 @@
   }
   function renderGallery(){
     const shots=CONFIG.galleryPhotos;
-    return `<section class="section gallery-section reveal"><div class="container"><div class="section-head compact-head"><div><span class="eyebrow">Souvenirs de Line</span><h2 class="title" style="margin-top:12px">Ses petits instants précieux</h2></div><p class="lead">Faites défiler les photos ou touchez l’image pour l’agrandir.</p></div><div class="memory-carousel" aria-roledescription="carousel"><button type="button" class="carousel-arrow carousel-prev" aria-label="Photo précédente">‹</button><div class="carousel-track">${shots.map(([f,alt],i)=>`<button type="button" class="carousel-slide ${i===0?'is-active':''}" data-gallery-index="${i}" aria-label="Agrandir la photo : ${alt}"><img src="assets/img/gallery/${f}" alt="${alt}" loading="${i===0?'eager':'lazy'}" decoding="async"><span class="carousel-caption">${alt}</span></button>`).join('')}</div><button type="button" class="carousel-arrow carousel-next" aria-label="Photo suivante">›</button><div class="carousel-dots">${shots.map((_,i)=>`<button type="button" class="carousel-dot ${i===0?'is-active':''}" data-carousel-dot="${i}" aria-label="Afficher la photo ${i+1}"></button>`).join('')}</div></div></div></section>`;
+    return `<section id="gallery" class="section gallery-section reveal"><div class="container"><div class="section-head compact-head"><div><span class="eyebrow">Souvenirs de Line</span><h2 class="title" style="margin-top:12px">Ses petits instants précieux</h2></div><p class="lead">Faites défiler les photos ou touchez l’image pour l’agrandir.</p></div><div class="memory-carousel" aria-roledescription="carousel"><button type="button" class="carousel-arrow carousel-prev" aria-label="Photo précédente">‹</button><div class="carousel-track">${shots.map(([f,alt],i)=>`<button type="button" class="carousel-slide ${i===0?'is-active':''}" data-gallery-index="${i}" aria-label="Agrandir la photo : ${alt}"><img src="assets/img/gallery/${f}" alt="${alt}" loading="${i===0?'eager':'lazy'}" decoding="async"><span class="carousel-caption">${alt}</span></button>`).join('')}</div><button type="button" class="carousel-arrow carousel-next" aria-label="Photo suivante">›</button><div class="carousel-dots">${shots.map((_,i)=>`<button type="button" class="carousel-dot ${i===0?'is-active':''}" data-carousel-dot="${i}" aria-label="Afficher la photo ${i+1}"></button>`).join('')}</div></div></div></section>`;
   }
   function renderHero(inv,resp){
     const cd=countdown();
@@ -182,23 +182,22 @@
   }
   function renderProgram(){
     const children=[
-      ['13h00','Accueil des familles','Bienvenue, installation, premières photos et découverte des espaces.','welcome'],
-      ['13h30','Jeux et animations','Château gonflable, clown, magicien et moments ludiques spécialement pensés pour les enfants.','castle'],
-      ['14h30','Repas familial','Buffet convivial avec des options adaptées aux adultes et aux enfants.','meal'],
-      ['16h00','Le grand moment de Line','Chant d’anniversaire, bougie, découpe du gâteau et photos souvenirs avec les enfants.','cake']
+      ['15h00','Accueil des familles','Bienvenue, installation, premières photos et découverte des espaces.','welcome'],
+      ['15h30','Jeux et animations','Château gonflable, clown, magicien et moments ludiques spécialement pensés pour les enfants.','castle'],
+      ['17h00','Le grand moment de Line','Chant d’anniversaire, bougie, découpe du gâteau et photos souvenirs avec les enfants.','cake']
     ];
     const adults=[
-      ['17h00','Cocktail et retrouvailles','La fête change de rythme : accueil des adultes, échanges et ambiance élégante.','cocktail'],
-      ['19h00','Repas et partage','Dîner, conversations et temps fort en famille et entre amis.','meal'],
-      ['20h30','Musique et danse','Ouverture de la piste, animation musicale et soirée festive.','music'],
-      ['Jusqu’au petit matin','La soirée continue','La musique, la danse et les souvenirs se prolongent librement.','magic']
+      ['18h00','Cocktail et retrouvailles','Accueil, échanges, boissons et ambiance élégante avant le repas.','cocktail'],
+      ['19h00','Repas et partage','Le repas principal de la fête, dans une ambiance familiale et conviviale.','meal'],
+      ['21h00','Musique et danse','Ouverture de la piste, animation musicale et soirée festive.','music'],
+      ['Jusqu’au petit matin','La soirée continue','La musique, la danse et les souvenirs se prolongent librement, sans précipitation.','magic']
     ];
     const rows=(items)=>items.map(([t,a,d,i])=>`<article class="program-row"><div class="program-visual">${programIcon(i)}<div class="program-time">${t}</div></div><div class="program-copy"><div class="program-title">${a}</div><div class="program-desc">${d}</div></div></article>`).join('');
-    return `<section class="program section program-soft reveal"><div class="narrow">
+    return `<section id="programme" class="program section program-soft reveal"><div class="narrow">
       <div class="section-head program-heading"><div><span class="eyebrow">Le déroulement de la fête</span><h2 class="title" style="margin-top:12px">Deux moments, une même joie</h2></div><p class="lead">Un après-midi dédié aux enfants, puis une soirée festive pour les adultes.</p></div>
       <div class="program-split">
-        <section class="program-part program-part-kids"><div class="program-part-head"><span>13h00 — 17h00</span><h3>Le temps des enfants</h3><p>Jeux, surprises, repas et gâteau autour de Line.</p></div><div class="program-flow">${rows(children)}</div></section>
-        <section class="program-part program-part-adults"><div class="program-part-head"><span>Dès 17h00</span><h3>La soirée des adultes</h3><p>Cocktail, dîner, musique et danse jusqu’au petit matin.</p></div><div class="program-flow">${rows(adults)}</div></section>
+        <section class="program-part program-part-kids"><div class="program-part-head"><span>15h00 — 18h00</span><h3>Le temps des enfants</h3><p>Accueil, jeux, surprises et gâteau autour de Line.</p></div><div class="program-flow">${rows(children)}</div></section>
+        <section class="program-part program-part-adults"><div class="program-part-head"><span>Dès 18h00</span><h3>La soirée des adultes</h3><p>Cocktail, dîner, musique et danse jusqu’au petit matin.</p></div><div class="program-flow">${rows(adults)}</div></section>
       </div>
     </div></section>`;
   }
@@ -394,17 +393,45 @@
     $('#brandBtn')?.addEventListener('click',()=>navigate('home'));
     $('#menuToggle')?.addEventListener('click',toggleMenu);
     $('#navBackdrop')?.addEventListener('click',closeMenu);
-    window.addEventListener('resize',()=>{ if(window.innerWidth>960) closeMenu(); },{once:true});
+    window.addEventListener('resize',()=>{ if(window.innerWidth>960) closeMenu(); });
     if($('#rsvpForm')) bindRsvp();
     if(page==='organizer') bindOrganizer();
     $('#editResponse')?.addEventListener('click',()=>{ state.responses=state.responses.filter(r=>r.inviteId!==session.inviteId); saveState(); toast('Vous pouvez modifier votre réponse.'); render(); });
     $('#downloadICS')?.addEventListener('click',downloadICS);
   }
-  function navigate(to){ closeMenu(); if(to==='logout'){clearSession(); page='gate'; render(); return;} if(to==='organizer'&&!isStaff()){toast('Accès réservé à l’organisation.','error');return;} if(to==='rsvp'&&session?.role==='guest'){ page='rsvp'; render(); window.scrollTo({top:0,behavior:'smooth'}); return; } page=to; render(); window.scrollTo({top:0,behavior:'smooth'}); }
-  function updateNav(){ $$('#navLinks button').forEach(b=>{ const active=b.dataset.nav===page; b.classList.toggle('active',active); if(active) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); }); $$('[data-role="staff"]').forEach(b=>b.style.display=isStaff()?'inline-flex':'none'); }
+  function navigate(to){
+    closeMenu();
+    if(to==='logout'){clearSession(); page='gate'; render(); return;}
+    if(to==='organizer'&&!isStaff()){toast('Accès réservé à l’organisation.','error');return;}
+    if(['infos','gallery','programme'].includes(to) && session?.role==='guest'){
+      if(page!=='home'){ page='home'; render(); }
+      requestAnimationFrame(()=>document.getElementById(to)?.scrollIntoView({behavior:'smooth',block:'start'}));
+      return;
+    }
+    if(to==='rsvp'&&session?.role==='guest'){ page='rsvp'; render(); window.scrollTo({top:0,behavior:'smooth'}); return; }
+    page=to; render(); window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function updateNav(){
+    $$('#navLinks button').forEach(b=>{ const active=b.dataset.nav===page; b.classList.toggle('active',active); if(active) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
+    $$('[data-role="staff"]').forEach(b=>b.style.display=isStaff()?'inline-flex':'none');
+    $$('[data-role="guest"]').forEach(b=>b.style.display=session?.role==='guest'?'inline-flex':'none');
+  }
   function toggleMenu(){ const open=!$('#navLinks').classList.contains('open'); $('#navLinks').classList.toggle('open',open); $('#navBackdrop').classList.toggle('hidden',!open); $('#menuToggle').setAttribute('aria-expanded',String(open)); document.body.style.overflow=open?'hidden':''; }
   function closeMenu(){ $('#navLinks')?.classList.remove('open'); $('#navBackdrop')?.classList.add('hidden'); $('#menuToggle')?.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-  function login(){ const code=normalize($('#codeInput').value); if(!code){toast('Entre ton code personnel.','error');return;} if(code===normalize(CONFIG.organizerCode)||code===normalize(CONFIG.organizerHuman)){writeSession({role:'organizer',code}); page='organizer'; render(); toast('Bienvenue dans l’espace organisateur.');return;} if(code===normalize(CONFIG.adminCode)){writeSession({role:'admin',code}); page='organizer'; render(); toast('Bienvenue admin.');return;} const inv=state.invites.find(i=>normalize(i.code)===code); if(inv){writeSession({role:'guest',inviteId:inv.id,code:inv.code}); page='home'; render(); toast('Bienvenue '+inv.family);return;} $('#codeInput').classList.add('shake'); setTimeout(()=>$('#codeInput')?.classList.remove('shake'),420); toast('Code incorrect.','error'); }
+  function login(){ const code=normalize($('#codeInput').value); if(!code){toast('Entre ton code personnel.','error');return;} if(code===normalize(CONFIG.organizerCode)||code===normalize(CONFIG.organizerHuman)){writeSession({role:'organizer',code}); page='organizer'; render(); toast('Bienvenue dans l’espace organisateur.');return;} if(code===normalize(CONFIG.adminCode)){writeSession({role:'admin',code}); page='organizer'; render(); toast('Bienvenue admin.');return;} const inv=state.invites.find(i=>normalize(i.code)===code); if(inv){writeSession({role:'guest',inviteId:inv.id,code:inv.code}); page='home'; render(); setTimeout(()=>showGuestWelcome(inv),180); return;} $('#codeInput').classList.add('shake'); setTimeout(()=>$('#codeInput')?.classList.remove('shake'),420); toast('Code incorrect.','error'); }
+
+  function showGuestWelcome(inv){
+    const starName=esc(inv.mainName||inv.family||'Invité de Line');
+    modal(`<div class="star-welcome" role="dialog" aria-modal="true" aria-labelledby="starWelcomeTitle">
+      <div class="star-sparkles" aria-hidden="true">✦ ✨ ★ ✨ ✦</div>
+      <span class="star-kicker">Votre invitation personnelle</span>
+      <h2 id="starWelcomeTitle">Bienvenue<br><strong>${starName}</strong></h2>
+      <p>Vous êtes notre invité(e) d’honneur pour célébrer le premier anniversaire de Line Nasya.</p>
+      <div class="star-symbol" aria-hidden="true">★</div>
+      <button class="btn btn-primary" id="enterGuestWorld">Découvrir mon invitation</button>
+    </div>`);
+    $('#enterGuestWorld')?.addEventListener('click',closeModal);
+  }
 
   function bindRsvp(){
     let presence='oui', drinks=[]; const inv=invite(); const comps=$('#companions');
@@ -430,7 +457,7 @@
       state.responses.push(savedResponse);
       inv.status='responded'; saveState();
       sendConfirmationEmail(inv,savedResponse);
-      toast('Confirmation enregistrée.'); render();
+      page='rsvp'; render(); window.scrollTo({top:0,behavior:'smooth'}); toast('Confirmation enregistrée.');
     });
   }
   function refreshCompanionEvents(){
@@ -443,6 +470,7 @@
     $$('[data-admin-tab]').forEach(b=>b.onclick=()=>{
       activeAdminTab=b.dataset.adminTab;
       render();
+      requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'smooth'}));
     });
 
     $('#exportBackup')?.addEventListener('click',exportBackup);
