@@ -1,0 +1,67 @@
+/* Final V12 — navigation dynamique, pages courtes et univers princesse */
+:root{--princess-gold:#caa34a;--princess-rose:#d8a0aa;--princess-cream:#fffaf6}
+
+/* La page d'accueil reste courte et tient mieux dans l'écran */
+.hero{min-height:calc(100svh - var(--nav-h,80px));padding-top:clamp(14px,2vh,30px);padding-bottom:clamp(20px,3vh,44px)}
+.hero-grid{align-items:center}
+.hero-copy{align-self:center}
+.home-shortcuts{padding:clamp(28px,5vw,64px) 0;background:linear-gradient(180deg,#fffaf7,#f8eeeb)}
+.shortcut-head{text-align:center;max-width:720px;margin:0 auto 24px}
+.shortcut-head h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1;margin:.35rem 0 .6rem;color:var(--ink)}
+.shortcut-head p{margin:0;color:var(--muted)}
+.shortcut-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1120px;margin:auto}
+.shortcut-card{border:1px solid rgba(91,55,48,.13);background:rgba(255,255,255,.88);border-radius:24px;padding:22px 16px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px;box-shadow:0 14px 34px rgba(91,55,48,.08);cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.shortcut-card:hover,.shortcut-card:focus-visible{transform:translateY(-5px);box-shadow:0 20px 44px rgba(91,55,48,.14);border-color:rgba(202,163,74,.55)}
+.shortcut-card>span{font-size:1.8rem;color:var(--princess-gold)}
+.shortcut-card strong{font-size:1.03rem;color:var(--ink)}
+.shortcut-card small{color:var(--muted);line-height:1.35}
+.shortcut-primary{background:linear-gradient(145deg,#6b4037,#8e584c)}
+.shortcut-primary strong,.shortcut-primary small,.shortcut-primary>span{color:#fff}
+
+/* Onglet actif plus grand et clairement dynamique */
+.nav-links button{transition:transform .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease;font-weight:800}
+.nav-links button.active{font-size:1.02em;font-weight:900;transform:scale(1.07);box-shadow:0 10px 24px rgba(91,55,48,.2)}
+.nav-links button:active{transform:scale(.98)}
+
+/* Chaque menu ouvre une page autonome, centrée et courte */
+body.has-app-nav #app>.section{min-height:calc(100svh - var(--nav-h,80px));display:flex;align-items:center;padding-top:clamp(38px,7vh,82px);padding-bottom:clamp(38px,7vh,82px)}
+body.has-app-nav #app>.section>.container,body.has-app-nav #app>.section>.narrow{width:100%}
+.infos-section .section-head,.gallery-section .section-head,.program .section-head{text-align:center;justify-content:center;max-width:900px;margin-left:auto;margin-right:auto}
+.infos-section .section-head>*,.gallery-section .section-head>*,.program .section-head>*{max-width:100%}
+
+/* Cadeaux : vraie page du menu */
+.gift-page{text-align:center}
+.gift-page-card{position:relative;max-width:760px;margin:auto;padding:clamp(28px,5vw,64px);border-radius:34px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(252,239,236,.96));border:1px solid rgba(202,163,74,.35);box-shadow:0 26px 70px rgba(91,55,48,.13);overflow:hidden}
+.gift-page-card:before,.gift-page-card:after{content:"✦";position:absolute;color:rgba(202,163,74,.35);font-size:2rem;animation:princessTwinkle 2.8s ease-in-out infinite}
+.gift-page-card:before{top:26px;left:30px}.gift-page-card:after{right:30px;bottom:26px;animation-delay:1.2s}
+.gift-crown{font-size:3.2rem;line-height:1;color:var(--princess-gold);filter:drop-shadow(0 8px 12px rgba(202,163,74,.25));animation:crownFloat 3.6s ease-in-out infinite}
+.gift-bank-large{max-width:580px;margin:24px auto 10px;text-align:left}
+.gift-bank-large>div{padding:14px 0;border-bottom:1px solid rgba(91,55,48,.12)}
+.gift-bank-large span{display:block;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+.gift-bank-large strong{font-size:clamp(1rem,2.4vw,1.25rem);overflow-wrap:anywhere}
+.gift-bank-large .btn{width:100%;margin-top:18px}
+.gift-note{margin:18px 0 0;color:#8a6258;font-style:italic}
+
+/* Animation princesse subtile, non gênante */
+.princess-magic{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.princess-magic span{position:absolute;color:rgba(202,163,74,.28);font-size:clamp(18px,2.5vw,34px);animation:princessDrift 10s linear infinite;opacity:0}
+.princess-magic span:nth-child(1){left:8%;animation-delay:0s}.princess-magic span:nth-child(2){left:22%;animation-delay:2s}.princess-magic span:nth-child(3){left:43%;animation-delay:4s}.princess-magic span:nth-child(4){left:64%;animation-delay:1s}.princess-magic span:nth-child(5){left:81%;animation-delay:5s}.princess-magic span:nth-child(6){left:93%;animation-delay:3s}
+#navbar,#app,.back-to-top{position:relative;z-index:3}
+@keyframes princessDrift{0%{transform:translateY(105vh) rotate(0deg) scale(.7);opacity:0}12%{opacity:.75}82%{opacity:.45}100%{transform:translateY(-15vh) rotate(220deg) scale(1.15);opacity:0}}
+@keyframes princessTwinkle{0%,100%{opacity:.25;transform:scale(.8) rotate(0)}50%{opacity:.85;transform:scale(1.15) rotate(18deg)}}
+@keyframes crownFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+
+@media(max-width:960px){
+  .shortcut-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nav-links button.active{transform:none;font-size:1.05em}
+  body.has-app-nav #app>.section{display:block;min-height:auto;padding-top:32px;padding-bottom:42px}
+}
+@media(max-width:560px){
+  .hero{min-height:auto;padding-top:12px}
+  .shortcut-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .shortcut-card{min-height:130px;padding:16px 10px;border-radius:20px}
+  .shortcut-card small{font-size:.76rem}
+  .gift-page-card{border-radius:24px;padding:30px 18px}
+  .princess-magic span{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){.princess-magic,.gift-crown,.gift-page-card:before,.gift-page-card:after{animation:none!important}.shortcut-card,.nav-links button{transition:none!important}}

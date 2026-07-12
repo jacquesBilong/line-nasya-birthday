@@ -104,6 +104,10 @@
     document.body.classList.toggle('has-app-nav', !isGate);
     if(page==='gate') app.innerHTML = renderGate();
     if(page==='home') app.innerHTML = renderHome();
+    if(page==='infos') app.innerHTML = renderInfos()+renderFooter();
+    if(page==='programme') app.innerHTML = renderProgram()+renderFooter();
+    if(page==='gallery') app.innerHTML = renderGallery()+renderFooter();
+    if(page==='gifts') app.innerHTML = renderGifts()+renderFooter();
     if(page==='rsvp') app.innerHTML = renderRsvp();
     if(page==='organizer') app.innerHTML = renderOrganizer();
     bind();
@@ -136,8 +140,15 @@
 
   function renderHome(){
     const inv=invite(); const resp=inv?responseFor(inv.id):null;
-    const answer = inv ? `<section id="confirmation" class="section premium-rsvp answer-first reveal"><div class="narrow"><div class="section-head answer-heading response-page-head"><div><span class="eyebrow">Votre réponse</span><h2 class="title">Serez-vous parmi nous ?</h2></div><p class="lead">Indiquez simplement qui sera présent afin que nous préparions les repas et les places.</p></div>${rsvpContent(inv)}</div></section>` : '';
-    return `${renderHero(inv,resp)}${answer}${renderInfos()}${renderGallery()}${renderProgram()}${renderFooter()}`;
+    return `${renderHero(inv,resp)}${renderHomeShortcuts(resp)}${renderFooter()}`;
+  }
+  function renderHomeShortcuts(resp){
+    return `<section class="home-shortcuts reveal"><div class="container"><div class="shortcut-head"><span class="eyebrow">Votre invitation royale</span><h2>Tout l’essentiel, sans longue page</h2><p>Choisissez directement ce que vous souhaitez consulter.</p></div><div class="shortcut-grid">
+      <button type="button" class="shortcut-card" data-nav="infos"><span>⌖</span><strong>Infos pratiques</strong><small>Adresse, tenue et contacts</small></button>
+      <button type="button" class="shortcut-card" data-nav="programme"><span>♕</span><strong>Programme</strong><small>Dîner à 17h30 · gâteau à 20h</small></button>
+      <button type="button" class="shortcut-card" data-nav="gifts"><span>🎁</span><strong>Cadeaux</strong><small>Coordonnées et participation</small></button>
+      <button type="button" class="shortcut-card shortcut-primary" data-nav="rsvp"><span>✦</span><strong>${resp?'Voir ma confirmation':'Confirmer ma présence'}</strong><small>Réponse simple et rapide</small></button>
+    </div></div></section>`;
   }
   function renderInfos(){
     return `<section id="infos" class="section infos-section reveal"><div class="container">
@@ -148,11 +159,14 @@
           <article class="practical-block"><span class="mini-label">Où</span><h3>${CONFIG.venue}</h3><p>${CONFIG.address}</p><a class="text-action" href="${mapsUrl()}" target="_blank" rel="noopener">Ouvrir l’itinéraire</a></article>
           <article class="practical-block dress-block"><span class="mini-label">Tenue souhaitée</span><h3>Couleurs de la fête</h3><div class="dress-palette"><span class="dress-item"><i style="--swatch:#6b3f35"></i><b>Marron</b></span><span class="dress-item"><i style="--swatch:#d9a0a7"></i><b>Rose poudré</b></span><span class="dress-item"><i style="--swatch:#e7c4b4"></i><b>Nude</b></span><span class="dress-item"><i style="--swatch:#c9a44c"></i><b>Doré</b></span></div></article>
           <article class="practical-block contact-block"><span class="mini-label">Un renseignement ?</span><h3>Jacques & Suzanne</h3><div class="contact-actions"><a href="tel:${CONFIG.contactPhone}" aria-label="Appeler Jacques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"/></svg><span>Appeler</span></a><a href="https://wa.me/${CONFIG.contactPhone.replace('+','')}" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9 8.38 8.38 0 0 1 12.5 3H13a8.48 8.48 0 0 1 8 8z"/></svg><span>WhatsApp</span></a><a href="mailto:${CONFIG.contactEmail}" aria-label="Envoyer un email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg><span>Email</span></a></div></article>
-          <article class="practical-block gift-block"><span class="mini-label">Une attention pour Line ?</span><h3>Cadeaux & participation</h3><p>Votre présence est déjà un beau cadeau. Pour celles et ceux qui souhaitent offrir une participation, voici les coordonnées prévues à cet effet.</p><div class="gift-bank-card"><div><span>Titulaire</span><strong>${CONFIG.giftAccountName}</strong></div><div><span>IBAN</span><strong class="gift-iban">${CONFIG.giftIban}</strong></div><div><span>Communication</span><strong>${CONFIG.giftCommunication}</strong></div><button type="button" class="btn btn-soft gift-copy-btn" data-copy-gift>Copier les coordonnées</button></div></article>
+
         </div>
         <div class="map-panel"><iframe title="Carte de Parochiezaal Ter Krokegem" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.0926390586983!2d4.185648500000001!3d50.92200330000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bfc42b1b44d3%3A0xe50af4a19f8db2df!2sParochiezaal%20Ter%20Krokegem!5e0!3m2!1sfr!2sbe!4v1783643332092!5m2!1sfr!2sbe" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       </div>
     </div></section>`;
+  }
+  function renderGifts(){
+    return `<section id="gifts" class="section gift-page reveal"><div class="narrow"><div class="gift-page-card"><div class="gift-crown" aria-hidden="true">♕</div><span class="eyebrow">Une attention pour Line</span><h1 class="title">Cadeaux & participation</h1><p class="lead">Votre présence est déjà un très beau cadeau. Pour celles et ceux qui souhaitent offrir une participation, voici les coordonnées prévues à cet effet.</p><div class="gift-bank-card gift-bank-large"><div><span>Titulaire</span><strong>${CONFIG.giftAccountName}</strong></div><div><span>IBAN</span><strong class="gift-iban">${CONFIG.giftIban}</strong></div><div><span>Communication</span><strong>${CONFIG.giftCommunication}</strong></div><button type="button" class="btn btn-primary gift-copy-btn" data-copy-gift>Copier les coordonnées</button></div><p class="gift-note">Merci du fond du cœur pour votre affection envers Line. ✦</p></div></div></section>`;
   }
   function renderGallery(){
     const shots=CONFIG.galleryPhotos;
@@ -422,9 +436,8 @@
     closeMenu();
     if(to==='logout'){clearSession(); page='gate'; render(); return;}
     if(to==='organizer'&&!isStaff()){toast('Accès réservé à l’organisation.','error');return;}
-    if(['infos','gallery','programme'].includes(to) && session?.role==='guest'){
-      if(page!=='home'){ page='home'; render(); }
-      requestAnimationFrame(()=>scrollToSection(to,true));
+    if(['infos','gallery','programme','gifts'].includes(to) && session?.role==='guest'){
+      page=to; render(); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'smooth'}));
       return;
     }
     if(to==='rsvp'&&session?.role==='guest'){ page='rsvp'; render(); window.scrollTo({top:0,behavior:'smooth'}); return; }
